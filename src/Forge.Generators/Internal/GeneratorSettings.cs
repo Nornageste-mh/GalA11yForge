@@ -35,6 +35,14 @@ internal sealed class HookSetting
     public IReadOnlyList<string> TextPropertyChain { get; init; } = Array.Empty<string>();
 
     /// <summary>
+    /// 0.2.83：证据里完整 Cecil 签名的形参类型全名（如 <c>System.String</c>、
+    /// <c>UnityEngine.Events.UnityAction</c>）。目标文本本身带参数类型时为空（走旧的
+    /// AccessTools + typeof 路径）；不带时生成器改走运行期 MethodResolver，按名字挑唯一重载，
+    /// 避免 Harmony 对同名重载抛 AmbiguousMatchException 导致整个钩子挂不上。
+    /// </summary>
+    public IReadOnlyList<string> ParameterTypes { get; init; } = Array.Empty<string>();
+
+    /// <summary>
     /// 是否为「选项列表」钩子：Cecil 签名带 ChoiceAsset、且没有字符串参数。
     /// 这类钩子不能只计数——选项界面会禁用鼠标，必须由补丁自己朗读并用数字键选择。
     /// </summary>
@@ -95,6 +103,11 @@ internal sealed partial class GeneratorSettings
     // 证据文本里的形状：「文本属性链：Text.OriginalText。」（没有 string 参数时的属性链读取来源）
     [GeneratedRegex(@"文本属性链：(?<chain>[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*)", RegexOptions.CultureInvariant)]
     private static partial Regex PropertyChainPattern();
+
+    // 0.2.83：Cecil 形参类型名只允许这些字符（全名、泛型实参、数组、byref、嵌套类型分隔符）。
+    // 出现别的字符（引号、反斜杠、台词、中文…）就整体放弃，退回旧解析路径。
+    [GeneratedRegex(@"^[A-Za-z_][A-Za-z0-9_.`+<>\[\],&/]*$", RegexOptions.CultureInvariant)]
+    private static partial Regex ParameterTypePattern();
 
     public string GameSlug { get; private init; } = string.Empty;
 
@@ -425,6 +438,7 @@ internal sealed partial class GeneratorSettings
                 TextParameter = TryFindTextParameter(point),
                 InstanceTextFields = TryFindInstanceTextFields(point),
                 TextPropertyChain = TryFindPropertyChain(point),
+                ParameterTypes = TryFindParameterTypes(point),
                 ChoiceList = IsChoiceListPoint(point),
             });
         }
@@ -533,6 +547,66 @@ internal sealed partial class GeneratorSettings
     }
 
     /// <summary>
+    /// 0.2.83：从「完整签名（Cecil）」里解析出全部形参类型全名（不含参数名）。
+    /// Harmony 的 <c>AccessTools.Method(目标, null)</c> 在目标有同名重载时会抛
+    /// AmbiguousMatchException，整个钩子挂不上；生成器改把这些类型名交给运行期
+    /// MethodResolver 挑唯一重载。任何一段解析不出来就整体返回空（退回旧路径，不猜）。
+    /// </summary>
+    private static IReadOnlyList<string> TryFindParameterTypes(PatchPoint point)
+    {
+        const int maxParameters = 16;
+        const int maxTypeNameLength = 200;
+
+        var description = point.Description;
+        if (string.IsNullOrWhiteSpace(description))
+        {
+            return Array.Empty<string>();
+        }
+
+        var match = CecilSignaturePattern().Match(description);
+        if (!match.Success)
+        {
+            return Array.Empty<string>();
+        }
+
+        var args = match.Groups["args"].Value;
+        if (args.Trim().Length == 0)
+        {
+            return Array.Empty<string>();
+        }
+
+        var types = new List<string>();
+        foreach (var raw in SplitTopLevel(args, ','))
+        {
+            var token = raw.Trim();
+            if (token.Length == 0)
+            {
+                return Array.Empty<string>();
+            }
+
+            var space = token.LastIndexOf(' ');
+            if (space <= 0 || space == token.Length - 1)
+            {
+                return Array.Empty<string>();
+            }
+
+            var parameterType = token[..space].Trim();
+            if (parameterType.Length is 0 or > maxTypeNameLength || !ParameterTypePattern().IsMatch(parameterType))
+            {
+                return Array.Empty<string>();
+            }
+
+            types.Add(parameterType);
+            if (types.Count > maxParameters)
+            {
+                return Array.Empty<string>();
+            }
+        }
+
+        return types;
+    }
+
+    /// <summary>
     /// 从补丁点说明里的「类型文本字段：a/b/c。」解析实例文本字段名（只保留合法标识符）。
     /// 解析不出来返回空列表（退化为只记命中）。
     /// </summary>
@@ -602,23 +676,36 @@ internal sealed partial class GeneratorSettings
     /// <summary>按顶层分隔符切分（忽略泛型 &lt;&gt; 里的逗号）。</summary>
     private static IEnumerable<string> SplitTopLevel(string text, char separator)
     {
-        var depth = 0;
+        var angleDepth = 0;
+        var bracketDepth = 0;
         var start = 0;
         for (var i = 0; i < text.Length; i++)
         {
             var ch = text[i];
             if (ch == '<')
             {
-                depth++;
+                angleDepth++;
             }
             else if (ch == '>')
             {
-                if (depth > 0)
+                if (angleDepth > 0)
                 {
-                    depth--;
+                    angleDepth--;
                 }
             }
-            else if (ch == separator && depth == 0)
+            else if (ch == '[')
+            {
+                // 0.2.83：多维数组类型（System.String[,]）的逗号不算顶层分隔符。
+                bracketDepth++;
+            }
+            else if (ch == ']')
+            {
+                if (bracketDepth > 0)
+                {
+                    bracketDepth--;
+                }
+            }
+            else if (ch == separator && angleDepth == 0 && bracketDepth == 0)
             {
                 yield return text[start..i];
                 start = i + 1;

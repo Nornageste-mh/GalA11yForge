@@ -1,4 +1,4 @@
-using GalA11yForge.Core.Models;
+﻿using GalA11yForge.Core.Models;
 using GalA11yForge.Generators;
 
 namespace GalA11yForge.Generators.Tests;
@@ -52,6 +52,6 @@ public sealed class GoldenAndEvidenceTests : GeneratorTestBase
         Assert.True(result.Ok, result.Error?.Message);
 
         var plugin = ReadText(Path.Combine(OutDir, "Plugin.cs"));
-        Assert.Contains("internal const string Version = \"0.2.82.0\";", plugin, StringComparison.Ordinal);
+        Assert.Contains("internal const string Version = \"0.2.85.0\";", plugin, StringComparison.Ordinal);
     }
 }

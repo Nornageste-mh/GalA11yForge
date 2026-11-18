@@ -153,4 +153,76 @@ public sealed class FieldWiringTests : GeneratorTestBase
         Assert.Equal("buffered", profile.GetProperty("hooks")[0].GetProperty("status").GetString());
         Assert.Equal("speaks", profile.GetProperty("hooks")[1].GetProperty("status").GetString());
     }
+
+    // 0.2.83：真机《Mystery Lover》的 hook_002 挂在 Utage.SystemUiDialog1Button::Open 上，
+    // Harmony 的 AccessTools.Method(目标, null) 因同名重载抛 AmbiguousMatchException，整个钩子没挂上。
+    // 现在把证据里的形参类型名带进 MethodResolver，运行期挑唯一重载。
+    private const string SignatureOverloaded =
+        "台词：完整签名（Cecil）：[Assembly-CSharp.dll] System.Void Utage.SystemUiDialog1Button::Open(" +
+        "System.String text, System.String buttonText1, UnityEngine.Events.UnityAction callbackOnClickButton1)。";
+
+    [Fact]
+    public async Task Overloaded_target_resolves_by_evidence_parameter_types()
+    {
+        var plan = Plan(Hook("dialog1", "Utage.SystemUiDialog1Button:Open", description: SignatureOverloaded));
+
+        var result = await CreateGenerator().GenerateAsync(Context(), plan, OutDir);
+        Assert.True(result.Ok, result.Error?.Message);
+
+        var hook = ReadText(Path.Combine(OutDir, "Hooks", "Hook_dialog1.cs"));
+        Assert.Contains("private static void Postfix(string text)", hook);
+        Assert.Contains(
+            "MethodResolver.Resolve(Target, new string[] { \"System.String\", \"System.String\", \"UnityEngine.Events.UnityAction\" });",
+            hook);
+        Assert.DoesNotContain("AccessTools.Method(Target, null)", hook);
+
+        var resolver = ReadText(Path.Combine(OutDir, "Platform", "MethodResolver.cs"));
+        Assert.Contains("internal static class MethodResolver", resolver);
+        Assert.Contains("internal static MethodBase Resolve(string target, string[] parameterTypeNames)", resolver);
+        Assert.Contains("AccessTools.TypeByName", resolver);
+        Assert.Contains("BindingFlags.NonPublic", resolver);
+        Assert.Contains("AmbiguousMatchException", resolver);
+        Assert.Contains("RenderTypeName", resolver);
+        // 解析器靠反射找类型，不把游戏类型写进代码（typeof 里不出现 Utage 等游戏类型）。
+        Assert.DoesNotContain("typeof(Utage", resolver);
+    }
+
+    [Fact]
+    public async Task Hook_without_signature_uses_empty_parameter_type_list()
+    {
+        var plan = Plan(Hook("menu", "GameNS.Menu:Refresh", description: "菜单刷新。"));
+
+        var result = await CreateGenerator().GenerateAsync(Context(), plan, OutDir);
+        Assert.True(result.Ok, result.Error?.Message);
+
+        var hook = ReadText(Path.Combine(OutDir, "Hooks", "Hook_menu.cs"));
+        Assert.Contains("MethodResolver.Resolve(Target, System.Array.Empty<string>());", hook);
+    }
+
+    [Fact]
+    public async Task Target_with_explicit_parameter_types_keeps_access_tools_path()
+    {
+        var plan = Plan(Hook("advance", "GameNS.ADV.Advance:OnClick(string)", description: "推进。"));
+
+        var result = await CreateGenerator().GenerateAsync(Context(), plan, OutDir);
+        Assert.True(result.Ok, result.Error?.Message);
+
+        var hook = ReadText(Path.Combine(OutDir, "Hooks", "Hook_advance.cs"));
+        Assert.Contains("AccessTools.Method(Target, new[] { typeof(string) });", hook);
+        Assert.DoesNotContain("MethodResolver.Resolve", hook);
+    }
+
+    [Fact]
+    public async Task Unparseable_parameter_types_fall_back_to_empty_list()
+    {
+        // 形参类型里出现非法字符（这里故意放中文），整体放弃解析，退回旧行为，不猜。
+        var plan = Plan(Hook("weird", "GameNS.Weird:Run", description:
+            "台词：完整签名（Cecil）：[Assembly-CSharp.dll] System.Void GameNS.Weird::Run(System.String text, 台词 X)。"));
+
+        var result = await CreateGenerator().GenerateAsync(Context(), plan, OutDir);
+        Assert.True(result.Ok, result.Error?.Message);
+
+        var hook = ReadText(Path.Combine(OutDir, "Hooks", "Hook_weird.cs"));
+        Assert.Contains("MethodResolver.Resolve(Target, System.Array.Empty<string>());", hook);
+    }
 }

@@ -305,7 +305,7 @@ internal sealed class UnityMonoPlanner : IPlanner
             $"读取 {view.TypeFullName}::{view.MethodName}：{read}。完整签名（Cecil）：{signature}。" +
             $"依据：候选 {view.CandidateId} 静态得分 {view.Score.ToString("0.#", CultureInfo.InvariantCulture)}，{view.Confidence}" +
             $"{(s9 ? "，S9 命中（string 参数 + 打字机/Tween sink）" : string.Empty)}；不含台词原文。" +
-            "Hook 目标省略参数类型以兼容生成器白名单，运行期若遇到同名重载需人工指定。" +
+            "Hook 目标省略参数类型以兼容生成器白名单；生成器会把上面的形参类型交给运行期 MethodResolver 挑唯一重载（0.2.83）。" +
             DescribeTextFields(view) +
             DescribePropertyChain(view);
     }
@@ -457,8 +457,8 @@ internal sealed class UnityMonoPlanner : IPlanner
             {
                 Id = "R-102",
                 Severity = RiskSeverity.Medium,
-                Description = "Hook Target 只用「类型:方法」，省略了 TMPro/CharaStatus 等参数类型；同名重载可能导致 AmbiguousMatchException。",
-                Mitigation = "完整签名写在补丁点 Description；运行期报歧义时人工补参数类型或只保留一个重载。",
+                Description = "Hook Target 只用「类型:方法」，省略了参数类型；0.2.83 起生成器会用证据里的完整签名在运行期挑唯一重载，但证据缺签名或重载靠泛型/继承区分时仍可能歧义。",
+                Mitigation = "完整签名写在补丁点 Description（分析阶段已带）；若日志仍报歧义，人工补参数类型或只保留一个重载。",
             },
             new()
             {

@@ -1,6 +1,6 @@
 ﻿#requires -Version 5.1
 <#
-  本脚本由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 0.2.82.0。
+  本脚本由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 0.2.85.0。
   只做一件事：把当前目录的补丁工程编译成 dll。不会写入游戏目录。
   用法：
     powershell -ExecutionPolicy Bypass -File .\build.ps1

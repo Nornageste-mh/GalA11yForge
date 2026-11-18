@@ -1,4 +1,4 @@
-// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 0.2.82.0。
+// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 0.2.85.0。
 // 补丁点：advance-on-click
 // 目标：GameNS.ADV.Advance::OnClick(string)（来自 plan.json，未凭空编造）
 // 候选：candidate-2（对应分析阶段 textCandidate.id）

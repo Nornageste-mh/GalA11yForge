@@ -26,7 +26,7 @@ namespace {{NS}}.Hooks
 
         internal static MethodBase Resolve()
         {
-            return AccessTools.Method(Target, {{PARAMS}});
+            return {{RESOLVE_EXPRESSION}};
         }
 
         private static void Postfix({{POSTFIX_SIGNATURE}})

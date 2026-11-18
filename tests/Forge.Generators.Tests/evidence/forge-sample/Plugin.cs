@@ -1,4 +1,4 @@
-// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 0.2.82.0。
+// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 0.2.85.0。
 // 输入：plan.json 的补丁点与 profile。请改 profile 或重新生成，不要直接改这里的 const 区。
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace GalA11y.ForgeGolden
     public sealed class Plugin : BaseUnityPlugin
     {
         internal const string Guid = "09789c27-ba82-2a51-abdf-195685135660";
-        internal const string Version = "0.2.82.0";
+        internal const string Version = "0.2.85.0";
         internal const string DisplayName = "GalgameSample 无障碍补丁";
 
         private readonly Harmony _harmony = new Harmony(Guid);

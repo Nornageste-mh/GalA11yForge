@@ -39,6 +39,12 @@ public sealed class SpeechLogSummary
     /// <summary>钩子命中行数（[Hook:...] 命中）。</summary>
     public int HookHitLines { get; init; }
 
+    /// <summary>钩子成功挂载行数（[Hook] 已挂载），0.2.84。</summary>
+    public int HookMountedLines { get; init; }
+
+    /// <summary>钩子解析失败行数（Ambiguous match / 解析目标时出错），0.2.84。</summary>
+    public int HookResolveErrorLines { get; init; }
+
     /// <summary>兜底轮询读到行数（[Speech:watch] 兜底读到）。</summary>
     public int WatchLines { get; init; }
 
@@ -74,6 +80,16 @@ public static class SpeechLogInspector
 
     private static readonly Regex HookHitRx = new(
         @"\[Hook(?::[^\]]*)?\][ ]+命中",
+        RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
+    // 0.2.84：插件启动时的挂载日志 `[Hook] 已挂载 Hook_hook_001 → …`。
+    private static readonly Regex HookMountedRx = new(
+        @"\[Hook\][ ]+已挂载",
+        RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
+    // 0.2.84：解析失败日志，例如 `[Hook] Hook_hook_002 解析目标时出错：Ambiguous match found.`。
+    private static readonly Regex HookResolveErrorRx = new(
+        @"(?:AmbiguousMatchException|Ambiguous match|解析目标时出错|无法解析目标)",
         RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
     private static readonly Regex ErrorRx = new(
@@ -135,6 +151,8 @@ public static class SpeechLogInspector
         var placeholders = 0;
         var counts = new Dictionary<string, int>(StringComparer.Ordinal);
         var hookHits = 0;
+        var hookMounted = 0;
+        var hookResolveErrors = 0;
         var watchReads = 0;
         var echoes = 0;
         var renpyLines = 0;
@@ -153,6 +171,16 @@ public static class SpeechLogInspector
             if (HookHitRx.IsMatch(raw))
             {
                 hookHits++;
+            }
+
+            if (HookMountedRx.IsMatch(raw))
+            {
+                hookMounted++;
+            }
+
+            if (HookResolveErrorRx.IsMatch(raw))
+            {
+                hookResolveErrors++;
             }
 
             if (WatchReadRx.IsMatch(raw))
@@ -230,6 +258,8 @@ public static class SpeechLogInspector
             EchoLines = echoes,
             MaxRepeat = counts.Count == 0 ? 0 : counts.Values.Max(),
             HookHitLines = hookHits,
+            HookMountedLines = hookMounted,
+            HookResolveErrorLines = hookResolveErrors,
             WatchLines = watchReads,
             RenpyLines = renpyLines,
             ErrorLines = errorLines,

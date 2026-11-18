@@ -1,6 +1,6 @@
 # GalgameSample 无障碍补丁
 
-由 GalA11y Forge（无障碍补丁工坊）生成 · 生成器版本 0.2.82.0
+由 GalA11y Forge（无障碍补丁工坊）生成 · 生成器版本 0.2.85.0
 目标游戏：GalgameSample · 引擎：Unity Mono（BepInEx 5 / HarmonyX）
 
 ## 这是什么
@@ -102,5 +102,5 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1 -GameDir "D:\Games\你的�
 | 命名空间 | `GalA11y.ForgeGolden` |
 | 程序集 | `ForgeGolden.A11y` |
 | 插件 GUID | `09789c27-ba82-2a51-abdf-195685135660` |
-| 插件版本 | `0.2.82.0` |
-| 生成器版本 | `0.2.82.0` |
+| 插件版本 | `0.2.85.0` |
+| 生成器版本 | `0.2.85.0` |

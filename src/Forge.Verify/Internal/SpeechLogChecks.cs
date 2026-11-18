@@ -1,3 +1,7 @@
+using System.Text.Json;
+using GalA11yForge.Core.Models;
+using GalA11yForge.Core.Serialization;
+using GalA11yForge.Core.Workspaces;
 using GalA11yForge.Verify.Models;
 
 namespace GalA11yForge.Verify.Internal;
@@ -76,7 +80,17 @@ internal static class SpeechLogChecks
         run.Metric("speechErrorLines", summary.ErrorLines);
         run.Metric("speechRenpyLines", summary.RenpyLines);
         run.Metric("speechHookHitLines", summary.HookHitLines);
+        run.Metric("speechHookMountedLines", summary.HookMountedLines);
+        run.Metric("speechHookResolveErrorLines", summary.HookResolveErrorLines);
         run.Metric("speechWatchLines", summary.WatchLines);
+
+        // 0.2.85：把「计划里有几个钩子」和「日志里挂载了几个」对齐。plan.json 读不到时返回 null，
+        // 只按日志侧判断，不做对照（旧工作区/手工验证不受影响）。
+        var plannedHooks = TryCountPlannedHooks(context);
+        if (plannedHooks is int plannedHooksMetric)
+        {
+            run.Metric("speechPlannedHooks", plannedHooksMetric);
+        }
 
         run.Pass(
             "s-01",
@@ -148,6 +162,55 @@ internal static class SpeechLogChecks
                 new[] { relative });
         }
 
+        // 0.2.84：钩子解析失败（Ambiguous match 等）会让整条钩子被跳过，日志里只剩别的钩子。
+        // 这类问题以前只能靠人翻日志发现，现在单独判一条 P1。
+        // 0.2.85：再把「计划里有几个钩子」和「日志里挂载了几个」对齐——静默少挂也要报出来。
+        var planText = plannedHooks is int plannedCount && plannedCount > 0 ? $"计划 {plannedCount} 个钩子" : null;
+        if (summary.HookMountedLines == 0 && summary.HookResolveErrorLines == 0)
+        {
+            run.Skip(
+                "s-06",
+                "钩子没有解析失败",
+                VerifyPriority.P2,
+                planText is null
+                    ? "日志里没有 Unity 钩子的挂载/解析行（Ren'Py 覆盖层或纯兜底轮询）：不适用。"
+                    : $"{planText}，但日志里没有任何 [Hook] 挂载行：可能是日志来自旧的一次运行、或插件没加载。请确认日志是本次安装后产生的。",
+                new[] { relative });
+        }
+        else if (summary.HookResolveErrorLines > 0)
+        {
+            run.Fail(
+                "s-06",
+                "钩子没有解析失败",
+                VerifyPriority.P1,
+                $"日志里有 {summary.HookResolveErrorLines} 行钩子解析失败（Ambiguous match / 解析目标时出错），已挂载 {summary.HookMountedLines} 个"
+                + (planText is null ? string.Empty : $"、{planText}")
+                + "：可能有补丁点没挂上、对应文本读不到；0.2.83 起应看 [Hook:resolve] 行确认挑到了哪个重载。",
+                new[] { relative });
+        }
+        else if (plannedHooks is int expected && expected > summary.HookMountedLines)
+        {
+            // 计划里更多、日志里更少，而且没有解析失败行：说明有钩子静默没挂上（或日志不是这次安装产生的）。
+            run.Fail(
+                "s-06",
+                "钩子没有解析失败",
+                VerifyPriority.P1,
+                $"计划 {expected} 个钩子，日志只挂载 {summary.HookMountedLines} 个（少 {expected - summary.HookMountedLines} 个），而且没有解析失败行："
+                + "可能有钩子静默没挂上、对应文本读不到；若日志不是本次安装后产生的，请重跑一次验证。",
+                new[] { relative });
+        }
+        else
+        {
+            run.Pass(
+                "s-06",
+                "钩子没有解析失败",
+                VerifyPriority.P1,
+                plannedHooks is int matched && matched > 0
+                    ? $"钩子已挂载 {summary.HookMountedLines} 个（计划 {matched} 个），没有解析失败行。"
+                    : $"钩子已挂载 {summary.HookMountedLines} 个，没有解析失败行。",
+                new[] { relative });
+        }
+
         if (summary.ValidLines < 2)
         {
             run.Skip(
@@ -176,6 +239,32 @@ internal static class SpeechLogChecks
             VerifyPriority.P2,
             $"有效朗读 {summary.ValidLines} 行，去重后 {summary.UniqueLines} 行（同一句最多重复 {summary.MaxRepeat} 次）。",
             new[] { relative });
+    }
+
+    /// <summary>读工作区里的 plan.json，数 Hook 类补丁点；读不到/解析失败返回 null（不据此判失败）。</summary>
+    private static int? TryCountPlannedHooks(PreparedContext context)
+    {
+        try
+        {
+            var planDirectory = context.Workspace.StageDirectory(context.Slug, PipelineStage.Plan);
+            var planPath = Path.Combine(planDirectory, "plan.json");
+            if (!File.Exists(planPath))
+            {
+                return null;
+            }
+
+            var plan = ForgeJson.Deserialize<PatchPlan>(File.ReadAllText(planPath));
+            if (plan is null)
+            {
+                return null;
+            }
+
+            return plan.PatchPoints.Count(point => point.Kind == PatchPointKind.Hook);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or JsonException or NotSupportedException)
+        {
+            return null;
+        }
     }
 
     private static string? ResolveLogPath(PreparedContext context, VerifyOptions options)

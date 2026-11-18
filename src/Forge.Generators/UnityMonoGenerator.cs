@@ -601,6 +601,7 @@ public sealed class UnityMonoGenerator : ICodeGenerator
                 ["TARGET_DISPLAY"] = hook.Target.Display,
                 ["TARGET_CS"] = GeneratorSettings.EscapeCSharpString(hook.Target.AccessToolsTarget),
                 ["PARAMS"] = hook.Target.ParameterArrayExpression,
+                ["RESOLVE_EXPRESSION"] = BuildResolveExpression(hook),
                 ["CLASS"] = hook.ClassName,
                 ["CANDIDATE_COMMENT"] = CandidateComment(hook.Point.CandidateId),
                 ["POSTFIX_SIGNATURE"] = hook.ChoiceList
@@ -622,6 +623,12 @@ public sealed class UnityMonoGenerator : ICodeGenerator
 
         if (!TryAddRendered(files, "Platform/SpeechGate.cs", ArtifactKind.Source,
                 "朗读闸门：去重、空白归一，主钩子朗读/辅助钩子只进缓冲", SpeechGateTemplate.Text, tokens, false, out error))
+        {
+            return false;
+        }
+
+        if (!TryAddRendered(files, "Platform/MethodResolver.cs", ArtifactKind.Source,
+                "运行期重载解析：按证据里的形参类型挑唯一重载，避免同名重载挂不上", MethodResolverTemplate.Text, tokens, false, out error))
         {
             return false;
         }
@@ -822,6 +829,29 @@ public sealed class UnityMonoGenerator : ICodeGenerator
 
         var valid = id.All(ch => char.IsAsciiLetterOrDigit(ch) || ch is '.' or '_' or '-');
         return valid ? "// 候选：" + id + "（对应分析阶段 textCandidate.id）\n" : string.Empty;
+    }
+
+    /// <summary>
+    /// 0.2.83：钩子 Resolve() 的返回表达式。
+    /// 目标文本自带参数类型时继续用 <c>AccessTools.Method(Target, new[] { typeof(...) })</c>（精确、无运行期解析）；
+    /// 否则走运行期 <c>MethodResolver</c>，把证据里的形参类型名带进去挑唯一重载——
+    /// Harmony 的 <c>AccessTools.Method(Target, null)</c> 遇到同名重载会抛 AmbiguousMatchException，
+    /// 整个钩子都挂不上（真机：Utage.SystemUiDialog1Button::Open）。
+    /// </summary>
+    private static string BuildResolveExpression(HookSetting hook)
+    {
+        if (hook.Target.ParameterTypes.Count > 0)
+        {
+            return "AccessTools.Method(Target, " + hook.Target.ParameterArrayExpression + ")";
+        }
+
+        if (hook.ParameterTypes.Count == 0)
+        {
+            return "MethodResolver.Resolve(Target, System.Array.Empty<string>())";
+        }
+
+        var names = string.Join(", ", hook.ParameterTypes.Select(type => "\"" + type + "\""));
+        return "MethodResolver.Resolve(Target, new string[] { " + names + " })";
     }
 
     /// <summary>

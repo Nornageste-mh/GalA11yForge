@@ -18,6 +18,10 @@
 **/*.user
 **/*.suo
 
+# Python 缓存
+**/__pycache__/
+*.pyc
+
 # tools：只保留脚本与文本；第三方二进制、用户项目、临时文件不进库
 /tools/ghostlock/
 /tools/mtkclient-main/

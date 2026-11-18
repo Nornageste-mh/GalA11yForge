@@ -12,6 +12,29 @@ public sealed class SpeechLogInspectorTests
     }
 
     [Fact]
+    public async Task Counts_hook_mounted_and_resolve_error_lines()
+    {
+        var path = WriteLog(
+            "[Hook] 已挂载 Hook_hook_001 → Utage.AdvMessageWindow::PageTextChange",
+            "[Hook] 已挂载 Hook_hook_003 → Utage.SystemUiDialog2Button::Open",
+            "[Hook] Hook_hook_002 解析目标时出错：Ambiguous match found.",
+            "[Speech] 早春");
+
+        try
+        {
+            var summary = await SpeechLogInspector.InspectAsync(path);
+
+            Assert.Equal(2, summary.HookMountedLines);
+            Assert.Equal(1, summary.HookResolveErrorLines);
+            Assert.Equal(1, summary.ValidLines);
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [Fact]
     public async Task Counts_hook_hits_and_watch_fallback_lines()
     {
         var path = WriteLog(

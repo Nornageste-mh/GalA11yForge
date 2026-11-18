@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generator": "unity_mono",
-  "generatorVersion": "0.2.82.0",
+  "generatorVersion": "0.2.85.0",
   "gameSlug": "forge-golden",
   "gameName": "GalgameSample",
   "title": "GalgameSample 无障碍补丁",
@@ -9,7 +9,7 @@
   "namespace": "GalA11y.ForgeGolden",
   "assemblyName": "ForgeGolden.A11y",
   "pluginGuid": "09789c27-ba82-2a51-abdf-195685135660",
-  "pluginVersion": "0.2.82.0",
+  "pluginVersion": "0.2.85.0",
   "frameworkFingerprint": "6df64c9ac3a3247493ed29bebdc73b4b3417579cd201d09c7c559677a9aa00b2",
   "hooks": [
     {

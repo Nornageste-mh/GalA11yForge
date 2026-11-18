@@ -1,4 +1,4 @@
-namespace GalA11yForge.Core;
+﻿namespace GalA11yForge.Core;
 
 /// <summary>
 /// 产品元信息：英文名、中文名与版本号。
@@ -13,5 +13,5 @@ public static class ForgeInfo
     public const string ProductNameChinese = "无障碍补丁工坊";
 
     /// <summary>当前版本（四段式）。</summary>
-    public const string Version = "0.2.82.0";
+    public const string Version = "0.2.85.0";
 }

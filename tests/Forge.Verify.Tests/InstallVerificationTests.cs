@@ -1,4 +1,5 @@
 using GalA11yForge.Core.Models;
+using GalA11yForge.Core.Serialization;
 using GalA11yForge.Verify.Models;
 
 namespace GalA11yForge.Verify.Tests;
@@ -488,6 +489,138 @@ public sealed class InstallVerificationTests
         {
             File.Delete(name);
         }
+    }
+
+    [Fact]
+    public async Task Speech_log_with_hook_resolve_error_fails_s06()
+    {
+        using var fixture = new VerifyFixture();
+        File.Delete(fixture.LogPath);
+        var external = Path.Combine(fixture.Temp.Root, "hook-resolve-error.log");
+        File.WriteAllText(
+            external,
+            "[Hook] 已挂载 Hook_hook_001 → Utage.AdvMessageWindow::PageTextChange\n"
+            + "[Hook] Hook_hook_002 解析目标时出错：Ambiguous match found.\n"
+            + "[Speech] 早春\n[Speech] 下雨了\n");
+        var options = fixture.Options();
+        options.SpeechLogPath = external;
+
+        var report = await VerifyAsync(fixture, options);
+
+        ReportAssert.HasStatus(report, "s-01", VerifyCheckStatus.Pass);
+        ReportAssert.HasStatus(report, "s-02", VerifyCheckStatus.Pass);
+        ReportAssert.HasStatus(report, "s-06", VerifyCheckStatus.Fail);
+        Assert.Equal(VerifyOverall.Partial, report.Overall);
+        var check = report.Checks.Single(item => item.Id == "s-06");
+        Assert.Contains("解析失败", check.Detail, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task Speech_log_with_only_mounted_hooks_passes_s06()
+    {
+        using var fixture = new VerifyFixture();
+        File.Delete(fixture.LogPath);
+        var external = Path.Combine(fixture.Temp.Root, "hook-mounted.log");
+        File.WriteAllText(
+            external,
+            "[Hook] 已挂载 Hook_hook_001 → Utage.AdvMessageWindow::PageTextChange\n"
+            + "[Hook] 已挂载 Hook_hook_002 → Utage.SystemUiDialog1Button::Open\n"
+            + "[Speech] 早春\n[Speech] 下雨了\n");
+        var options = fixture.Options();
+        options.SpeechLogPath = external;
+
+        var report = await VerifyAsync(fixture, options);
+
+        ReportAssert.HasStatus(report, "s-06", VerifyCheckStatus.Pass);
+        Assert.Equal(VerifyOverall.PassWithSkips, report.Overall);
+    }
+
+    [Fact]
+    public async Task Speech_log_with_fewer_mounted_hooks_than_plan_fails_s06()
+    {
+        using var fixture = new VerifyFixture();
+        WritePlan(fixture, "Game.Dialogue:ShowText", "Game.Menu:Open", "Game.System:Open");
+        File.Delete(fixture.LogPath);
+        var external = Path.Combine(fixture.Temp.Root, "hook-missing.log");
+        File.WriteAllText(
+            external,
+            "[Hook] 已挂载 Hook_hook_001 → Game.Dialogue::ShowText\n"
+            + "[Hook] 已挂载 Hook_hook_002 → Game.Menu::Open\n"
+            + "[Speech] 早春\n[Speech] 下雨了\n");
+        var options = fixture.Options();
+        options.SpeechLogPath = external;
+
+        var report = await VerifyAsync(fixture, options);
+
+        ReportAssert.HasStatus(report, "s-06", VerifyCheckStatus.Fail);
+        var check = report.Checks.Single(item => item.Id == "s-06");
+        Assert.Contains("计划 3 个钩子", check.Detail, StringComparison.Ordinal);
+        Assert.Contains("少 1 个", check.Detail, StringComparison.Ordinal);
+        Assert.Equal(VerifyOverall.Partial, report.Overall);
+    }
+
+    [Fact]
+    public async Task Speech_log_with_matching_hook_count_passes_s06()
+    {
+        using var fixture = new VerifyFixture();
+        WritePlan(fixture, "Game.Dialogue:ShowText", "Game.Menu:Open");
+        File.Delete(fixture.LogPath);
+        var external = Path.Combine(fixture.Temp.Root, "hook-matched.log");
+        File.WriteAllText(
+            external,
+            "[Hook] 已挂载 Hook_hook_001 → Game.Dialogue::ShowText\n"
+            + "[Hook] 已挂载 Hook_hook_002 → Game.Menu::Open\n"
+            + "[Speech] 早春\n[Speech] 下雨了\n");
+        var options = fixture.Options();
+        options.SpeechLogPath = external;
+
+        var report = await VerifyAsync(fixture, options);
+
+        ReportAssert.HasStatus(report, "s-06", VerifyCheckStatus.Pass);
+        var check = report.Checks.Single(item => item.Id == "s-06");
+        Assert.Contains("计划 2 个", check.Detail, StringComparison.Ordinal);
+        Assert.Equal(VerifyOverall.PassWithSkips, report.Overall);
+    }
+
+    [Fact]
+    public async Task Speech_log_without_hook_lines_but_plan_expects_hooks_skips_s06_with_plan_note()
+    {
+        using var fixture = new VerifyFixture();
+        WritePlan(fixture, "Game.Dialogue:ShowText");
+        File.Delete(fixture.LogPath);
+        var external = Path.Combine(fixture.Temp.Root, "hook-none.log");
+        File.WriteAllText(external, "[Speech] 早春\n[Speech] 下雨了\n");
+        var options = fixture.Options();
+        options.SpeechLogPath = external;
+
+        var report = await VerifyAsync(fixture, options);
+
+        ReportAssert.HasStatus(report, "s-06", VerifyCheckStatus.Skip);
+        var check = report.Checks.Single(item => item.Id == "s-06");
+        Assert.Contains("计划 1 个钩子", check.Detail, StringComparison.Ordinal);
+        Assert.Contains("没有任何 [Hook] 挂载行", check.Detail, StringComparison.Ordinal);
+    }
+
+    private static void WritePlan(VerifyFixture fixture, params string[] hookTargets)
+    {
+        var directory = Path.Combine(fixture.Workspace, "games", fixture.Slug, "02-decide");
+        Directory.CreateDirectory(directory);
+        var plan = new PatchPlan
+        {
+            SchemaVersion = 1,
+            GameSlug = fixture.Slug,
+            Route = PlanRoute.AutomaticWithConfirmation,
+            Target = new PlanTarget { Engine = "unity_mono" },
+            PatchPoints = hookTargets
+                .Select((target, index) => new PatchPoint
+                {
+                    Id = "hook-" + (index + 1).ToString("000"),
+                    Kind = PatchPointKind.Hook,
+                    Target = target,
+                })
+                .ToList(),
+        };
+        File.WriteAllText(Path.Combine(directory, "plan.json"), ForgeJson.Serialize(plan));
     }
 
     private static async Task<VerifyReport> VerifyAsync(VerifyFixture fixture, VerifyOptions? options = null)
