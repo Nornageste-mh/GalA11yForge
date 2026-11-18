@@ -1,0 +1,4 @@
+# Windows workspace: keep scripts/templates byte-for-byte (no EOL normalization)
+* -text
+*.ps1 -text
+*.rpy -text
