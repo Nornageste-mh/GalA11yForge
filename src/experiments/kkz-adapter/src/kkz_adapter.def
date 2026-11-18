@@ -1,0 +1,15 @@
+; kkz_adapter.def -- the three exports a KiriKiri Z plugin proxy must provide.
+; V2Link / V2Unlink are called by the engine; GetModuleThreadModel is provided
+; because the original plugins export it too.
+; This template does NOT export DllGetClassObject or similar: it only replaces
+; plain V2 plugins such as getSample.dll -- COM plugins (e.g. menu.dll) need a
+; separate evaluation, see docs/35.
+;
+; KEEP THIS FILE ASCII-ONLY. build.log lesson (task-49): a .def whose comments
+; contain UTF-8 CJK text makes link.exe print
+;   warning LNK4017: V2Link <statement not supported for target platform>; ignored
+; and then silently drop ALL exports -- the DLL links "fine" but is unusable.
+EXPORTS
+    V2Link
+    V2Unlink
+    GetModuleThreadModel

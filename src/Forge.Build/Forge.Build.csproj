@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GalA11yForge.Build</RootNamespace>
+    <AssemblyName>Forge.Build</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Forge.Core\Forge.Core.csproj" />
+    <ProjectReference Include="..\Forge.Verify\Forge.Verify.csproj" />
+  </ItemGroup>
+
+</Project>

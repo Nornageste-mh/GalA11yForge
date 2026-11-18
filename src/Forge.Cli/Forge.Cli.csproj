@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GalA11yForge.Cli</RootNamespace>
+    <AssemblyName>forge</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Forge.Core\Forge.Core.csproj" />
+    <ProjectReference Include="..\Forge.Detection\Forge.Detection.csproj" />
+    <ProjectReference Include="..\Forge.Analyzers.Ghidra\Forge.Analyzers.Ghidra.csproj" />
+    <ProjectReference Include="..\Forge.Adapters.Renpy\Forge.Adapters.Renpy.csproj" />
+    <ProjectReference Include="..\Forge.Adapters.UnityMono\Forge.Adapters.UnityMono.csproj" />
+  <ProjectReference Include="..\Forge.Adapters.Il2Cpp\Forge.Adapters.Il2Cpp.csproj" />
+    <ProjectReference Include="..\Forge.Build\Forge.Build.csproj" />
+    <ProjectReference Include="..\Forge.Verify\Forge.Verify.csproj" />
+  </ItemGroup>
+
+</Project>

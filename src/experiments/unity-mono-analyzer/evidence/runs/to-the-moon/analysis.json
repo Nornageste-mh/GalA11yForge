@@ -1,0 +1,4213 @@
+{
+  "schemaVersion": "1.0",
+  "run": {
+    "tool": "unity-mono-analyzer",
+    "toolVersion": "0.1.0.0",
+    "cecilVersion": "0.11.6",
+    "startedAtUtc": "2026-11-14T09:20:08.4066423Z",
+    "commandLine": "unity-mono-analyzer --game \"D:\\Steam\\steamapps\\common\\To the Moon\" --out D:\\DSHWorkSpace\\src\\experiments\\unity-mono-analyzer\\evidence\\runs\\to-the-moon"
+  },
+  "game": {
+    "name": "To the Moon",
+    "inputPath": "D:\\Steam\\steamapps\\common\\To the Moon",
+    "gameDir": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)",
+    "dataDir": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)\\To the Moon_Data",
+    "dataDirName": "To the Moon_Data",
+    "exePath": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)\\To the Moon.exe",
+    "exeReason": "与数据目录 To the Moon_Data 同名",
+    "deployed": true,
+    "deployedEvidence": [
+      "BepInEx",
+      "doorstop_config.ini",
+      ".doorstop_version",
+      "winhttp.dll",
+      "nvdaControllerClient.dll"
+    ]
+  },
+  "discovery": {
+    "inputKind": "directory",
+    "selectionMode": "ranked",
+    "candidates": [
+      {
+        "dataDir": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)\\To the Moon_Data",
+        "dataDirName": "To the Moon_Data",
+        "gameDir": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)",
+        "assemblyPath": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)\\To the Moon_Data\\Managed\\Assembly-CSharp.dll",
+        "assemblySize": 1415168,
+        "exePath": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)\\To the Moon.exe",
+        "exeReason": "与数据目录 To the Moon_Data 同名",
+        "depth": 1,
+        "selected": true,
+        "rankScore": 1750,
+        "rankReason": "+1000 已知对话框架类型×446；+1200 对话命名类型×474；+300 文本写入方法×93；+150 目录名与输入目录匹配；-900 启动器/更新器可疑类型×18",
+        "quickMetrics": {
+          "types": 1318,
+          "methods": 7477,
+          "textSinkCalls": 245,
+          "textSinkCallerMethods": 93,
+          "cjkLiteralMethods": 0,
+          "knownFrameworkTypes": 446,
+          "dialogueNamedTypes": 474,
+          "launcherSuspicionTypes": 18,
+          "scanned": true
+        },
+        "scanError": ""
+      },
+      {
+        "dataDir": "D:\\Steam\\steamapps\\common\\To the Moon\\Minisode_1 (SerenityForge)\\To the Moon - Sigmund Minisode 1_Data",
+        "dataDirName": "To the Moon - Sigmund Minisode 1_Data",
+        "gameDir": "D:\\Steam\\steamapps\\common\\To the Moon\\Minisode_1 (SerenityForge)",
+        "assemblyPath": "D:\\Steam\\steamapps\\common\\To the Moon\\Minisode_1 (SerenityForge)\\To the Moon - Sigmund Minisode 1_Data\\Managed\\Assembly-CSharp.dll",
+        "assemblySize": 1411072,
+        "exePath": "D:\\Steam\\steamapps\\common\\To the Moon\\Minisode_1 (SerenityForge)\\To the Moon - Sigmund Minisode 1.exe",
+        "exeReason": "与数据目录 To the Moon - Sigmund Minisode 1_Data 同名",
+        "depth": 1,
+        "selected": false,
+        "rankScore": 1600,
+        "rankReason": "+1000 已知对话框架类型×446；+1200 对话命名类型×474；+300 文本写入方法×92；-900 启动器/更新器可疑类型×18",
+        "quickMetrics": {
+          "types": 1313,
+          "methods": 7462,
+          "textSinkCalls": 243,
+          "textSinkCallerMethods": 92,
+          "cjkLiteralMethods": 0,
+          "knownFrameworkTypes": 446,
+          "dialogueNamedTypes": 474,
+          "launcherSuspicionTypes": 18,
+          "scanned": true
+        },
+        "scanError": ""
+      },
+      {
+        "dataDir": "D:\\Steam\\steamapps\\common\\To the Moon\\Minisode_2 (SerenityForge)\\To the Moon - Sigmund Minisode 2_Data",
+        "dataDirName": "To the Moon - Sigmund Minisode 2_Data",
+        "gameDir": "D:\\Steam\\steamapps\\common\\To the Moon\\Minisode_2 (SerenityForge)",
+        "assemblyPath": "D:\\Steam\\steamapps\\common\\To the Moon\\Minisode_2 (SerenityForge)\\To the Moon - Sigmund Minisode 2_Data\\Managed\\Assembly-CSharp.dll",
+        "assemblySize": 1412096,
+        "exePath": "D:\\Steam\\steamapps\\common\\To the Moon\\Minisode_2 (SerenityForge)\\To the Moon - Sigmund Minisode 2.exe",
+        "exeReason": "与数据目录 To the Moon - Sigmund Minisode 2_Data 同名",
+        "depth": 1,
+        "selected": false,
+        "rankScore": 1600,
+        "rankReason": "+1000 已知对话框架类型×446；+1200 对话命名类型×474；+300 文本写入方法×92；-900 启动器/更新器可疑类型×18",
+        "quickMetrics": {
+          "types": 1314,
+          "methods": 7464,
+          "textSinkCalls": 243,
+          "textSinkCallerMethods": 92,
+          "cjkLiteralMethods": 0,
+          "knownFrameworkTypes": 446,
+          "dialogueNamedTypes": 474,
+          "launcherSuspicionTypes": 18,
+          "scanned": true
+        },
+        "scanError": ""
+      }
+    ],
+    "notes": []
+  },
+  "unity": {
+    "version": "2022.3.28f1",
+    "versionSource": "globalgamemanagers",
+    "unityPlayerDllPresent": true,
+    "il2CppMarkersPresent": false,
+    "il2CppEvidence": "",
+    "globalGameManagersPath": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)\\To the Moon_Data\\globalgamemanagers"
+  },
+  "assembly": {
+    "path": "D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon (SerenityForge)\\To the Moon_Data\\Managed\\Assembly-CSharp.dll",
+    "sizeBytes": 1415168,
+    "sha256": "5253c4a50e25a0aaf23b6152497e159aed42b507816af8fb0d7dc8f9812dc15b",
+    "moduleName": "Assembly-CSharp.dll",
+    "runtimeVersion": "Net_4_0",
+    "firstPassAssemblyPath": ""
+  },
+  "stats": {
+    "types": 1318,
+    "methods": 7477,
+    "methodsWithBody": 7368,
+    "ldstrTotal": 2494,
+    "cjkLiteralMethods": 0,
+    "cjkGame": false,
+    "textFieldTypes": 56,
+    "textSinkCallSites": 245,
+    "textSinkCallerMethods": 93,
+    "upstreamCandidateMethods": 7,
+    "candidatesScored": 100,
+    "candidatesIncluded": 71,
+    "tierA": 4,
+    "tierB": 24,
+    "tierC": 43,
+    "belowThreshold": 29,
+    "resolveFailures": []
+  },
+  "textSinks": [
+    {
+      "api": "TMPro.TMP_Text::set_text",
+      "calls": 238,
+      "callerMethods": 90,
+      "role": "primary"
+    },
+    {
+      "api": "TMPro.TMP_Text::SetText",
+      "calls": 4,
+      "callerMethods": 3,
+      "role": "primary"
+    },
+    {
+      "api": "UnityEngine.UI.Text::set_text",
+      "calls": 3,
+      "callerMethods": 3,
+      "role": "primary"
+    },
+    {
+      "api": "TMPro.TMP_InputField::set_text",
+      "calls": 3,
+      "callerMethods": 0,
+      "role": "ignored"
+    },
+    {
+      "api": "ScenarioForge.SetTextFromGameVariable::SetText",
+      "calls": 1,
+      "callerMethods": 0,
+      "role": "ignored"
+    }
+  ],
+  "textSinkHotspots": [
+    {
+      "typeFullName": "InventorySlotUIElement",
+      "calls": 36,
+      "methods": 2,
+      "sampleMethod": "RefreshDisplay"
+    },
+    {
+      "typeFullName": "CharacterStatusElementCore",
+      "calls": 26,
+      "methods": 3,
+      "sampleMethod": "RefreshDisplay"
+    },
+    {
+      "typeFullName": "StatusConditionUI",
+      "calls": 21,
+      "methods": 1,
+      "sampleMethod": "RefreshStatusList"
+    },
+    {
+      "typeFullName": "ShopMenuUIState",
+      "calls": 20,
+      "methods": 9,
+      "sampleMethod": "UpdateActiveState"
+    },
+    {
+      "typeFullName": "BattleUIState",
+      "calls": 15,
+      "methods": 6,
+      "sampleMethod": "UpdateMartyHPBar"
+    },
+    {
+      "typeFullName": "SimpleItemSlot",
+      "calls": 12,
+      "methods": 3,
+      "sampleMethod": "SetItemData"
+    },
+    {
+      "typeFullName": "EquipmentMenuUIState",
+      "calls": 9,
+      "methods": 4,
+      "sampleMethod": "SetEquipmentMenuActive"
+    },
+    {
+      "typeFullName": "BattleResultsDisplay/<DisplayLevelUpScreen>d__67",
+      "calls": 7,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "ScenarioForge.UILeftRightSelector",
+      "calls": 6,
+      "methods": 3,
+      "sampleMethod": "SetCurOption"
+    },
+    {
+      "typeFullName": "DebugLoadMenuUIState",
+      "calls": 5,
+      "methods": 3,
+      "sampleMethod": "RefreshDisplay"
+    },
+    {
+      "typeFullName": "MusicPlayerUIState",
+      "calls": 5,
+      "methods": 4,
+      "sampleMethod": "SetTopTextBarToNonePlaying"
+    },
+    {
+      "typeFullName": "SaveSlotUIElement",
+      "calls": 5,
+      "methods": 2,
+      "sampleMethod": "RefreshDisplay"
+    },
+    {
+      "typeFullName": "BattleResultsDisplay/<DisplayLeftoversScreen>d__68",
+      "calls": 4,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "BattleSystem.BattlePopupHandler",
+      "calls": 4,
+      "methods": 4,
+      "sampleMethod": "SpawnInfoPopup"
+    },
+    {
+      "typeFullName": "CentralPauseMenuManager",
+      "calls": 4,
+      "methods": 4,
+      "sampleMethod": "BackOutOfCentralSelection"
+    },
+    {
+      "typeFullName": "ItemsMenuUIState",
+      "calls": 4,
+      "methods": 4,
+      "sampleMethod": "SetItemMenuActive"
+    },
+    {
+      "typeFullName": "ScenarioForge.TextTyper",
+      "calls": 4,
+      "methods": 4,
+      "sampleMethod": "ClearText"
+    },
+    {
+      "typeFullName": "ScenarioForge.TextTyper/<TypeNextCharacter>d__99",
+      "calls": 4,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "BattleResultsDisplay/<ResultsDisplay>d__60",
+      "calls": 3,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "BattleResultsDisplay/<UpdatePartyMemberExpElement>d__66",
+      "calls": 3,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "BattleSystem.BattlePopupHandler/<DisplayRoutine>d__61",
+      "calls": 3,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "ComboUI",
+      "calls": 3,
+      "methods": 2,
+      "sampleMethod": "InitializeDisplay"
+    },
+    {
+      "typeFullName": "MusicSlotUIElement",
+      "calls": 3,
+      "methods": 1,
+      "sampleMethod": "RefreshDisplay"
+    },
+    {
+      "typeFullName": "PartyMemberListUIElement",
+      "calls": 3,
+      "methods": 1,
+      "sampleMethod": "RefreshDisplay"
+    },
+    {
+      "typeFullName": "RPGDialogueChoiceContainer/<AppearWithChoices>d__2",
+      "calls": 3,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "SkillsMenuUIState",
+      "calls": 3,
+      "methods": 3,
+      "sampleMethod": "SetSkillsMenuActive"
+    },
+    {
+      "typeFullName": "RPGOnScreenButtonsCanvas",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "UpdateDebug"
+    },
+    {
+      "typeFullName": "SaveMenuUIState",
+      "calls": 2,
+      "methods": 2,
+      "sampleMethod": "RefreshSaveLoadPromptText"
+    },
+    {
+      "typeFullName": "SaveSlotsMenu",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "OnSlotElementSelected"
+    },
+    {
+      "typeFullName": "ScenarioForge.SetSpriteByInput",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "SetSprite"
+    },
+    {
+      "typeFullName": "ScenarioForge.SetTextFromGameVariable",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "SetText"
+    },
+    {
+      "typeFullName": "ScenarioForge.SimpleTextAnimator",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "SetFrame"
+    },
+    {
+      "typeFullName": "SimpleItemsMenu",
+      "calls": 2,
+      "methods": 2,
+      "sampleMethod": "NewSlotSelected"
+    },
+    {
+      "typeFullName": "SimplePartyMemberSlot",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "SetMemberData"
+    },
+    {
+      "typeFullName": "WhacamoleFeatureHelper",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "Update"
+    },
+    {
+      "typeFullName": "BattleCommandUIElement",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "RefreshDisplay"
+    },
+    {
+      "typeFullName": "BattleResultsDisplay",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "ShowResults"
+    },
+    {
+      "typeFullName": "BattleSystem.BattlePopupHandler/<DisplayRateRoutine>d__63",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "BattleSystem.BattlePopupHandler/<DisplayStateRoutine>d__62",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "DemoWaitToReloadGame",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "Update"
+    }
+  ],
+  "frameworkTraces": [
+    {
+      "id": "scenarioforge",
+      "displayName": "ScenarioForge",
+      "category": "known",
+      "typeCount": 446,
+      "methodCount": 2438,
+      "sampleTypes": [
+        "ScenarioForge.AbstractSaveManager`1",
+        "ScenarioForge.AchievementCommand",
+        "ScenarioForge.AchievementCommand/Mode",
+        "ScenarioForge.AchievementsWrapper",
+        "ScenarioForge.AdaptiveTriggerClip"
+      ],
+      "affectsScoring": true
+    },
+    {
+      "id": "custom.dialogue",
+      "displayName": "自定义 *Dialog*/*Talk* 命名",
+      "category": "custom",
+      "typeCount": 22,
+      "methodCount": 135,
+      "sampleTypes": [
+        "BattleResultsDisplay/<SetDialogueCanvasGroupsAlphaDelayed>d__72",
+        "RPGDialogueBoxManager",
+        "RPGDialogueBoxManager/<DisplayChoices>d__59",
+        "RPGDialogueBoxManager/<HideText>d__58",
+        "RPGDialogueBoxManager/<TypeText>d__56"
+      ],
+      "affectsScoring": true
+    }
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "kind": "dialogue",
+      "score": 85,
+      "tier": "A",
+      "confidence": "high",
+      "methodFullName": "System.Void ScenarioForge.SetTextFromGameVariable::SetText(System.String)",
+      "typeFullName": "ScenarioForge.SetTextFromGameVariable",
+      "methodName": "SetText",
+      "signature": "SetText(String)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S2 +20 方法名 SetText 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text, UnityEngine.UI.Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text",
+        "UnityEngine.UI.Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "ScenarioForge.SetTextFromGameVariable::RefreshText"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal",
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 2,
+      "kind": "dialogue",
+      "score": 75,
+      "tier": "A",
+      "confidence": "medium",
+      "methodFullName": "System.Void ScenarioForge.UILeftRightSelector::SetCurValueInRange(System.Single,System.Boolean)",
+      "typeFullName": "ScenarioForge.UILeftRightSelector",
+      "methodName": "SetCurValueInRange",
+      "signature": "SetCurValueInRange(Single, Boolean)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 4 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 UILeftRightSelector 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 4/4 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 4,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 7,
+      "callerCount": 5,
+      "callerSamples": [
+        "ScenarioForge.UILeftRightSelector::RefreshDisplay",
+        "ScenarioForge.UILeftRightSelector::SetCurValueInRangeFromMouse",
+        "ScenarioForge.UILeftRightSelector::OnToggleLeft",
+        "ScenarioForge.UILeftRightSelector::OnToggleRight",
+        "ScenarioForge.UILeftRightSelector::ToggleBetweenEndIndexes"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal",
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 3,
+      "kind": "dialogue",
+      "score": 75,
+      "tier": "A",
+      "confidence": "medium",
+      "methodFullName": "System.Void ScenarioForge.UILeftRightSelector::OverrideSelectorDisplayText(System.String)",
+      "typeFullName": "ScenarioForge.UILeftRightSelector",
+      "methodName": "OverrideSelectorDisplayText",
+      "signature": "OverrideSelectorDisplayText(String)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 UILeftRightSelector 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "OptionsMenuUIState::UpdateFrameTargetButtonVisuals"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal"
+      ]
+    },
+    {
+      "rank": 4,
+      "kind": "choice",
+      "score": 70,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void CentralPauseMenuManager::BackOutOfCentralSelection()",
+      "typeFullName": "CentralPauseMenuManager",
+      "methodName": "BackOutOfCentralSelection",
+      "signature": "BackOutOfCentralSelection()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 BackOutOfCentralSelection 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 CentralPauseMenuManager 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 2 个不同调用者调用"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "field",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 2,
+      "callerSamples": [
+        "CentralPauseMenuManager::Update",
+        "PauseMenuUIState::OnClick_QuitCancelButton"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 5,
+      "kind": "dialogue",
+      "score": 70,
+      "tier": "A",
+      "confidence": "medium",
+      "methodFullName": "System.Void ScenarioForge.TextTyper::SetContents(System.String,System.Boolean)",
+      "typeFullName": "ScenarioForge.TextTyper",
+      "methodName": "SetContents",
+      "signature": "SetContents(String, Boolean)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 3 个不同调用者调用"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 2,
+      "callerCount": 3,
+      "callerSamples": [
+        "RPGDialogueBoxManager::OnLocalizationRefresh",
+        "ScenarioForge.DialogueContainer::SetInitialContents",
+        "ScenarioForge.DialogueContainer/<TypeText>d__39::MoveNext"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal"
+      ]
+    },
+    {
+      "rank": 6,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void BattleUIState::RefreshScopeSelection()",
+      "typeFullName": "BattleUIState",
+      "methodName": "RefreshScopeSelection",
+      "signature": "RefreshScopeSelection()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 RefreshScopeSelection 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 7 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 BattleUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 7/7 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 7,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "BattleUIState::SetUIState"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 7,
+      "kind": "dialogue",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void ScenarioForge.SetSpriteByInput::SetSprite(UnityEngine.Sprite)",
+      "typeFullName": "ScenarioForge.SetSpriteByInput",
+      "methodName": "SetSprite",
+      "signature": "SetSprite(Sprite)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 2,
+      "callerCount": 1,
+      "callerSamples": [
+        "ScenarioForge.SetSpriteByInput::Refresh"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal",
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 8,
+      "kind": "dialogue",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Boolean MenuButtonElement::TrySetText(System.String)",
+      "typeFullName": "MenuButtonElement",
+      "methodName": "TrySetText",
+      "signature": "TrySetText(String)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 TrySetText 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 MenuButtonElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "EquipmentMenuUIState::RefreshShieldEquipText"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 9,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void BattleUIState::OnSelect_CharacterStatusPanelElement(System.Int32)",
+      "typeFullName": "BattleUIState",
+      "methodName": "OnSelect_CharacterStatusPanelElement",
+      "signature": "OnSelect_CharacterStatusPanelElement(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnSelect_CharacterStatusPanelElement 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 BattleUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 10,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void EquipmentMenuUIState::OnInventorySelect(System.ValueTuple`2<System.Int32,System.Int32>)",
+      "typeFullName": "EquipmentMenuUIState",
+      "methodName": "OnInventorySelect",
+      "signature": "OnInventorySelect(ValueTuple`2)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnInventorySelect 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 EquipmentMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 11,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void ItemsMenuUIState::OnInventorySelect(System.ValueTuple`2<System.Int32,System.Int32>)",
+      "typeFullName": "ItemsMenuUIState",
+      "methodName": "OnInventorySelect",
+      "signature": "OnInventorySelect(ValueTuple`2)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnInventorySelect 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 ItemsMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 12,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void SaveMenuUIState::EnterCopySelection(SaveSlotUIElement)",
+      "typeFullName": "SaveMenuUIState",
+      "methodName": "EnterCopySelection",
+      "signature": "EnterCopySelection(SaveSlotUIElement)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 EnterCopySelection 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 SaveMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "SaveSlotUIElement::OnClick_CopyButton"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 13,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void ScenarioForge.UILeftRightSelector::SetCurOption(System.Int32,System.Boolean)",
+      "typeFullName": "ScenarioForge.UILeftRightSelector",
+      "methodName": "SetCurOption",
+      "signature": "SetCurOption(Int32, Boolean)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 UILeftRightSelector 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "other",
+      "cjkLiteralCount": 0,
+      "literalCount": 2,
+      "callerCount": 10,
+      "callerSamples": [
+        "OptionsMenuUIState::ProcessLoadedLanguageSettings",
+        "OptionsMenuUIState::ProcessLoadedVideoSettings",
+        "OptionsMenuUIState::ProcessLoadedControllerSettings",
+        "OptionsMenuUIState::ProcessLoadedOtherSettings",
+        "OptionsMenuUIState::UpdateFrameTargetButtonVisuals",
+        "ScenarioForge.UILeftRightSelector::Awake",
+        "ScenarioForge.UILeftRightSelector::RefreshDisplay",
+        "ScenarioForge.UILeftRightSelector::OnToggleLeft"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "system-ui",
+        "framework-internal"
+      ]
+    },
+    {
+      "rank": 14,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void ShopMenuUIState::OnBuyInventoryMenuSelect(System.ValueTuple`2<System.Int32,System.Int32>)",
+      "typeFullName": "ShopMenuUIState",
+      "methodName": "OnBuyInventoryMenuSelect",
+      "signature": "OnBuyInventoryMenuSelect(ValueTuple`2)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnBuyInventoryMenuSelect 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 8 个 Text/TMP 字段",
+        "S5 +5 类名 ShopMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 8,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 15,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void ShopMenuUIState::OnSellInventoryMenuSelect(System.ValueTuple`2<System.Int32,System.Int32>)",
+      "typeFullName": "ShopMenuUIState",
+      "methodName": "OnSellInventoryMenuSelect",
+      "signature": "OnSellInventoryMenuSelect(ValueTuple`2)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnSellInventoryMenuSelect 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 8 个 Text/TMP 字段",
+        "S5 +5 类名 ShopMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 8,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 16,
+      "kind": "choice",
+      "score": 65,
+      "tier": "B",
+      "confidence": "medium",
+      "methodFullName": "System.Void SkillsMenuUIState::OnInventorySelect(System.ValueTuple`2<System.Int32,System.Int32>)",
+      "typeFullName": "SkillsMenuUIState",
+      "methodName": "OnInventorySelect",
+      "signature": "OnInventorySelect(ValueTuple`2)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnInventorySelect 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 SkillsMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 17,
+      "kind": "dialogue",
+      "score": 55,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Boolean ScenarioForge.TextTyper/<TypeNextCharacter>d__99::MoveNext()",
+      "typeFullName": "ScenarioForge.TextTyper/<TypeNextCharacter>d__99",
+      "methodName": "MoveNext",
+      "signature": "MoveNext()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 0,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 4 处",
+        "S7 +10 文本写入有 4/4 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 4,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 6,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": false,
+      "textFieldCount": 0,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal",
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 18,
+      "kind": "choice",
+      "score": 55,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Boolean RPGDialogueChoiceContainer/<AppearWithChoices>d__2::MoveNext()",
+      "typeFullName": "RPGDialogueChoiceContainer/<AppearWithChoices>d__2",
+      "methodName": "MoveNext",
+      "signature": "MoveNext()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 0,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型名命中自定义对话命名（Dialog/Talk/Conversation）",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 3 处",
+        "S7 +10 文本写入有 2/3 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 3,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "mixed",
+      "cjkLiteralCount": 0,
+      "literalCount": 6,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": false,
+      "textFieldCount": 0,
+      "framework": "自定义 *Dialog*/*Talk*",
+      "frameworkCategory": "custom",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 19,
+      "kind": "dialogue",
+      "score": 55,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void ScenarioForge.SimpleTextAnimator::SetFrame()",
+      "typeFullName": "ScenarioForge.SimpleTextAnimator",
+      "methodName": "SetFrame",
+      "signature": "SetFrame()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 0,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text, UnityEngine.UI.Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text",
+        "UnityEngine.UI.Text::set_text"
+      ],
+      "valueSource": "other",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "ScenarioForge.SimpleTextAnimator/<Animation>d__15::MoveNext"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal",
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 20,
+      "kind": "choice",
+      "score": 55,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void BattleUIState::OnSelect_TroopBattleDisplayElement(System.Int32)",
+      "typeFullName": "BattleUIState",
+      "methodName": "OnSelect_TroopBattleDisplayElement",
+      "signature": "OnSelect_TroopBattleDisplayElement(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnSelect_TroopBattleDisplayElement 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 BattleUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义",
+        "N2 -15 3/5 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 5,
+      "callerCount": 1,
+      "callerSamples": [
+        "TroopBattleDisplayElement::OnSelect"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 21,
+      "kind": "unknown",
+      "score": 50,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void StatusConditionUI::RefreshStatusList(BattleSystem.Battler)",
+      "typeFullName": "StatusConditionUI",
+      "methodName": "RefreshStatusList",
+      "signature": "RefreshStatusList(Battler)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 21 处",
+        "S4 +10 所属类型持有 3 个 Text/TMP 字段",
+        "S5 +5 类名 StatusConditionUI 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 19/21 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 21,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "mixed",
+      "cjkLiteralCount": 0,
+      "literalCount": 22,
+      "callerCount": 4,
+      "callerSamples": [
+        "BattleUIState::SetUIState",
+        "BattleUIState::OnSelect_CharacterStatusPanelElement",
+        "BattleUIState::OnSelect_TroopBattleDisplayElement",
+        "BattleUIState::OnSelect_OptionsLeftRightButton"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 3,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 22,
+      "kind": "choice",
+      "score": 50,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void BattleUIState::OnInventorySelect(System.ValueTuple`2<System.Int32,System.Int32>)",
+      "typeFullName": "BattleUIState",
+      "methodName": "OnInventorySelect",
+      "signature": "OnInventorySelect(ValueTuple`2)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnInventorySelect 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 4 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 BattleUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 3/4 处来自参数/字段/调用（非硬编码）",
+        "N2 -15 1/2 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 4,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "mixed",
+      "cjkLiteralCount": 0,
+      "literalCount": 2,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 23,
+      "kind": "unknown",
+      "score": 50,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void MusicPlayerUIState::PlayTrack()",
+      "typeFullName": "MusicPlayerUIState",
+      "methodName": "PlayTrack",
+      "signature": "PlayTrack()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 4 个 Text/TMP 字段",
+        "S5 +5 类名 MusicPlayerUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 2 个不同调用者调用"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 2,
+      "callerSamples": [
+        "MusicPlayerUIState::UpdatePlaybackProgress",
+        "MusicPlayerUIState::OnSubmitAction"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 4,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 24,
+      "kind": "menu",
+      "score": 50,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void ShopMenuUIState::RefreshBuyConfirmPriceDisplay()",
+      "typeFullName": "ShopMenuUIState",
+      "methodName": "RefreshBuyConfirmPriceDisplay",
+      "signature": "RefreshBuyConfirmPriceDisplay()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 8 个 Text/TMP 字段",
+        "S5 +5 类名 ShopMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 4,
+      "callerSamples": [
+        "ShopMenuUIState::OnBuyInventoryMenuSubmit",
+        "ShopMenuUIState::OnSellInventoryMenuSubmit",
+        "ShopMenuUIState::OnSelect_QuantityVerticalButton",
+        "ShopMenuUIState::OnSelect_QuantityHorizontalButton"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 8,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui",
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 25,
+      "kind": "dialogue",
+      "score": 50,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.String ScenarioForge.TextTyper::PrepareTextToType(System.String)",
+      "typeFullName": "ScenarioForge.TextTyper",
+      "methodName": "PrepareTextToType",
+      "signature": "PrepareTextToType(String)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 0,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": -10
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S8 +5 被 4 个不同调用者调用",
+        "N4 -10 全部文本写入实参都是长度<2 的固定短串"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "constant",
+      "cjkLiteralCount": 0,
+      "literalCount": 7,
+      "callerCount": 4,
+      "callerSamples": [
+        "RPGDialogueBoxManager::OnLocalizationRefresh",
+        "RPGDialogueBoxManager/<TypeText>d__56::MoveNext",
+        "ScenarioForge.DialogueContainer/<TypeText>d__39::MoveNext",
+        "ScenarioForge.TextTyper/<TypeText>d__95::MoveNext"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal",
+        "hardcoded-text"
+      ]
+    },
+    {
+      "rank": 26,
+      "kind": "menu",
+      "score": 50,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void BattleSystem.BattlePopupHandler::SpawnInfoPopup(System.String,System.Boolean)",
+      "typeFullName": "BattleSystem.BattlePopupHandler",
+      "methodName": "SpawnInfoPopup",
+      "signature": "SpawnInfoPopup(String, Boolean)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 BattlePopupHandler 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 6 个不同调用者调用"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 6,
+      "callerSamples": [
+        "BattleSystem.BattleController/<UseSkillOrItem>d__190::MoveNext",
+        "BattleSystem.Battler::ItemSkillApply",
+        "BattleSystem.Battler::MakeDamagePopups",
+        "BattleSystem.Battler::SpawnStateInfoPopup",
+        "BattleSystem.Battler::MakeMissPopups",
+        "BattleSystem.Battler::MakeBuffPopup"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 27,
+      "kind": "menu",
+      "score": 50,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void SaveMenuUIState::RefreshSaveLoadPromptText(System.Boolean)",
+      "typeFullName": "SaveMenuUIState",
+      "methodName": "RefreshSaveLoadPromptText",
+      "signature": "RefreshSaveLoadPromptText(Boolean)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 SaveMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 2,
+      "callerSamples": [
+        "SaveMenuUIState::SetSaveMenuState",
+        "SaveMenuUIState::ExitCopySelect"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 28,
+      "kind": "menu",
+      "score": 50,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void SimpleItemsMenu::NewSlotSelected()",
+      "typeFullName": "SimpleItemsMenu",
+      "methodName": "NewSlotSelected",
+      "signature": "NewSlotSelected()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 SimpleItemsMenu 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 4,
+      "callerSamples": [
+        "SimpleItemsMenu::Update",
+        "SimpleItemsMenu::EnterSelectionState",
+        "SimpleItemsMenu::SlotHovered",
+        "SimpleItemsMenu/<WhileHovered>d__42::MoveNext"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 29,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void InventorySlotUIElement::SetSkillText(SkillData,System.Int32)",
+      "typeFullName": "InventorySlotUIElement",
+      "methodName": "SetSkillText",
+      "signature": "SetSkillText(SkillData, Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 4 处",
+        "S4 +10 所属类型持有 5 个 Text/TMP 字段",
+        "S5 +5 类名 InventorySlotUIElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 4/4 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 4,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 1,
+      "callerSamples": [
+        "InventorySlotUIElement::RefreshDisplay"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 5,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 30,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void MusicSlotUIElement::RefreshDisplay(System.Int32)",
+      "typeFullName": "MusicSlotUIElement",
+      "methodName": "RefreshDisplay",
+      "signature": "RefreshDisplay(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 3 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 MusicSlotUIElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 3/3 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 3,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 31,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ComboUI::SetFinalAttackText(System.Int32)",
+      "typeFullName": "ComboUI",
+      "methodName": "SetFinalAttackText",
+      "signature": "SetFinalAttackText(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 ComboUI 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/2 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "mixed",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 1,
+      "callerSamples": [
+        "BattleSystem.BattleController::CheckInputComboSkill"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 32,
+      "kind": "menu",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ShopMenuUIState::OnBuyInventoryMenuSubmit(System.ValueTuple`2<System.Int32,System.Int32>)",
+      "typeFullName": "ShopMenuUIState",
+      "methodName": "OnBuyInventoryMenuSubmit",
+      "signature": "OnBuyInventoryMenuSubmit(ValueTuple`2)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 8 个 Text/TMP 字段",
+        "S5 +5 类名 ShopMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 8,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 33,
+      "kind": "menu",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ShopMenuUIState::OnSellInventoryMenuSubmit(System.ValueTuple`2<System.Int32,System.Int32>)",
+      "typeFullName": "ShopMenuUIState",
+      "methodName": "OnSellInventoryMenuSubmit",
+      "signature": "OnSellInventoryMenuSubmit(ValueTuple`2)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 8 个 Text/TMP 字段",
+        "S5 +5 类名 ShopMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 8,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 34,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SimplePartyMemberSlot::SetMemberData()",
+      "typeFullName": "SimplePartyMemberSlot",
+      "methodName": "SetMemberData",
+      "signature": "SetMemberData()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 2 个不同调用者调用"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 2,
+      "callerSamples": [
+        "SimplePartyMemberSlot::RefreshData",
+        "SimplePartySlotManager::Update"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 35,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void BattleCommandUIElement::RefreshDisplay(System.Int32)",
+      "typeFullName": "BattleCommandUIElement",
+      "methodName": "RefreshDisplay",
+      "signature": "RefreshDisplay(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 BattleCommandUIElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 36,
+      "kind": "menu",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void BattleSystem.BattlePopupHandler::AddSecondaryInfoPopup(System.String)",
+      "typeFullName": "BattleSystem.BattlePopupHandler",
+      "methodName": "AddSecondaryInfoPopup",
+      "signature": "AddSecondaryInfoPopup(String)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 BattlePopupHandler 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 2,
+      "callerCount": 1,
+      "callerSamples": [
+        "BattleSystem.BattlePopupHandler::SpawnInfoPopup"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 37,
+      "kind": "menu",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void CentralPauseMenuManager::InitCentralPanel()",
+      "typeFullName": "CentralPauseMenuManager",
+      "methodName": "InitCentralPanel",
+      "signature": "InitCentralPanel()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 CentralPauseMenuManager 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "field",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "PauseMenuUIState::TryShowPauseMenuFromGameplay"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 38,
+      "kind": "menu",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void CentralPauseMenuManager::ScenarioForge.IUserInterfaceState.ExitState(UnityEngine.MonoBehaviour)",
+      "typeFullName": "CentralPauseMenuManager",
+      "methodName": "ScenarioForge.IUserInterfaceState.ExitState",
+      "signature": "ScenarioForge.IUserInterfaceState.ExitState(MonoBehaviour)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 CentralPauseMenuManager 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "field",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 39,
+      "kind": "menu",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void CentralPauseMenuManager::UpdateItemDescriptionLabel(InventoryManager/StoredItem)",
+      "typeFullName": "CentralPauseMenuManager",
+      "methodName": "UpdateItemDescriptionLabel",
+      "signature": "UpdateItemDescriptionLabel(StoredItem)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 CentralPauseMenuManager 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "field",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 40,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ComboUI::InitializeDisplay(SkillComboDataCollection)",
+      "typeFullName": "ComboUI",
+      "methodName": "InitializeDisplay",
+      "signature": "InitializeDisplay(SkillComboDataCollection)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 ComboUI 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "BattleSystem.BattleController::ComboSkillListAppear"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 41,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void MusicPlayerUIState::UpdatePlaybackSpeed()",
+      "typeFullName": "MusicPlayerUIState",
+      "methodName": "UpdatePlaybackSpeed",
+      "signature": "UpdatePlaybackSpeed()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 4 个 Text/TMP 字段",
+        "S5 +5 类名 MusicPlayerUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 1,
+      "callerSamples": [
+        "MusicPlayerUIState::UpdateActiveState"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 4,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 42,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void NameInputProcessingUIState::PopulateSpacingText()",
+      "typeFullName": "NameInputProcessingUIState",
+      "methodName": "PopulateSpacingText",
+      "signature": "PopulateSpacingText()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 NameInputProcessingUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "NameInputProcessingUIState::SetNameInputProcessingMenuActive"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 43,
+      "kind": "choice",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void OptionsMenuUIState::UpdateActiveState()",
+      "typeFullName": "OptionsMenuUIState",
+      "methodName": "UpdateActiveState",
+      "signature": "UpdateActiveState()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 OptionsMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 44,
+      "kind": "menu",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SimpleItemsMenu::OnLanguageChanged()",
+      "typeFullName": "SimpleItemsMenu",
+      "methodName": "OnLanguageChanged",
+      "signature": "OnLanguageChanged()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 SimpleItemsMenu 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "i18n-refresh"
+      ]
+    },
+    {
+      "rank": 45,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SkillsTypesListUIElement::RefreshDisplay(System.Int32)",
+      "typeFullName": "SkillsTypesListUIElement",
+      "methodName": "RefreshDisplay",
+      "signature": "RefreshDisplay(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 SkillsTypesListUIElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 46,
+      "kind": "menu",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Boolean BattleSystem.BattlePopupHandler/<DisplayRoutine>d__61::MoveNext()",
+      "typeFullName": "BattleSystem.BattlePopupHandler/<DisplayRoutine>d__61",
+      "methodName": "MoveNext",
+      "signature": "MoveNext()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 3 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 3/3 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 3,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 5,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 47,
+      "kind": "unknown",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SimpleItemSlot::ResetData()",
+      "typeFullName": "SimpleItemSlot",
+      "methodName": "ResetData",
+      "signature": "ResetData()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 3 处",
+        "S4 +10 所属类型持有 3 个 Text/TMP 字段",
+        "S7 +10 文本写入有 3/3 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 3,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "field",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "SimpleItemsMenu::ClearContents"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 3,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 48,
+      "kind": "unknown",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void WhacamoleFeatureHelper::Update()",
+      "typeFullName": "WhacamoleFeatureHelper",
+      "methodName": "Update",
+      "signature": "Update()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 49,
+      "kind": "menu",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Boolean BattleSystem.BattlePopupHandler/<DisplayRateRoutine>d__63::MoveNext()",
+      "typeFullName": "BattleSystem.BattlePopupHandler/<DisplayRateRoutine>d__63",
+      "methodName": "MoveNext",
+      "signature": "MoveNext()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 50,
+      "kind": "menu",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Boolean BattleSystem.BattlePopupHandler/<DisplayStateRoutine>d__62::MoveNext()",
+      "typeFullName": "BattleSystem.BattlePopupHandler/<DisplayStateRoutine>d__62",
+      "methodName": "MoveNext",
+      "signature": "MoveNext()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 51,
+      "kind": "choice",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SaveMenuUIState::ExitCopySelect()",
+      "typeFullName": "SaveMenuUIState",
+      "methodName": "ExitCopySelect",
+      "signature": "ExitCopySelect()",
+      "discoveredBy": "upstream-of-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 0,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 ExitCopySelect 命中对话语义关键词",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 SaveMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 0,
+      "textSinkApis": [],
+      "valueSource": "none",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 3,
+      "callerSamples": [
+        "SaveMenuUIState::UpdateActiveState",
+        "SaveMenuUIState::CopySelectionFileChosen",
+        "SaveMenuUIState::OnClick_OverwriteConfirmButton"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "upstream-only"
+      ]
+    },
+    {
+      "rank": 52,
+      "kind": "choice",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SimpleItemsMenu::EnterSelectionState()",
+      "typeFullName": "SimpleItemsMenu",
+      "methodName": "EnterSelectionState",
+      "signature": "EnterSelectionState()",
+      "discoveredBy": "upstream-of-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 0,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 EnterSelectionState 命中对话语义关键词",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 SimpleItemsMenu 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义"
+      ],
+      "textSinkCalls": 0,
+      "textSinkApis": [],
+      "valueSource": "none",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 2,
+      "callerSamples": [
+        "CentralPauseMenuManager::EnterSelectionState",
+        "SimpleItemsMenu::EnterState"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "upstream-only"
+      ]
+    },
+    {
+      "rank": 53,
+      "kind": "menu",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void EquipmentMenuUIState::SetDescriptionTextFromEquipCategory(InventorySlotsMenu/EquipCategory)",
+      "typeFullName": "EquipmentMenuUIState",
+      "methodName": "SetDescriptionTextFromEquipCategory",
+      "signature": "SetDescriptionTextFromEquipCategory(EquipCategory)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 6 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 EquipmentMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 6/6 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义",
+        "N2 -15 6/6 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 6,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 6,
+      "callerCount": 1,
+      "callerSamples": [
+        "EquipmentMenuUIState::OnSelect_EquipCategoryButton"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 54,
+      "kind": "unknown",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void BattleUIState::UpdateMartyHPBar()",
+      "typeFullName": "BattleUIState",
+      "methodName": "UpdateMartyHPBar",
+      "signature": "UpdateMartyHPBar()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 BattleUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义",
+        "N2 -15 1/1 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 7,
+      "callerSamples": [
+        "BattleSystem.BattleController::ApplyItemSkillEffects",
+        "BattleSystem.BattleController/<UseSkillOrItem>d__190::MoveNext",
+        "BattleSystem.Battler::Refresh",
+        "BattleSystem.Battler::ItemSkillApply",
+        "BattleUIState::SetUIState",
+        "BattleUIState::RefreshTroopsDisplay",
+        "BattleUIState::OnSelect_TroopBattleDisplayElement"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 55,
+      "kind": "menu",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SaveSlotUIElement::RefreshDisplayAsUnused(System.Boolean)",
+      "typeFullName": "SaveSlotUIElement",
+      "methodName": "RefreshDisplayAsUnused",
+      "signature": "RefreshDisplayAsUnused(Boolean)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::SetText 共 1 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 SaveSlotUIElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::SetText"
+      ],
+      "valueSource": "constant",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "hardcoded-text"
+      ]
+    },
+    {
+      "rank": 56,
+      "kind": "dialogue",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ScenarioForge.TextTyper::ClearText()",
+      "typeFullName": "ScenarioForge.TextTyper",
+      "methodName": "ClearText",
+      "signature": "ClearText()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 0,
+        "S8": 5,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": -10
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::SetText 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S8 +5 被 2 个不同调用者调用",
+        "N2 -15 1/1 的字面量是路径/URL/格式串/数字/标识符（非台词样）",
+        "N4 -10 全部文本写入实参都是长度<2 的固定短串"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::SetText"
+      ],
+      "valueSource": "constant",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 2,
+      "callerSamples": [
+        "ScenarioForge.DialogueContainer/<Disappear>d__37::MoveNext",
+        "ScenarioForge.TextTyper::Awake"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal",
+        "hardcoded-text"
+      ]
+    },
+    {
+      "rank": 57,
+      "kind": "dialogue",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ScenarioForge.TextTyper::Reset(System.Boolean)",
+      "typeFullName": "ScenarioForge.TextTyper",
+      "methodName": "Reset",
+      "signature": "Reset(Boolean)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 0,
+        "S8": 5,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": -10
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S8 +5 被 3 个不同调用者调用",
+        "N2 -15 1/1 的字面量是路径/URL/格式串/数字/标识符（非台词样）",
+        "N4 -10 全部文本写入实参都是长度<2 的固定短串"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "constant",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 3,
+      "callerSamples": [
+        "ScenarioForge.DialogueContainer/<Disappear>d__37::MoveNext",
+        "ScenarioForge.TextTyper::Reset",
+        "ScenarioForge.TextTyper/<TypeText>d__95::MoveNext"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal",
+        "hardcoded-text"
+      ]
+    },
+    {
+      "rank": 58,
+      "kind": "unknown",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void TextTermSetter::RefreshText()",
+      "typeFullName": "TextTermSetter",
+      "methodName": "RefreshText",
+      "signature": "RefreshText()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": -10,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 2 个不同调用者调用",
+        "N3 -10 只被 Awake/Start/OnEnable/构造 等初始化期方法调用"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 3,
+      "callerCount": 2,
+      "callerSamples": [
+        "MainMenuFaker::Awake",
+        "TextTermSetter::OnEnable"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "i18n-refresh"
+      ]
+    },
+    {
+      "rank": 59,
+      "kind": "choice",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void BattleUIState::OnSelect_OptionsLeftRightButton(System.Boolean)",
+      "typeFullName": "BattleUIState",
+      "methodName": "OnSelect_OptionsLeftRightButton",
+      "signature": "OnSelect_OptionsLeftRightButton(Boolean)",
+      "discoveredBy": "upstream-of-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 0,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnSelect_OptionsLeftRightButton 命中对话语义关键词",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 BattleUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义"
+      ],
+      "textSinkCalls": 0,
+      "textSinkApis": [],
+      "valueSource": "none",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui",
+        "upstream-only"
+      ]
+    },
+    {
+      "rank": 60,
+      "kind": "choice",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void EquipmentMenuUIState::OnSelect_EquipCategoryButton(System.Int32)",
+      "typeFullName": "EquipmentMenuUIState",
+      "methodName": "OnSelect_EquipCategoryButton",
+      "signature": "OnSelect_EquipCategoryButton(Int32)",
+      "discoveredBy": "upstream-of-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 0,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnSelect_EquipCategoryButton 命中对话语义关键词",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 EquipmentMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义"
+      ],
+      "textSinkCalls": 0,
+      "textSinkApis": [],
+      "valueSource": "none",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "upstream-only"
+      ]
+    },
+    {
+      "rank": 61,
+      "kind": "choice",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ShopMenuUIState::OnSelect_QuantityHorizontalButton(System.Boolean)",
+      "typeFullName": "ShopMenuUIState",
+      "methodName": "OnSelect_QuantityHorizontalButton",
+      "signature": "OnSelect_QuantityHorizontalButton(Boolean)",
+      "discoveredBy": "upstream-of-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 0,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnSelect_QuantityHorizontalButton 命中对话语义关键词",
+        "S4 +10 所属类型持有 8 个 Text/TMP 字段",
+        "S5 +5 类名 ShopMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义"
+      ],
+      "textSinkCalls": 0,
+      "textSinkApis": [],
+      "valueSource": "none",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 8,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "upstream-only"
+      ]
+    },
+    {
+      "rank": 62,
+      "kind": "choice",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ShopMenuUIState::OnSelect_QuantityVerticalButton(System.Boolean)",
+      "typeFullName": "ShopMenuUIState",
+      "methodName": "OnSelect_QuantityVerticalButton",
+      "signature": "OnSelect_QuantityVerticalButton(Boolean)",
+      "discoveredBy": "upstream-of-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 20,
+        "S3": 0,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S2 +20 方法名 OnSelect_QuantityVerticalButton 命中对话语义关键词",
+        "S4 +10 所属类型持有 8 个 Text/TMP 字段",
+        "S5 +5 类名 ShopMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义"
+      ],
+      "textSinkCalls": 0,
+      "textSinkApis": [],
+      "valueSource": "none",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 8,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "upstream-only"
+      ]
+    },
+    {
+      "rank": 63,
+      "kind": "unknown",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void InventorySlotUIElement::RefreshDisplay(System.Int32)",
+      "typeFullName": "InventorySlotUIElement",
+      "methodName": "RefreshDisplay",
+      "signature": "RefreshDisplay(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 32 处",
+        "S4 +10 所属类型持有 5 个 Text/TMP 字段",
+        "S5 +5 类名 InventorySlotUIElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 28/32 处来自参数/字段/调用（非硬编码）",
+        "N2 -15 5/7 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 32,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "mixed",
+      "cjkLiteralCount": 0,
+      "literalCount": 7,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 5,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 64,
+      "kind": "unknown",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void CharacterStatusElementCore::RefreshDisplay(ActorData)",
+      "typeFullName": "CharacterStatusElementCore",
+      "methodName": "RefreshDisplay",
+      "signature": "RefreshDisplay(ActorData)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 14 处",
+        "S4 +10 所属类型持有 10 个 Text/TMP 字段",
+        "S7 +10 文本写入有 12/14 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 9 个不同调用者调用",
+        "N2 -15 3/4 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 14,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "mixed",
+      "cjkLiteralCount": 0,
+      "literalCount": 4,
+      "callerCount": 9,
+      "callerSamples": [
+        "BattleResultsDisplay/<DisplayLevelUpScreen>d__67::MoveNext",
+        "BattleResultsDisplay/<UpdatePartyMemberExpElement>d__66::MoveNext",
+        "CharacterBattleStatusElement::Refresh",
+        "CharacterStatusUIElement::RefreshDisplay",
+        "EquipmentMenuUIState::SetEquipmentMenuActive",
+        "EquipmentMenuUIState::EquipChangeRefreshDisplay",
+        "GangMenuUIState::RefreshCurPartyMemberElement",
+        "GangMenuUIState::RefreshStatPanel"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 10,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 65,
+      "kind": "unknown",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Boolean BattleResultsDisplay/<DisplayLevelUpScreen>d__67::MoveNext()",
+      "typeFullName": "BattleResultsDisplay/<DisplayLevelUpScreen>d__67",
+      "methodName": "MoveNext",
+      "signature": "MoveNext()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 0,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 7 处",
+        "S7 +10 文本写入有 7/7 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 7,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": false,
+      "textFieldCount": 0,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 66,
+      "kind": "menu",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SaveSlotUIElement::RefreshDisplay(System.Int32)",
+      "typeFullName": "SaveSlotUIElement",
+      "methodName": "RefreshDisplay",
+      "signature": "RefreshDisplay(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::SetText, TMPro.TMP_Text::set_text 共 4 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 SaveSlotUIElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 3/4 处来自参数/字段/调用（非硬编码）",
+        "N2 -15 2/3 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 4,
+      "textSinkApis": [
+        "TMPro.TMP_Text::SetText",
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "mixed",
+      "cjkLiteralCount": 0,
+      "literalCount": 3,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 67,
+      "kind": "debug",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ShopMenuUIState::RefreshEquipStatsPanel(AbstractItem,System.Int32)",
+      "typeFullName": "ShopMenuUIState",
+      "methodName": "RefreshEquipStatsPanel",
+      "signature": "RefreshEquipStatsPanel(AbstractItem, Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": -20,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 4 处",
+        "S4 +10 所属类型持有 8 个 Text/TMP 字段",
+        "S5 +5 类名 ShopMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 4/4 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 2 个不同调用者调用",
+        "N1 -20 方法名/类名含 Debug/Log/FPS/Version/Test/Stats 等调试命名"
+      ],
+      "textSinkCalls": 4,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 2,
+      "callerSamples": [
+        "ShopMenuUIState::RefreshBuyStatsPanel",
+        "ShopMenuUIState::OnSellInventoryMenuSubmit"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 8,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 68,
+      "kind": "unknown",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void PartyMemberListUIElement::RefreshDisplay(System.Int32)",
+      "typeFullName": "PartyMemberListUIElement",
+      "methodName": "RefreshDisplay",
+      "signature": "RefreshDisplay(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 3 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S5 +5 类名 PartyMemberListUIElement 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 3/3 处来自参数/字段/调用（非硬编码）",
+        "N2 -15 2/2 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 3,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 2,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 69,
+      "kind": "debug",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void EquipmentMenuUIState::UpdateNewStats(CharacterBattleStats,CharacterBattleStats)",
+      "typeFullName": "EquipmentMenuUIState",
+      "methodName": "UpdateNewStats",
+      "signature": "UpdateNewStats(CharacterBattleStats, CharacterBattleStats)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": -20,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 EquipmentMenuUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 调用者类型含 Choice/Select/Answer 语义",
+        "N1 -20 方法名/类名含 Debug/Log/FPS/Version/Test/Stats 等调试命名"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "EquipmentMenuUIState::OnInventorySelect"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 70,
+      "kind": "unknown",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void MusicPlayerUIState::UpdateTimeDisplay()",
+      "typeFullName": "MusicPlayerUIState",
+      "methodName": "UpdateTimeDisplay",
+      "signature": "UpdateTimeDisplay()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 4 个 Text/TMP 字段",
+        "S5 +5 类名 MusicPlayerUIState 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "N2 -15 5/7 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 7,
+      "callerCount": 1,
+      "callerSamples": [
+        "MusicPlayerUIState::UpdatePlaybackProgress"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 4,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 71,
+      "kind": "debug",
+      "score": 30,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void ScenarioForge.FPSDisplay::Update()",
+      "typeFullName": "ScenarioForge.FPSDisplay",
+      "methodName": "Update",
+      "signature": "Update()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": -20,
+        "N2": -15,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 ScenarioForge",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "N1 -20 方法名/类名含 Debug/Log/FPS/Version/Test/Stats 等调试命名",
+        "N2 -15 1/1 的字面量是路径/URL/格式串/数字/标识符（非台词样）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "field",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "ScenarioForge",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "framework-internal"
+      ]
+    }
+  ],
+  "coverage": {
+    "can": [
+      "定位 `*_Data\\Managed\\Assembly-CSharp.dll`：支持多层子目录、一个安装目录内多个 Unity 程序集（启动器/多章节）并给出排名理由",
+      "识别 Unity 版本（`globalgamemanagers` 优先，`UnityPlayer.dll` 版本资源兜底）并拒绝 IL2CPP 目标",
+      "统计 `TMPro.TMP_Text::set_text` / `SetText` 与 `UnityEngine.UI.Text::set_text` 的调用指令、调用者方法与类型",
+      "用 IL 反向栈分析判定写入实参来源（常量 / 参数 / 字段 / 局部变量 / 方法调用），作为 S7 依据",
+      "已知对话框架痕迹统计：Naninovel、NodeCanvas DialogueTrees、ScenarioForge、Fungus、Yarn、Ink、PixelCrushers；以及自定义 `*Dialog*`/`*Talk*` 命名",
+      "CJK 字面量分布（含平假名/片假名/汉字），只输出计数与所在方法，不导出任何字面量内容",
+      "按 R4 规则打分并分层（A≥70 且 S1>0 / B≥50 / C≥30），输出可交人工确认的候选表与逐条证据",
+      "识别已部署补丁痕迹（BepInEx / doorstop / nvdaControllerClient）作为环境事实，不据此推断可 Hook 性"
+    ],
+    "cannot": [
+      "看不到 `set_text` 之外的文本通道：图片字、TextMesh(3D)、自绘文本、以及游戏自定义的 \"SetString\" 式非标准 API（只有方法名里带 Text/SetText 的才会被统计）",
+      "不解析 TextAsset、本地化表、字体/图集资源里的台词；只统计代码内字面量（因此文本量被低估是正常的）",
+      "静态无法判断可见性：CanvasGroup.alpha、activeInHierarchy、面板是否在当前场景，菜单/设置/存档面板的文本会被当候选",
+      "静态无法判断说话人（who）与正文的先后、打字机逐字多次 `set_text` 的去重、富文本标签清洗 —— 这些必须运行期确认",
+      "只做一层语义上游展开：Manager→Presenter→View 这类跨 2 层以上的包装器可能漏检（可通过 `--top` 放宽后人工翻查）",
+      "不分析插件 DLL（BepInEx 插件、第三方 UI 库）与 IL2CPP 目标；只测 `Assembly-CSharp.dll`",
+      "没有运行期证据：全部分数都是静态启发式，A 级候选也必须经运行期回放确认后才可生成补丁",
+      "本程序集未检出 CJK 字面量（英文游戏或文本全在资源里），S6 维度不适用，中文台词定位能力对本作无效"
+    ],
+    "runtimeConfirmations": [
+      "1. 目标游戏用 TMP 还是 uGUI.Text？两者是否同时存在（存在则需双重 Hook 并按 API 去重）",
+      "2. 打字机效果是否对同一句反复调用 set_text（需按内容+时间窗口去重）",
+      "3. 说话人（who）与正文（text）的写入先后顺序，能否在同一次 Hook 中拼出完整朗读串",
+      "4. 选项列表：按钮文本来源、顺序、禁用项（不可选）如何表达",
+      "5. 菜单/设置/存档面板：确认哪些写入点应被静音或排除",
+      "6. 可见性：CanvasGroup.alpha / activeInHierarchy / 是否能读到当前激活面板",
+      "7. 富文本清洗：`<color>`、`<size>`、`<ruby>`、`<sprite>` 等标签的剥离规则",
+      "8. 事件频率与去重窗口：每秒最多朗读次数、重复句抑制"
+    ],
+    "thresholds": {
+      "tierA": 70,
+      "tierB": 50,
+      "tierC": 30,
+      "tierARule": "total>=70 且 S1>0"
+    },
+    "dimensions": [
+      {
+        "id": "S1",
+        "name": "已知对话框架命中（含调用图上游）",
+        "points": 25,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S2",
+        "name": "方法名语义（Say/Line/Dialogue/Talk/Message/Choice/Select/ShowText）",
+        "points": 20,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S3",
+        "name": "直接调用文本 set_text",
+        "points": 20,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S4",
+        "name": "所属类型持有 Text/TMP 字段",
+        "points": 10,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S5",
+        "name": "类名含 Window/UI/Dialog/Box/Panel",
+        "points": 5,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S6",
+        "name": "方法内 CJK 字面量",
+        "points": 10,
+        "applicable": false,
+        "reason": "本程序集无 CJK 字面量，维度不适用"
+      },
+      {
+        "id": "S7",
+        "name": "数据来源非硬编码（参数/字段/调用）",
+        "points": 10,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S8",
+        "name": "调用者>1 或上游有 Choice/Select",
+        "points": 5,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "N1",
+        "name": "调试/日志/版本命名",
+        "points": -20,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "N2",
+        "name": "非台词文本特征（路径/URL/格式串/数字/标识符）",
+        "points": -15,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "N3",
+        "name": "仅被初始化期方法调用",
+        "points": -10,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "N4",
+        "name": "固定短串（长度<2）",
+        "points": -10,
+        "applicable": true,
+        "reason": ""
+      }
+    ]
+  },
+  "notes": [
+    "该游戏目录已存在补丁/注入痕迹（BepInEx, doorstop_config.ini, .doorstop_version, winhttp.dll, nvdaControllerClient.dll），只做静态只读分析，未改动任何文件",
+    "未解析程序集：0；主文本写入 API：TMPro.TMP_Text::set_text×238, TMPro.TMP_Text::SetText×4, UnityEngine.UI.Text::set_text×3"
+  ],
+  "warnings": [],
+  "errors": [],
+  "timing": {
+    "totalMs": 5830,
+    "discoveryMs": 42,
+    "candidateScanMs": 4690,
+    "fullScanMs": 836,
+    "scoringMs": 167,
+    "reportMs": 102,
+    "candidates": [
+      {
+        "dataDirName": "To the Moon - Sigmund Minisode 1_Data",
+        "ms": 2073,
+        "selected": false
+      },
+      {
+        "dataDirName": "To the Moon - Sigmund Minisode 2_Data",
+        "ms": 1387,
+        "selected": false
+      },
+      {
+        "dataDirName": "To the Moon_Data",
+        "ms": 1228,
+        "selected": false
+      }
+    ]
+  },
+  "exitCode": 0
+}

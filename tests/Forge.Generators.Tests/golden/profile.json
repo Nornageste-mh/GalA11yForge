@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "generator": "unity_mono",
+  "generatorVersion": "0.2.82.0",
+  "gameSlug": "forge-golden",
+  "gameName": "GalgameSample",
+  "title": "GalgameSample 无障碍补丁",
+  "engine": "unity_mono",
+  "namespace": "GalA11y.ForgeGolden",
+  "assemblyName": "ForgeGolden.A11y",
+  "pluginGuid": "09789c27-ba82-2a51-abdf-195685135660",
+  "pluginVersion": "0.2.82.0",
+  "frameworkFingerprint": "6df64c9ac3a3247493ed29bebdc73b4b3417579cd201d09c7c559677a9aa00b2",
+  "hooks": [
+    {
+      "id": "dialogue-set-text",
+      "kind": "hook",
+      "target": "GameNS.ADV.Dialogue::SetText",
+      "status": "speaks",
+      "file": "Hooks/Hook_dialogue_set_text.cs",
+      "confidence": 0.86
+    },
+    {
+      "id": "advance-on-click",
+      "kind": "hook",
+      "target": "GameNS.ADV.Advance::OnClick(string)",
+      "status": "skeleton_unwired",
+      "file": "Hooks/Hook_advance_on_click.cs",
+      "confidence": 0.61
+    }
+  ],
+  "skippedPatchPoints": [
+    {
+      "id": "config-volume",
+      "kind": "config",
+      "status": "not_implemented_by_generator"
+    }
+  ],
+  "manualTodo": {
+    "count": 1,
+    "blocking": 1,
+    "note": "生成器不复制人工待办的自由文本，详见 plan.json。"
+  },
+  "risks": {
+    "count": 1,
+    "blocking": 0,
+    "note": "生成器不复制风险描述的自由文本，详见 plan.json。"
+  },
+  "settings": {
+    "repeatHotkey": "=",
+    "speechBackend": "auto"
+  },
+  "verification": [
+    "启动游戏后，BepInEx 日志里应出现「已挂载」与每个钩子的命中记录；没有命中就不能算生效。",
+    "对话时应能听到朗读；日志里应出现 `[Speech] ...` 行。只出现 `[Hook:...] 命中` 而没有 `[Speech]`，说明这个目标没有可提取的文本参数。",
+    "按「=」应重读上一段文本；改键位置在 BepInEx\\config\\<GUID>.cfg 的「快捷键 → 重读」。",
+    "日志里应打印语音后端（NVDA / Tolk / 系统语音）；为空说明本机语音库不可用，按 NOTICE.md 自查。",
+    "若日志提示目标不在当前游戏程序集里，说明游戏版本与分析证据不一致，需要重新分析生成。",
+    "自动朗读只覆盖「分析证据里带字符串参数」的钩子；选项、菜单、图片与打字机中间态仍需人工或后续版本。"
+  ]
+}

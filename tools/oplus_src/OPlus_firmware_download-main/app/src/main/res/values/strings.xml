@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">OPlus Firmware</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_downloads">Downloads</string>
+    <string name="nav_info">Info</string>
+
+    <string name="download_started">Download started</string>
+    <string name="download_already_in_progress">This firmware is already being downloaded. Open the Downloads tab to track it.</string>
+    <string name="download_link_failed">Couldn\'t start download: %1$s</string>
+    <string name="save_location_permission_failed">Couldn\'t keep access to that save location. Choose another folder or file provider.</string>
+    <string name="copied_to_clipboard">%1$s copied</string>
+    <string name="detected_device">Detected device</string>
+    <string name="checking">Checking…</string>
+    <string name="check_for_firmware">Check for firmware</string>
+    <string name="couldnt_check">Couldn\'t check</string>
+    <string name="error_read_device_properties">Couldn\'t read device properties.</string>
+
+    <string name="state_selected">Selected</string>
+
+    <string name="latest_firmware">Latest firmware</string>
+    <string name="download_with_size">Download (%1$s)</string>
+    <string name="download_url">Download URL</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="copy_url_failed">Couldn\'t produce a shareable link. Try checking again.</string>
+    <string name="size">Size</string>
+    <string name="build_date">Build date</string>
+    <string name="md5">MD5</string>
+    <string name="copy_md5">Copy MD5</string>
+    <string name="url_expired_recheck">Copied link expired — copy again</string>
+    <string name="url_valid_minutes_seconds">Copied link valid for %1$dm %2$02ds</string>
+    <string name="url_valid_seconds">Copied link valid for %1$ds</string>
+    <string name="backend_newest">%1$s, newest</string>
+    <string name="backend_older">%1$s, older</string>
+    <string name="backend_label_danielspringer">danielspringer.at</string>
+    <string name="backend_label_realme_ota">realme-ota</string>
+    <string name="backend_error_no_download_packet">realme-ota returned no download packet</string>
+    <string name="backend_error_no_download_url">realme-ota returned no download URL</string>
+    <string name="backend_error_http">HTTP %1$s: %2$s</string>
+    <string name="backend_error_network">Network: %1$s</string>
+    <string name="backend_error_crypto">Crypto: %1$s</string>
+    <string name="backend_error_content">Content: %1$s</string>
+    <string name="backend_error_invalid_firmware_size">Download link returned an invalid full-package size: %1$s</string>
+    <string name="backend_error_download_link_unverified">Download link could not be verified: %1$s</string>
+    <string name="backend_error_antileech_rejected">Anti-leech gate rejected the download (code %1$s). Try again or use a network in the firmware\'s region.</string>
+    <string name="backend_error_gka_required">This build requires on-device attestation to download and can\'t be fetched off-device. Try another source.</string>
+    <string name="backend_error_model_not_in_catalog">Model not in danielspringer catalog</string>
+    <string name="backend_error_no_message">(no msg)</string>
+    <string name="backend_error_unknown">unknown</string>
+    <string name="not_run">not run</string>
+    <string name="no_firmware_found">No firmware found from any backend.</string>
+
+    <string name="no_active_downloads">No active downloads</string>
+    <string name="downloading">Downloading</string>
+    <string name="cancel">Cancel</string>
+    <string name="verifying">Verifying</string>
+    <string name="computing_md5">Computing MD5…</string>
+    <string name="download_complete_md5_verified">Download complete. MD5 verified.</string>
+    <string name="download_complete_md5_mismatch">Download complete. MD5 mismatch.</string>
+    <string name="download_complete">Download complete</string>
+    <string name="done">Done</string>
+    <string name="download_failed">Download failed</string>
+    <string name="copy_error_details">Copy error details</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="eta_hours_minutes">%1$dh %2$02dm left</string>
+    <string name="eta_minutes_seconds">%1$dm %2$02ds left</string>
+    <string name="eta_seconds">%1$ds left</string>
+
+    <string name="info_language">Language</string>
+    <string name="info_check_for_updates">Check for updates</string>
+    <string name="info_tap_to_check">Tap to check GitHub for a newer release</string>
+    <string name="info_up_to_date">Up to date</string>
+    <string name="info_new_version_short">New version available: %1$s</string>
+    <string name="info_new_version_available">New version available: %1$s</string>
+    <string name="info_check_failed">Failed to check: %1$s</string>
+    <string name="info_open_release_page">Open release page</string>
+    <string name="info_no_release_notes">No release notes provided.</string>
+    <string name="language_system">System default</string>
+    <string name="language_english">English</string>
+    <string name="language_simplified_chinese">Simplified Chinese</string>
+    <string name="language_traditional_chinese">Traditional Chinese</string>
+    <string name="info_backends">Backends</string>
+    <string name="backend_realme_ota_summary">Live OPPO update endpoint. Requires the current OTA version.</string>
+    <string name="backend_danielspringer_summary">Third-party catalog of historical OnePlus firmware.</string>
+    <string name="info_about">About</string>
+    <string name="app_version">App version</string>
+    <string name="source_code">Source code</string>
+    <string name="open_externally">Open externally</string>
+
+
+    <string name="notification_channel_downloads">Firmware downloads</string>
+    <string name="notification_channel_downloads_desc">Progress and result of firmware downloads.</string>
+    <string name="notification_firmware_download">Firmware download</string>
+    <string name="notification_idle">Idle</string>
+    <string name="notification_n_downloads">%1$d downloads in progress</string>
+    <string name="notification_some_failed">Finished with errors</string>
+    <string name="backend_label_mirror">Mirror</string>
+    <string name="backend_error_model_not_covered">This source doesn\'t carry this model</string>
+    <string name="backend_error_source_unavailable">Source unavailable right now</string>
+    <string name="backend_mirror_summary">Secondary source, mainly China-market models.</string>
+    <string name="mirror_error_not_configured">This build has no secondary source configured.</string>
+    <string name="mirror_error_no_authorized_email">Downloads from the secondary source aren\'t enabled in this build.</string>
+    <string name="mirror_error_no_ota_version">This firmware has no OTA build id, so no download can be requested.</string>
+    <string name="mirror_error_token_rejected">The secondary source refused the download request.</string>
+    <string name="mirror_error_no_link">The secondary source returned no download link.</string>
+    <string name="copy_diagnostics">Copy diagnostics</string>
+    <string name="copy_url_working">Preparing link…</string>
+</resources>

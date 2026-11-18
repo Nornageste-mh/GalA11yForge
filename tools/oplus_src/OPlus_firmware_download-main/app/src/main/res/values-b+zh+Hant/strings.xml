@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">OPlus 韌體</string>
+
+    <string name="nav_home">首頁</string>
+    <string name="nav_downloads">下載</string>
+    <string name="nav_info">資訊</string>
+
+    <string name="download_started">已開始下載</string>
+    <string name="download_already_in_progress">此韌體已在下載中。請開啟「下載」分頁查看進度。</string>
+    <string name="download_link_failed">無法開始下載：%1$s</string>
+    <string name="save_location_permission_failed">無法保留該儲存位置的存取權限。請換一個資料夾或檔案提供程式。</string>
+    <string name="copied_to_clipboard">已複製 %1$s</string>
+    <string name="detected_device">偵測到的裝置</string>
+    <string name="checking">正在檢查…</string>
+    <string name="check_for_firmware">檢查韌體</string>
+    <string name="couldnt_check">無法檢查</string>
+    <string name="error_read_device_properties">無法讀取裝置屬性。</string>
+
+    <string name="state_selected">已選擇</string>
+
+    <string name="latest_firmware">最新韌體</string>
+    <string name="download_with_size">下載（%1$s）</string>
+    <string name="download_url">下載連結</string>
+    <string name="copy_url">複製連結</string>
+    <string name="copy_url_failed">無法產生可分享的連結，請重新檢查。</string>
+    <string name="size">大小</string>
+    <string name="build_date">建置日期</string>
+    <string name="md5">MD5</string>
+    <string name="copy_md5">複製 MD5</string>
+    <string name="url_expired_recheck">複製的連結已過期，請重新複製</string>
+    <string name="url_valid_minutes_seconds">複製的連結有效期 %1$d 分 %2$02d 秒</string>
+    <string name="url_valid_seconds">複製的連結有效期 %1$d 秒</string>
+    <string name="backend_newest">%1$s，最新</string>
+    <string name="backend_older">%1$s，較舊</string>
+    <string name="backend_label_danielspringer">danielspringer.at</string>
+    <string name="backend_label_realme_ota">realme-ota</string>
+    <string name="backend_error_no_download_packet">realme-ota 未回傳下載包</string>
+    <string name="backend_error_no_download_url">realme-ota 未回傳下載連結</string>
+    <string name="backend_error_http">HTTP %1$s：%2$s</string>
+    <string name="backend_error_network">網路錯誤：%1$s</string>
+    <string name="backend_error_crypto">加解密錯誤：%1$s</string>
+    <string name="backend_error_content">內容錯誤：%1$s</string>
+    <string name="backend_error_invalid_firmware_size">下載連結返回了無效的全量包大小：%1$s</string>
+    <string name="backend_error_download_link_unverified">無法驗證下載連結：%1$s</string>
+    <string name="backend_error_antileech_rejected">防盜鏈閘道已拒絕下載（代碼 %1$s）。請稍後重試，或切換到該韌體所屬地區的網路。</string>
+    <string name="backend_error_gka_required">此版本需要裝置端認證才能下載，無法在裝置外取得。請嘗試其他來源。</string>
+    <string name="backend_error_model_not_in_catalog">danielspringer 目錄中沒有該機型</string>
+    <string name="backend_error_no_message">（無訊息）</string>
+    <string name="backend_error_unknown">未知錯誤</string>
+    <string name="not_run">未執行</string>
+    <string name="no_firmware_found">所有後端均未找到韌體。</string>
+
+    <string name="no_active_downloads">沒有進行中的下載</string>
+    <string name="downloading">正在下載</string>
+    <string name="cancel">取消</string>
+    <string name="verifying">正在驗證</string>
+    <string name="computing_md5">正在計算 MD5…</string>
+    <string name="download_complete_md5_verified">下載完成。MD5 已驗證。</string>
+    <string name="download_complete_md5_mismatch">下載完成。MD5 不相符。</string>
+    <string name="download_complete">下載完成</string>
+    <string name="done">完成</string>
+    <string name="download_failed">下載失敗</string>
+    <string name="copy_error_details">複製錯誤詳情</string>
+    <string name="dismiss">關閉</string>
+    <string name="eta_hours_minutes">剩餘 %1$d 小時 %2$02d 分</string>
+    <string name="eta_minutes_seconds">剩餘 %1$d 分 %2$02d 秒</string>
+    <string name="eta_seconds">剩餘 %1$d 秒</string>
+
+    <string name="info_language">語言</string>
+    <string name="info_check_for_updates">檢查更新</string>
+    <string name="info_tap_to_check">點按從 GitHub 檢查更新</string>
+    <string name="info_up_to_date">已是最新版本</string>
+    <string name="info_new_version_short">有新版本：%1$s</string>
+    <string name="info_new_version_available">有新版本：%1$s</string>
+    <string name="info_check_failed">檢查失敗：%1$s</string>
+    <string name="info_open_release_page">開啟發布頁</string>
+    <string name="info_no_release_notes">未提供發布說明。</string>
+    <string name="language_system">跟隨系統</string>
+    <string name="language_english">英文</string>
+    <string name="language_simplified_chinese">簡體中文</string>
+    <string name="language_traditional_chinese">繁體中文</string>
+    <string name="info_backends">後端</string>
+    <string name="backend_realme_ota_summary">OPPO 線上更新介面。需要目前 OTA 版本。</string>
+    <string name="backend_danielspringer_summary">第三方 OnePlus 歷史韌體目錄。</string>
+    <string name="info_about">關於</string>
+    <string name="app_version">應用程式版本</string>
+    <string name="source_code">原始碼</string>
+    <string name="open_externally">在外部開啟</string>
+
+
+    <string name="notification_channel_downloads">韌體下載</string>
+    <string name="notification_channel_downloads_desc">韌體下載的進度和結果。</string>
+    <string name="notification_firmware_download">韌體下載</string>
+    <string name="notification_idle">閒置</string>
+    <string name="notification_n_downloads">%1$d 個下載進行中</string>
+    <string name="notification_some_failed">完成時發生錯誤</string>
+    <string name="backend_label_mirror">Mirror</string>
+    <string name="backend_error_model_not_covered">該來源不收錄此機型</string>
+    <string name="backend_error_source_unavailable">來源暫時無法使用</string>
+    <string name="backend_mirror_summary">備用來源，以中國版機型為主。</string>
+    <string name="mirror_error_not_configured">此版本未設定備用來源。</string>
+    <string name="mirror_error_no_authorized_email">此版本未啟用備用來源的下載。</string>
+    <string name="mirror_error_no_ota_version">此韌體沒有 OTA 版本號，無法要求下載。</string>
+    <string name="mirror_error_token_rejected">備用來源拒絕了下載要求。</string>
+    <string name="mirror_error_no_link">備用來源沒有回傳下載連結。</string>
+    <string name="copy_diagnostics">複製診斷資訊</string>
+    <string name="copy_url_working">正在取得連結…</string>
+</resources>

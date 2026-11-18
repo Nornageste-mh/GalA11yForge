@@ -1,0 +1,70 @@
+{
+  "schema": "gala11y.renpy.deploy_plan/1",
+  "game_root": "D:\\Steam\\steamapps\\common\\mei",
+  "guard": "steamapps 目录只读：生成器拒绝 --apply；请复制到临时目录后部署",
+  "conflict_overlay": false,
+  "steps": [
+    {
+      "op": "mkdir",
+      "path": "game/a11y_platform"
+    },
+    {
+      "op": "copy",
+      "source": "game/a11y_platform/00_contract.rpy",
+      "target": "game/a11y_platform/00_contract.rpy",
+      "sha256": "961a35b46287b31f1f581e8bb05b5ddebe3e99da46b9d6e804e1ec361f9e0c8a"
+    },
+    {
+      "op": "copy",
+      "source": "game/a11y_platform/01_speech.rpy",
+      "target": "game/a11y_platform/01_speech.rpy",
+      "sha256": "00da2f80b6ab320e6508b8523b958c1b3e3c73c80324c639ff254a04616b577a"
+    },
+    {
+      "op": "copy",
+      "source": "game/a11y_platform/02_dialogue.rpy",
+      "target": "game/a11y_platform/02_dialogue.rpy",
+      "sha256": "c389711969c0ff4c11b2aeb8c32a78892eb7c62ccadb4e1ba4f5056555b776a8"
+    },
+    {
+      "op": "copy",
+      "source": "game/a11y_platform/03_menu.rpy",
+      "target": "game/a11y_platform/03_menu.rpy",
+      "sha256": "4e183ad162abdfa618a7643d1d32b5408a31ddac58f963eff7981789775e326c"
+    },
+    {
+      "op": "copy",
+      "source": "game/a11y_platform/04_focus.rpy",
+      "target": "game/a11y_platform/04_focus.rpy",
+      "sha256": "d23160ce00a7b2de144078d8cf168501ed2426faf7ec4ff5e41664234d25a973"
+    },
+    {
+      "op": "copy",
+      "source": "game/a11y_platform/05_keys.rpy",
+      "target": "game/a11y_platform/05_keys.rpy",
+      "sha256": "9d8ffa3ef5f332dfd2f70854157250cf8eea13cc4663ee4a8f0e1bd7518671bc"
+    },
+    {
+      "op": "copy",
+      "source": "a11y_say.vbs",
+      "target": "a11y_say.vbs",
+      "sha256": "e03893ae675b8e39725b19a19b5ba7c088764790563942835b780ec37792663c"
+    },
+    {
+      "op": "copy",
+      "source": "README-A11Y.txt",
+      "target": "README-A11Y.txt",
+      "sha256": "43eaa3682c1716334c559728b7b20bbb7077072a43be7db23388ccc46e58a4a4"
+    },
+    {
+      "op": "copy",
+      "source": "uninstall.ps1",
+      "target": "uninstall.ps1",
+      "sha256": "be25787816b83cf48986f53df8adb33df4fa2386fdae3921165ff1504950ef48"
+    }
+  ],
+  "verify": [
+    "静态 lint: python lint_overlay.py <out>",
+    "启动证据: python check_boot.py --game <游戏根>"
+  ]
+}

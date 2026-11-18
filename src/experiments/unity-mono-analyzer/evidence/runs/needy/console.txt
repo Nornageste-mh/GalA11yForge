@@ -1,0 +1,21 @@
+=== Unity Mono 文本钩子静态分析 ===
+游戏      NEEDY GIRL OVERDOSE
+数据目录  Windose_Data
+启动入口  Windose.exe  （与数据目录 Windose_Data 同名）
+Unity     2022.3.22f1  （globalgamemanagers）
+程序集    Assembly-CSharp.dll  2540.5 KB  ·  2508 类型 / 10,962 方法 / 17,773 ldstr
+文本写入  562 处 / 223 个方法  （TMPro.TMP_Text::set_text×402、UnityEngine.UI.Text::set_text×160）
+框架痕迹  自定义 *Dialog*/*Talk* 命名（71 类型）
+候选      A 6 / B 22 / C 162   共打分 223 条，入选 190 条
+
+Top 候选：
+  #1  A     85  dialogue  high   System.Void ngov3.sayonalastDialog::OnLanguageChanged()  [i18n-refresh,multi-write]
+  #2  A     75  dialogue  medium System.Void ngov3.HakkyoDialog::OnLanguageChanged()  [i18n-refresh,multi-write]
+  #3  A     75  dialogue  medium System.Void ngov3.RebootDialog::OnLanguageChanged()  [system-ui,i18n-refresh,multi-write]
+  #4  A     75  dialogue  medium System.Void ngov3.ShutDownDialog::OnLanguageChanged()  [system-ui,i18n-refresh,multi-write]
+  #5  A     75  dialogue  medium System.Void ngov3.TimePassDialog::OnLanguageChanged()  [system-ui,i18n-refresh,multi-write]
+
+报告  D:\DSHWorkSpace\src\experiments\unity-mono-analyzer\evidence\runs\needy\REPORT.md
+JSON  D:\DSHWorkSpace\src\experiments\unity-mono-analyzer\evidence\runs\needy\analysis.json
+耗时  5699 ms（发现 38 / 候选扫描 3230 / 全量扫描 2227 / 打分 57 / 落盘 67）
+退出码  0

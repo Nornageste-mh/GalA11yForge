@@ -1,0 +1,8 @@
+/nologo
+/DLL
+/MACHINE:X86
+/Brepro
+/DEF:"D:\DSHWorkSpace\src\experiments\kkz-adapter\src\kkz_adapter.def"
+/MAP:"D:\DSHWorkSpace\src\experiments\kkz-adapter\build\kkz-adapter.map"
+/OUT:"D:\DSHWorkSpace\src\experiments\kkz-adapter\build\kkz-adapter.dll"
+"D:\DSHWorkSpace\src\experiments\kkz-adapter\build\kkz_adapter.obj"

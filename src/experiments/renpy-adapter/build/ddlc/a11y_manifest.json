@@ -1,0 +1,70 @@
+{
+  "schema": "gala11y.renpy.overlay/1",
+  "generator": "renpy-a11y-gen",
+  "generator_version": "0.2.0.1",
+  "patch_version": "0.2.0.1",
+  "created_at": "2026-11-14T17:09:43",
+  "game": {
+    "root": "D:\\Steam\\steamapps\\common\\Doki Doki Literature Club",
+    "name": "Doki Doki Literature Club",
+    "engine": "6.99.12.4",
+    "python_major": 2,
+    "is_steam": true
+  },
+  "files": [
+    {
+      "path": "game/a11y_platform/00_contract.rpy",
+      "role": "platform",
+      "bytes": 10287,
+      "sha256": "c32017eb1e2648ed6de8ca2da59249c323dae5a7269ebbb53ce9178b6455a09d"
+    },
+    {
+      "path": "game/a11y_platform/01_speech.rpy",
+      "role": "platform",
+      "bytes": 10881,
+      "sha256": "00da2f80b6ab320e6508b8523b958c1b3e3c73c80324c639ff254a04616b577a"
+    },
+    {
+      "path": "game/a11y_platform/02_dialogue.rpy",
+      "role": "platform",
+      "bytes": 6105,
+      "sha256": "c389711969c0ff4c11b2aeb8c32a78892eb7c62ccadb4e1ba4f5056555b776a8"
+    },
+    {
+      "path": "game/a11y_platform/03_menu.rpy",
+      "role": "platform",
+      "bytes": 5143,
+      "sha256": "4e183ad162abdfa618a7643d1d32b5408a31ddac58f963eff7981789775e326c"
+    },
+    {
+      "path": "game/a11y_platform/04_focus.rpy",
+      "role": "platform",
+      "bytes": 4620,
+      "sha256": "d23160ce00a7b2de144078d8cf168501ed2426faf7ec4ff5e41664234d25a973"
+    },
+    {
+      "path": "game/a11y_platform/05_keys.rpy",
+      "role": "platform",
+      "bytes": 5758,
+      "sha256": "9d8ffa3ef5f332dfd2f70854157250cf8eea13cc4663ee4a8f0e1bd7518671bc"
+    },
+    {
+      "path": "a11y_say.vbs",
+      "role": "root",
+      "bytes": 1042,
+      "sha256": "e03893ae675b8e39725b19a19b5ba7c088764790563942835b780ec37792663c"
+    },
+    {
+      "path": "README-A11Y.txt",
+      "role": "root",
+      "bytes": 2511,
+      "sha256": "bef8f685e57902a2cb612c2d7e15b4de564ff055a7f616e73f7443e5ef21ef2d"
+    },
+    {
+      "path": "uninstall.ps1",
+      "role": "root",
+      "bytes": 2443,
+      "sha256": "be25787816b83cf48986f53df8adb33df4fa2386fdae3921165ff1504950ef48"
+    }
+  ]
+}

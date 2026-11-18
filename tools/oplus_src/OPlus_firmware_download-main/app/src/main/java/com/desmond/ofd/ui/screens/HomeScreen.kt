@@ -1,0 +1,286 @@
+package com.desmond.ofd.ui.screens
+
+import android.Manifest
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Refresh
+import androidx.compose.material3.Button
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.desmond.ofd.R
+import com.desmond.ofd.diag.render
+import com.desmond.ofd.device.DeviceProps
+import com.desmond.ofd.device.DeviceSnapshot
+import kotlinx.coroutines.launch
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HomeScreen(modifier: Modifier = Modifier) {
+    val ctx = LocalContext.current
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    val downloadStartedMessage = stringResource(R.string.download_started)
+    val downloadInProgressMessage = stringResource(R.string.download_already_in_progress)
+    val savePermissionFailedMessage = stringResource(R.string.save_location_permission_failed)
+    val copiedMessagePattern = stringResource(R.string.copied_to_clipboard, "%s")
+    val downloadLinkFailedPattern = stringResource(R.string.download_link_failed, "%s")
+    val copyUrlFailedMessage = stringResource(R.string.copy_url_failed)
+
+    val vm: HomeViewModel = viewModel(factory = HomeViewModel.Factory)
+    val state by vm.state.collectAsStateWithLifecycle()
+
+    val snapshot = remember { DeviceProps.snapshot() }
+
+    val savePicker = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartActivityForResult(),
+    ) { result ->
+        val pendingDownload = vm.pendingDownload
+        vm.pendingDownload = null
+        if (pendingDownload == null || result.resultCode != Activity.RESULT_OK) {
+            return@rememberLauncherForActivityResult
+        }
+        val uri = result.data?.data ?: return@rememberLauncherForActivityResult
+        val grantFlags = result.data?.flags ?: 0
+        if (!persistAndVerifySaveUri(ctx, uri, grantFlags)) {
+            scope.launch { snackbarHostState.showSnackbar(savePermissionFailedMessage) }
+            return@rememberLauncherForActivityResult
+        }
+        scope.launch {
+            val message = when (val res = vm.startDownload(
+                uri, pendingDownload.outcome, pendingDownload.displayName, pendingDownload.check,
+            )) {
+                is DownloadStart.Started -> downloadStartedMessage
+                DownloadStart.AlreadyRunning -> downloadInProgressMessage
+                is DownloadStart.Failed -> downloadLinkFailedPattern.format(res.reason)
+            }
+            snackbarHostState.showSnackbar(message)
+        }
+    }
+
+    // POST_NOTIFICATIONS is needed for the FGS notification on Android 13+. We ask only
+    // when the user kicks off their first download — Google's recommended just-in-time
+    // pattern, not the cold-start prompt.
+    val notificationPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { _ ->
+        // Regardless of grant, proceed to the SAF picker — the download itself doesn't
+        // require notification permission, the user just won't see a system notification.
+        vm.pendingDownload?.let { savePicker.launch(createFirmwareDocumentIntent(it.displayName)) }
+    }
+
+    fun launchDownloadFlow(intent: PendingDownload) {
+        if (vm.pendingDownload != null) return
+        vm.pendingDownload = intent
+        // minSdk = 33; POST_NOTIFICATIONS is always required.
+        val granted = ContextCompat.checkSelfPermission(
+            ctx, Manifest.permission.POST_NOTIFICATIONS,
+        ) == PackageManager.PERMISSION_GRANTED
+        if (granted) {
+            savePicker.launch(createFirmwareDocumentIntent(intent.displayName))
+        } else {
+            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
+    }
+
+    Scaffold(
+        modifier = modifier,
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = { Text(stringResource(R.string.app_name)) },
+                scrollBehavior = scrollBehavior,
+            )
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .padding(horizontal = 16.dp, vertical = 12.dp)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.Top,
+        ) {
+            DetectedDeviceCard(
+                snapshot = snapshot,
+                isLoading = state is HomeUiState.Loading,
+                onCheckClick = { vm.checkAuto() },
+            )
+
+            when (val s = state) {
+                HomeUiState.Idle, HomeUiState.Loading -> Unit
+                is HomeUiState.Result -> {
+                    Spacer(Modifier.height(16.dp))
+                    ResultCard(
+                        state = s,
+                        onDownloadClick = {
+                            val winner = s.winnerOutcome ?: return@ResultCard
+                            val name = suggestedFilename(s.marketingName, winner.versionName)
+                            launchDownloadFlow(PendingDownload(winner, name, vm.checkDiagnostics(s)))
+                        },
+                        onCopied = { label ->
+                            scope.launch {
+                                snackbarHostState.showSnackbar(
+                                    copiedMessagePattern.format(label),
+                                )
+                            }
+                        },
+                        onCopyUrl = { s.winnerOutcome?.let { winner -> vm.resolveShareableUrl(winner) } },
+                        onCopyFailed = {
+                            scope.launch { snackbarHostState.showSnackbar(copyUrlFailedMessage) }
+                        },
+                        diagnosticsText = { vm.checkDiagnostics(s).render() },
+                    )
+                }
+                is HomeUiState.Error -> {
+                    Spacer(Modifier.height(16.dp))
+                    ErrorCard(s.message)
+                }
+            }
+
+        }
+    }
+}
+
+private fun suggestedFilename(marketingName: String, versionName: String): String {
+    val core = versionName.substringBefore('(').trim('_')
+    val safe = "${marketingName}_$core".replace(Regex("[^A-Za-z0-9._-]"), "_")
+    return "$safe.zip"
+}
+
+private fun createFirmwareDocumentIntent(displayName: String): Intent =
+    Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+        addCategory(Intent.CATEGORY_OPENABLE)
+        type = "application/zip"
+        putExtra(Intent.EXTRA_TITLE, displayName)
+        addFlags(
+            Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
+                Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION,
+        )
+    }
+
+private fun persistAndVerifySaveUri(context: Context, uri: Uri, resultFlags: Int): Boolean {
+    val requiredFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION or
+        Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+    val takeFlags = resultFlags and requiredFlags
+    if (takeFlags != requiredFlags) return false
+
+    val resolver = context.applicationContext.contentResolver
+    return runCatching {
+        resolver.takePersistableUriPermission(uri, takeFlags)
+        resolver.openFileDescriptor(uri, "rw")?.use { } ?: error("No file descriptor")
+    }.isSuccess
+}
+
+@Composable
+private fun DetectedDeviceCard(
+    snapshot: DeviceSnapshot,
+    isLoading: Boolean,
+    onCheckClick: () -> Unit,
+) {
+    val productName = Build.PRODUCT
+    val marketingName = snapshot.marketName
+        ?: "${Build.MANUFACTURER.replaceFirstChar { it.uppercase() }} ${Build.MODEL}"
+
+    ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.detected_device),
+                style = MaterialTheme.typography.labelLarge.copy(lineHeight = 22.sp),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(6.dp))
+            Text(
+                text = marketingName,
+                style = MaterialTheme.typography.titleLarge.copy(lineHeight = 32.sp),
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                text = "$productName  •  Android ${Build.VERSION.RELEASE}  •  SDK ${Build.VERSION.SDK_INT}  •  ${snapshot.region.label}",
+                style = MaterialTheme.typography.bodyMedium.copy(lineHeight = 22.sp),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+
+            Spacer(Modifier.height(16.dp))
+            Button(
+                onClick = onCheckClick,
+                enabled = !isLoading,
+                modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp),
+            ) {
+                if (isLoading) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(20.dp),
+                        strokeWidth = 2.dp,
+                        color = MaterialTheme.colorScheme.onPrimary,
+                    )
+                    Spacer(Modifier.width(10.dp))
+                    Text(stringResource(R.string.checking))
+                } else {
+                    Icon(Icons.Outlined.Refresh, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(R.string.check_for_firmware))
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ErrorCard(message: String) {
+    ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.couldnt_check),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.error,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = message,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}

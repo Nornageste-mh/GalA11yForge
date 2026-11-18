@@ -1,0 +1,22 @@
+=== Unity Mono 文本钩子静态分析 ===
+游戏      我与你共度的七日
+数据目录  The seven days i spent with you_Data
+启动入口  The seven days i spent with you.exe  （与数据目录 The seven days i spent with you_Data 同名）
+Unity     2021.3.31f1  （globalgamemanagers）
+程序集    Assembly-CSharp.dll  205.5 KB  ·  325 类型 / 1,602 方法 / 373 ldstr
+文本写入  26 处 / 17 个方法  （TMPro.TMP_Text::set_text×20、UnityEngine.UI.Text::set_text×6）
+框架痕迹  NodeCanvas DialogueTrees（20 类型）、自定义 *Dialog*/*Talk* 命名（8 类型）
+候选      A 3 / B 2 / C 10   共打分 18 条，入选 15 条
+上游候选  1 个（语义命名的包装方法）
+
+Top 候选：
+  #1  A     90  choice    high   System.Void NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI::OnMultipleChoiceRequest(NodeCanvas.DialogueTrees.MultipleChoiceRequestInfo)  [sample-code,framework-internal]
+  #2  A     85  dialogue  high   System.String[] SpeecController::GetStringLine(System.String)
+  #3  A     75  dialogue  medium System.Void GameProject.YesNoDialogue::ShowYesNo(System.String,System.Action,System.Action)  [system-ui]
+  #4  B     60  unknown   low    System.Void NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI::OnSubtitlesRequest(NodeCanvas.DialogueTrees.SubtitlesRequestInfo)  [system-ui,sample-code,framework-internal,upstream-only]
+  #5  B     55  dialogue  low    System.Boolean NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI/<Internal_OnSubtitlesRequestInfo>d__76::MoveNext()  [system-ui,sample-code,framework-internal]
+
+报告  D:\DSHWorkSpace\src\experiments\unity-mono-analyzer\evidence\runs\seven-days\REPORT.md
+JSON  D:\DSHWorkSpace\src\experiments\unity-mono-analyzer\evidence\runs\seven-days\analysis.json
+耗时  1856 ms（发现 45 / 候选扫描 1368 / 全量扫描 195 / 打分 64 / 落盘 91）
+退出码  0

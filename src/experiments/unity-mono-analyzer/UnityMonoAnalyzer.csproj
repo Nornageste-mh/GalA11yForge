@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>UnityMonoAnalyzer</AssemblyName>
+    <RootNamespace>UnityMonoAnalyzer</RootNamespace>
+    <LangVersion>12</LangVersion>
+    <!-- 独立原型：只编译 src/ 下的源码，避免把 tests/ 与 bin/obj 吞进来 -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="src/**/*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mono.Cecil" Version="0.11.6" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+=== Unity Mono 文本钩子静态分析 ===
+游戏      GalMaster
+数据目录  GAL PRO MASTER_Data
+启动入口  GAL PRO MASTER.exe  （与数据目录 GAL PRO MASTER_Data 同名）
+Unity     2022.3.62f3  （globalgamemanagers）
+程序集    Assembly-CSharp.dll  358 KB  ·  235 类型 / 2,108 方法 / 709 ldstr
+文本写入  31 处 / 15 个方法  （TMPro.TMP_Text::set_text×30、UnityEngine.UI.Text::set_text×1）
+框架痕迹  自定义 *Dialog*/*Talk* 命名（77 类型）
+候选      A 4 / B 6 / C 6   共打分 19 条，入选 16 条
+上游候选  4 个（语义命名的包装方法）
+
+Top 候选：
+  #1  A    105  dialogue  high   System.Void DialogueHandle::ShowDialogue(System.Int32,System.Boolean)
+  #2  A     90  dialogue  high   System.Void DialogueHandle::ClearDialogueTextState()  [multi-write]
+  #3  A     75  unknown   medium System.Void DialogueHandle::JumpToDialogueIndex(System.Int32,System.Boolean)  [upstream-only]
+  #4  A     70  dialogue  medium System.Void DialogueHandle::SwitchCharacterInfo()  [multi-write]
+  #5  B     65  choice    medium System.Void SelectionAction::Open(System.Collections.Generic.List`1<System.String>,System.Int32)
+
+报告  D:\DSHWorkSpace\src\experiments\unity-mono-analyzer\evidence\runs\galmaster\REPORT.md
+JSON  D:\DSHWorkSpace\src\experiments\unity-mono-analyzer\evidence\runs\galmaster\analysis.json
+耗时  1385 ms（发现 31 / 候选扫描 709 / 全量扫描 476 / 打分 57 / 落盘 55）
+退出码  0

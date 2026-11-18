@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GalA11yForge.Gui.Core</RootNamespace>
+    <AssemblyName>Forge.Gui.Core</AssemblyName>
+    <IsPackable>false</IsPackable>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <!--
+    刻意不引用 Forge.Cli / Forge.Core：
+    1) GUI 只通过 forge.exe 的 JSON 信封与 CLI 交互，契约就是命令行，避免 UI 与内部类型耦合；
+    2) 本程序集是纯 net8.0（无 Windows 依赖），可以直接跑单元测试。
+    修改 CLI 参数或信封字段时，同步改 ForgeArgumentBuilder / ForgeEnvelope 并跑 tests/Forge.Gui.Tests。
+  -->
+
+</Project>

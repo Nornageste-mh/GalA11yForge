@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>ForgeProbeBe6</AssemblyName>
+    <RootNamespace>ForgeProbe.Be6</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>D:\Steam\steamapps\common\NEEDY GIRL OVERDOSE\Windose_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx.Core">
+      <HintPath>$(MSBuildThisFileDirectory)..\..\..\..\..\research\26-loader-compat\work\loaders\BE6-mono-pre2\BepInEx\core\BepInEx.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx.Unity.Mono">
+      <HintPath>$(MSBuildThisFileDirectory)..\..\..\..\..\research\26-loader-compat\work\loaders\BE6-mono-pre2\BepInEx\core\BepInEx.Unity.Mono.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- BaseUnityPlugin : MonoBehaviour，编译期需要 UnityEngine.CoreModule -->
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>D:\Steam\steamapps\common\NEEDY GIRL OVERDOSE\Windose_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,84 @@
+namespace GalA11yForge.Generators.Templates;
+
+/// <summary>安装说明：全部手动步骤，强调备份与「不写游戏目录」。</summary>
+internal static class InstallGuideTemplate
+{
+    internal const string Text = """
+# 安装说明 — {{DISPLAY}}
+
+适用：Unity Mono 游戏 + BepInEx 5.4.x（x64）。本工程不附带 BepInEx，也不修改游戏本体文件。
+
+## 0. 先备份
+
+1. 确认游戏能正常启动、能正常玩。
+2. 如果游戏目录里已经有 `BepInEx` 文件夹，先把整个 `BepInEx\plugins` 复制一份到别处。
+3. 记下游戏版本（Steam 库右键 → 属性 → 已安装文件），出问题时方便回退。
+
+## 1. 安装 BepInEx 5（只需一次）
+
+1. 从 BepInEx 官方发布页下载 **5.4.x x64** 版本（不要用 BepInEx 6）。
+2. 解压到游戏根目录，使 `BepInEx\core\BepInEx.dll` 与 `winhttp.dll` 等文件就位。
+3. 启动一次游戏再退出，让 BepInEx 生成 `BepInEx\config` 与 `BepInEx\plugins`。
+
+> 本补丁不下载、不捆绑 BepInEx；请自行从官方渠道获取并遵守其 MIT 许可。
+
+## 2. 构建插件
+
+需要 .NET SDK 8。在补丁工程目录执行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build.ps1
+```
+
+成功后会得到：`bin\Release\{{ASSEMBLY}}.dll`。
+失败时把报错原文发给补丁作者；不要自己改生成出来的代码。
+
+## 3. 复制插件
+
+1. 在游戏目录下新建：`BepInEx\plugins\{{ASSEMBLY}}\`
+2. 把 `bin\Release\{{ASSEMBLY}}.dll` 复制进去。
+3. 目录结构应类似：
+
+```
+游戏目录\
+  BepInEx\
+    core\BepInEx.dll
+    plugins\{{ASSEMBLY}}\{{ASSEMBLY}}.dll
+```
+
+## 4. 首次启动与检查
+
+1. 启动游戏。BepInEx 控制台（或 `BepInEx\LogOutput.log`）里应出现：
+   - `语音后端：...`
+   - `[Hook] 已挂载 ...`（每个已解析成功的钩子一行）
+2. 出现 `目标不在当前游戏程序集里，已跳过` 是**警告**：说明游戏版本与分析版本不一致，
+   插件不会崩，但对应朗读不会生效。
+3. 按 `=` 键应重读上一段文本。
+
+## 5. 配置
+
+配置文件：`BepInEx\config\{{GUID}}.cfg`。常用项：
+
+| 配置 | 默认 | 说明 |
+|---|---|---|
+| 语音 → 后端 | auto | auto / nvda / sapi / zdsr；缺少 NVDA/Tolk 时自动退回系统语音 |
+| 朗读 → 只读可见文本 | true | 只念当前可见文本 |
+| 朗读 → 按位置排序 | false | 同屏多段文本按屏幕位置排序 |
+| 朗读 → 排除节点名 | 空 | 逗号分隔，命中就不念 |
+| 快捷键 → 重读 | = | 重读键 |
+| 诊断 → 详细日志 | false | 排查问题时设为 true |
+
+## 6. 排错
+
+- **游戏起不来**：先删掉 `BepInEx\plugins\{{ASSEMBLY}}` 整个目录，确认游戏恢复；再把日志发给作者。
+- **没有任何 Hook 日志**：确认 BepInEx 版本是 5.x、dll 放在 `plugins` 子目录、游戏是 Mono 后端。
+- **没有声音**：确认屏幕阅读器/系统语音可用；日志里「语音后端」应显示实际后端名。
+- **杀毒软件报警**：BepInEx 的注入方式容易被误报；本补丁本身不含可执行文件。
+
+## 7. 边界说明
+
+- 本插件只新增 BepInEx 插件文件；不改 `data.xp3`/`Assembly-CSharp.dll` 等游戏文件。
+- 换游戏版本后需要重新分析并重新生成，不要复用旧 dll。
+- 不要把本插件和游戏本体一起分发。
+""";
+}

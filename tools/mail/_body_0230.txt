@@ -1,0 +1,22 @@
+你好，
+
+GalA11y Forge 0.2.3.0 已发布（发布目录：D:\DSHWorkSpace\releases\v0.2.3\）。
+
+本版完成的事：
+1) IL2CPP 构建/安装/回滚打通（BepInEx 6 + Il2CppInterop）。真机《硅心》副本连续 19 行台词命中；回滚后 GameAssembly.dll、SiliconHeart.exe、global-metadata.dat 哈希不变，interop 保留。
+2) Mono 基线假失败修复：安装前基线不再把 BepInEx 运行期文件（interop/cache/patchers/日志）算进去，重装不再误报“文件被改”。
+3) GUI 真实读屏做了一轮 loopback 录音验证：按键触发时只有 NVDA 会话出声，6 段语音与 6 个按键一一对应；朗读查看器记录到控件名和动态状态。仍属“部分验证”，没做您本人的人耳验收。
+4) KiriKiri 研究结论：1.4.0.8 的 plugin/*.tpm 自动加载可用；SenrenBanka 1.2.0.3 实测不通（4 次启动全无 marker）。所以本版不提供 KKZ 自动安装，只识别 + 人工待办；替代路线（DLL 代理）已在《千恋》上验证可加载并可调 TJS，最小朗读闭环还在实验。
+
+测试：607 通过 0 失败（10 个测试项目）。发布包三个主文件校验和：
+- app/forge.exe  4EE630A8FFD91812B871379B78B92A83311DB5C5F184DA8623342CB944A02595
+- app/Fingerprints/engine-fingerprints.json  0E1D5C46ACB5077B3D480FDF91A3DD067C7B8F82CCC548EE79431B7694CCD403
+- gui/Forge.Gui.exe  9F95EF15E0179C3B6B21EFED58CE45B1122EB402ECC1D66F52AB640D65F568AA
+
+仍未验证（报告里都如实写了）：您实际听见、长文本连续朗读、多款游戏泛化、日文语音/OCR、KKZ 一键化、Steam 完整性风险。
+
+下一步：KKZ 最小朗读闭环收口后决定是否做实验性 KKZ 适配器；然后 GUI 人工验收清单演练、Ghidra native_api 补齐、打回预案 12 类场景演练。
+
+我继续按每 20 分钟查邮箱；您不需要操作。
+
+——GalA11y Forge AI Lead

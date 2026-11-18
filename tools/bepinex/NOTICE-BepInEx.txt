@@ -1,0 +1,37 @@
+# 第三方组件声明（BepInEx 5 离线包）
+
+本目录下的 `BepInEx_win_x64_5.4.23.5.zip` 是 **BepInEx 5.4.23.5（Windows x64）官方发行包的原样副本**，未做任何修改。
+
+- 文件：`BepInEx_win_x64_5.4.23.5.zip`
+- SHA-256：`82F9878551030F54657792C0740D9D51A09500EEAE1FBA21106B0C441E6732C4`
+- 来源：https://github.com/BepInEx/BepInEx/releases/tag/v5.4.23.5
+- 包内附带许可证文本：同目录 `LICENSE-LGPL-2.1.txt`
+
+包内实际包含的第三方组件（依官方 zip 清单）：
+
+| 组件 | 许可证（以官方仓库为准） | 源码地址 |
+|---|---|---|
+| BepInEx 5.4.23.5 | LGPL-2.1 | https://github.com/BepInEx/BepInEx |
+| Harmony / 0Harmony / 0Harmony20（Harmony 2） | MIT | https://github.com/pardeike/Harmony |
+| Mono.Cecil / Mono.Cecil.Mdb / .Pdb / .Rocks | MIT | https://github.com/jbevain/cecil |
+| MonoMod.Utils / MonoMod.RuntimeDetour | MIT（以官方仓库为准） | https://github.com/MonoMod/MonoMod |
+| HarmonyXInterop | MIT（随 HarmonyX 发布） | https://github.com/BepInEx/HarmonyX |
+| UnityDoorstop（winhttp.dll） | 见官方仓库（本仓库不单独声明） | https://github.com/NeighTools/UnityDoorstop |
+
+> 说明：各组件许可证以对应官方仓库当前发布为准；我们未修改、未重新签名这些二进制，也未在本项目中内联其源码。
+> 若某个条目的许可证标签与上游不一致，请以上游仓库的 LICENSE 文件为准，并可通过 GitHub issue 告知我们更正。
+
+## 为什么随包分发
+
+GalA11y Forge 的 `build` / `install` 命令需要一份 BepInEx 5.4.23.5 离线包来准备构建依赖和安装运行时。
+随包分发（未修改、附许可证与源码地址）可以让用户不用自己找包；程序在解包前会用上面的 SHA-256 校验，不匹配即拒绝使用。
+
+如果你不希望使用这个随包副本，可以：
+- 删除本目录，改用 `--bepinex <自己下载的 zip>` 指定；或
+- 把官方 zip 放到工作区缓存目录，程序会自动搜索。
+
+## 我们的义务与边界
+
+- 我们不修改、不重新签名这些第三方二进制；
+- 我们不把游戏原始资源、台词、图片、音频打进任何发布物；
+- 不随包分发 GPL/闭源不可再分发的工具（例如 Textractor、LunaTranslator、eSpeak NG、争渡 DLL 等）。

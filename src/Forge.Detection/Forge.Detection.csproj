@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GalA11yForge.Detection</RootNamespace>
+    <AssemblyName>Forge.Detection</AssemblyName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Forge.Core\Forge.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      指纹库同时以两种方式随包：嵌入程序集（离线可用、不怕被误删）与复制到输出目录
+      （便于 CLI 打印、人工核对、以及将来换库时不重新编译）。
+    -->
+    <EmbeddedResource Include="Fingerprints\engine-fingerprints.json"
+                      LogicalName="GalA11yForge.Detection.Fingerprints.engine-fingerprints.json" />
+    <None Update="Fingerprints\engine-fingerprints.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

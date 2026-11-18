@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "generator": "unity_mono",
+  "generatorVersion": "0.2.82.0",
+  "frameworkFingerprint": "6df64c9ac3a3247493ed29bebdc73b4b3417579cd201d09c7c559677a9aa00b2",
+  "gameSlug": "forge-golden",
+  "namespace": "GalA11y.ForgeGolden",
+  "pluginGuid": "09789c27-ba82-2a51-abdf-195685135660",
+  "pluginVersion": "0.2.82.0",
+  "engine": "unity_mono",
+  "files": [
+    {
+      "path": "ForgeGolden.A11y.csproj",
+      "sha256": "d7f4c8161ee3e5b7b76b237bc26a3ddb22b56b51027ca6416482317d19f9c05f",
+      "kind": "project"
+    },
+    {
+      "path": "Hooks/Hook_advance_on_click.cs",
+      "sha256": "f907b96a7ab4c85d01891e95539b87d04c16a8d656991f5b2c636151b51308ec",
+      "kind": "source"
+    },
+    {
+      "path": "Hooks/Hook_dialogue_set_text.cs",
+      "sha256": "a5e869e5ed4b3cfd59b676a592618110eef8da74f8e3ab87b7252f24aeff0270",
+      "kind": "source"
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "3104ebc4c0f6db48506809a9ffdcac9d1cd7490c7cc35fddf83413bdc54383d7",
+      "kind": "documentation"
+    },
+    {
+      "path": "Platform/A11yHost.cs",
+      "sha256": "4b999eefbca029581dfbf0e8752cbf48f540e71cad2075ead30ef25f4a16e8b7",
+      "kind": "source"
+    },
+    {
+      "path": "Platform/Speech.cs",
+      "sha256": "5311021f3929949e986a83d5ed6a8afc5a835badc57dd9036ec5afcc56e2221e",
+      "kind": "source"
+    },
+    {
+      "path": "Platform/SpeechGate.cs",
+      "sha256": "e33c0e2c2e4874effd16d1157524f8e280b8b038accc087a13fdf12c4df67468",
+      "kind": "source"
+    },
+    {
+      "path": "Plugin.cs",
+      "sha256": "0865c6c34cd47df0100f673bb6067e16fb1b25eae698149d03fbef74b98dbc97",
+      "kind": "source"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f035d8d836b08cc29efa9802795e3a138df54886f4282446aa99aaceb3107e22",
+      "kind": "documentation"
+    },
+    {
+      "path": "build.ps1",
+      "sha256": "be5e924e885f801ddd1ee0a762d7e021297e0264340c02d1ea8dd445bfcb71c9",
+      "kind": "script"
+    },
+    {
+      "path": "profile.json",
+      "sha256": "5afca4f5db138372f3322b54f4041d8cd49bfc3d12cbb2ffb2a0fb550d9c87e9",
+      "kind": "config"
+    },
+    {
+      "path": "卸载说明.md",
+      "sha256": "c2fb1b54892f3623decde71b7c958cf37db96766236f950baac708c97f639422",
+      "kind": "documentation"
+    },
+    {
+      "path": "安装说明.md",
+      "sha256": "8da5f092bf5c4c0e8de192ff778cf8fa3a9fad6167782589b1c8c7fa37e542b3",
+      "kind": "documentation"
+    }
+  ],
+  "sources": [
+    {
+      "id": "stub/contract/A11yHost.cs",
+      "sha256": "e078f1bf207e64f88450eead8c029725bfcddaf7ffb2a72a7c6a18ab37ccc11d"
+    },
+    {
+      "id": "stub/platform/Speech.cs",
+      "sha256": "0e919b0322f805eb7b432c874213b8c875057b65c14fdc8641367de0d1e6cac0"
+    }
+  ]
+}

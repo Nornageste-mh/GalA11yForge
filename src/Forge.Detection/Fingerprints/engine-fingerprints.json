@@ -1,0 +1,1735 @@
+{
+ "schema": "gala11y.engine-fingerprints/1",
+ "generated_at": "2026-11-14",
+ "author": "engines-more (task-17)",
+ "difficulty_legend": {
+  "A": "无需二进制逆向：静态改包或官方插件即可把文本接到读屏，单作 ≤1 人日",
+  "B": "架构已知且可复用：需要一次注入（DLL 代理 / 脚本注入 / 补丁包覆盖），适配器可跨作复用",
+  "B+": "Web/JS 层可拦截（NW.js/Electron/网页壳），但需先开 Chromium a11y 或注入 JS 才能拿到文本",
+  "C": "需逆向引擎数据结构，或只能外挂 hook（Textractor 级）；逐作工作量中等偏大",
+  "C-": "只能识别，自动化止步于「人工待办 + 手工分析」",
+  "D": "当前不可行：平台锁定 / 无样本 / 需逐作重做（如 Unity 全自绘）"
+ },
+ "condition_types": [
+  "file_glob",
+  "file_any",
+  "dir_exists",
+  "magic",
+  "pe_string",
+  "text",
+  "count"
+ ],
+ "scoring": "命中的规则取 score 最高的引擎；同分按 DISAMBIGUATION 消歧；score < 50 只报「疑似」不自动下结论",
+ "disambiguation": [
+  {
+   "when": [
+    "unity_mono",
+    "electron_generic"
+   ],
+   "resolve": "unity_mono",
+   "why": "Unity 游戏不会带 resources/app.asar；app.asar 命中多半是误报上级目录"
+  },
+  {
+   "when": [
+    "kirikiri_z",
+    "kirikiri_2"
+   ],
+   "resolve": "kirikiri_z",
+   "why": "KKZ 也读 XP3；用 *.xp3.sig 区分（老版没有签名文件）"
+  },
+  {
+   "when": [
+    "rm_xp_vx_ace",
+    "rm_mv_mz"
+   ],
+   "resolve": "rm_mv_mz",
+   "why": "MV/MZ 也可能带旧工程残留；js/rmmz_core.js 或 www/js/rpg_core.js 优先"
+  },
+  {
+   "when": [
+    "gamecreator",
+    "electron_generic"
+   ],
+   "resolve": "gamecreator",
+   "why": "橙光更具体，先走 GameDialog 策略"
+  },
+  {
+   "when": [
+    "nscripter",
+    "onscripter"
+   ],
+   "resolve": "onscripter",
+   "why": "ONScripter 可改源码，优先级高"
+  }
+ ],
+ "engines": [
+  {
+   "id": "unity_mono",
+   "name": "Unity (Mono 后端)",
+   "family": "Unity",
+   "difficulty": "A",
+   "needs_sample": false,
+   "sample_verified": true,
+   "fingerprints": {
+    "files": [
+     "UnityPlayer.dll",
+     "*_Data/globalgamemanagers",
+     "*_Data/Managed/Assembly-CSharp.dll"
+    ],
+    "dirs": [
+     "*_Data/Managed"
+    ],
+    "magic": [],
+    "pe_strings": [
+     "UnityPlayer",
+     "Assembly-CSharp"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "场景/预制体里的 UnityEngine.UI.Text 与 TMPro.TMP_Text 对象；运行时字符串在 C# 堆里",
+    "本地化表：*_Data/StreamingAssets 下的 csv/json（逐作不同）"
+   ],
+   "hook_points": [
+    "BepInEx 6 + Harmony：patch TMP_Text.set_text / Text.set_text / SetText，拿到最终显示串",
+    "IL2CPP 需要 Cpp2IL+Il2CppInterop（BepInEx6 自带）"
+   ],
+   "tools": [
+    "BepInEx 6 (be.788)",
+    "ilspycmd",
+    "UnityPy"
+   ],
+   "notes": "v1 主线已覆盖，不占 Top5 名额。",
+   "evidence": [
+    "research/04-engines/REPORT.md（19 引擎矩阵，Unity 主线）",
+    "research/05-tools/REPORT.md:1-70"
+   ]
+  },
+  {
+   "id": "unity_il2cpp",
+   "name": "Unity (IL2CPP 后端)",
+   "family": "Unity",
+   "difficulty": "B",
+   "needs_sample": false,
+   "sample_verified": true,
+   "fingerprints": {
+    "files": [
+     "GameAssembly.dll",
+     "*_Data/il2cpp_data/Metadata/global-metadata.dat",
+     "UnityPlayer.dll"
+    ],
+    "dirs": [],
+    "magic": [],
+    "pe_strings": [
+     "UnityPlayer",
+     "il2cpp"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "同 unity_mono；字符串在 global-metadata.dat 的字符串字面量区 + 运行时托管堆"
+   ],
+   "hook_points": [
+    "BepInEx 6（Cpp2IL 2022.1.0 + Il2CppInterop 1.5.3）→ 可 patch 方法；比 Mono 慢但同一套写法",
+    "只读提文本：global-metadata.dat 里 grep UTF-8/UTF-16 字面量（粗筛，适合做「文本量预估」）"
+   ],
+   "tools": [
+    "BepInEx 6",
+    "Cpp2IL",
+    "Il2CppDumper"
+   ],
+   "notes": "识别只看 GameAssembly.dll 是否存在；不区分 Unity 版本。",
+   "evidence": [
+    "research/05-tools/REPORT.md:1-70（BepInEx6 内含 Cpp2IL/Il2CppInterop 版本）",
+    "GARbro ArcFormats/Unity/ArcUnityFS.cs:53"
+   ]
+  },
+  {
+   "id": "unity_custom_draw",
+   "name": "Unity 全自绘文本（无 Text/TMP 组件）",
+   "family": "Unity",
+   "difficulty": "D",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "UnityPlayer.dll"
+    ],
+    "dirs": [],
+    "magic": [],
+    "pe_strings": [
+     "UnityPlayer"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "文本由自定义字体光栅器画进 Texture2D / Mesh，场景里没有可读字符串组件",
+    "常见于自制 AVG 框架、Live2D 对话框、以及把整句预渲染成图片的做法"
+   ],
+   "hook_points": [
+    "只能 hook 字体光栅化入口（TextMeshPro FontEngine / 自研 Font.Draw）或 D3D Draw 调用，等价于 OCR 上游",
+    "可行替代：Unity 内 IL2CPP 方法级 hook 找到「当前台词」字段（需逐作逆向）"
+   ],
+   "tools": [
+    "Il2CppDumper + Ghidra（12.1.4 本机已有）",
+    "OCR 兜底（默认关）"
+   ],
+   "notes": "指纹与普通 Unity 完全相同，无法从文件层区分——必须先按 unity_* 命中，再用「运行时探针」判 D。",
+   "evidence": [
+    "[推断] 依据：Unity 文本显示必须落到 TMP/Text 组件或自绘 Mesh；验证方法：ilspycmd 反编译后 grep 'TMP_Text'/'SetText' 调用点",
+    "docs/05-决策确认与实施计划-v2.md（OCR 默认关、逐作人工待办）"
+   ]
+  },
+  {
+   "id": "renpy",
+   "name": "Ren'Py",
+   "family": "Ren'Py",
+   "difficulty": "A",
+   "needs_sample": false,
+   "sample_verified": true,
+   "fingerprints": {
+    "files": [
+     "renpy/__init__.py",
+     "*.rpa",
+     "lib/pythonlib*",
+     "game/script.rpyc"
+    ],
+    "dirs": [
+     "renpy",
+     "game"
+    ],
+    "magic": [],
+    "pe_strings": [
+     "renpy"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "game/*.rpy（源码，可能被编译成 .rpyc）；*.rpa 是 zip 式归档，可直接解",
+    "台词在 say 语句里，UI 文本在 screen 定义里"
+   ],
+   "hook_points": [
+    "官方扩展点：往 game/ 放一个 .rpy（如 a11y.rpy），override `renpy.exports.say` / 注册 `config.say_menu_text_filter`、`config.all_character_callbacks`，把文本推给 TTS",
+    "无需注入、无需改 exe；改坏可删文件回滚"
+   ],
+   "tools": [
+    "unrpa",
+    "rpyc 反编译（unrpyc）"
+   ],
+   "notes": "本机样本 Doki Doki Literature Club（Ren'Py 6 + python2.7）。A 级里最省事的之一。",
+   "evidence": [
+    "[实测] D:\\Steam\\steamapps\\common\\Doki Doki Literature Club：renpy/ 目录 + game/{scripts,images,audio,fonts}.rpa + lib/pythonlib2.7 + DDLC.py"
+   ]
+  },
+  {
+   "id": "kirikiri_z",
+   "name": "吉里吉里Z (KRKRZ / KAG3 新版)",
+   "family": "KiriKiri",
+   "difficulty": "B",
+   "needs_sample": false,
+   "sample_verified": true,
+   "fingerprints": {
+    "files": [
+     "*.xp3",
+     "*.xp3.sig",
+     "*.cf",
+     "plugin/*.dll"
+    ],
+    "dirs": [],
+    "magic": [
+     {
+      "glob": "*.xp3",
+      "offset": 0,
+      "hex": [
+       "5850330d0a200a1a8b6701"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "V2Link",
+     "V2Unlink",
+     "GetModuleThreadModel"
+    ],
+    "text": [
+     {
+      "glob": "*.xp3.sig",
+      "contains": "SIGNATURE - SHA256/PSS/RSA"
+     }
+    ]
+   },
+   "text_storage": [
+    "*.xp3 归档（XP3 头 11 字节）；脚本 *.ks/*.scn（KAG3 标记语言，UTF-16LE 或 SJIS）",
+    "*.xp3.sig = 每包一份 RSA/SHA256 签名（212 B，base64 签名体）"
+   ],
+   "hook_points": [
+    "patch.xp3 覆盖机制：同名文件放 patch.xp3 会盖掉 data.xp3 里的版本 → 可只发一个 a11y 补丁包，不动原包",
+    "TVP 插件（plugin/*.dll，V2Link/V2Unlink 导出）可加原生 TTS/读屏桥",
+    "KAG3 层：改 *.ks 或加 .tjs 宏，把「当前台词」在显示前拦下来"
+   ],
+   "tools": [
+    "GARbro（XP3 解包）",
+    "Textractor（外挂兜底）"
+   ],
+   "notes": "⚠ 签名：*.xp3.sig 存在≠强制校验。本机 SenrenBanka 的 data.xp3 已被用户补丁改大 26 MB（1,033,432,485 vs .back 1,007,286,279）仍能跑，说明本作未强制；其他作品是否强制未确认，做适配器时必须先测。",
+   "evidence": [
+    "[实测] D:\\Steam\\steamapps\\common\\SenrenBanka\\data.xp3 头 hex=58 50 33 0d 0a 20 0a 1a 8b 67 01；data.xp3.sig 头='-- SIGNATURE - SHA256/PSS/RSA --'",
+    "[实测] SenrenBanka.exe（4,583,168 B，Machine=0x14C/PE32）含 V2Link/V2Unlink；'TVP(KIRIKIRI)' 只以 UTF-16LE 存在（直接搜 ASCII 搜不到）",
+    "GARbro ArcFormats/KiriKiri/ArcXP3.cs:85,91,96-97,104-119（Signature=0x0d335058；支持首 MZ 的自解压包）"
+   ]
+  },
+  {
+   "id": "kirikiri_2",
+   "name": "吉里吉里2 / KAG3 (老版)",
+   "family": "KiriKiri",
+   "difficulty": "B",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.xp3",
+     "*.ks",
+     "*.scn",
+     "plugin/*.dll",
+     "kirikiri.exe"
+    ],
+    "dirs": [
+     "plugin"
+    ],
+    "magic": [
+     {
+      "glob": "*.xp3",
+      "offset": 0,
+      "hex": [
+       "5850330d0a200a1a8b6701"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "TVP(KIRIKIRI)",
+     "KAG3"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "data.xp3 内 *.ks（KAG 脚本，UTF-16LE）；也支持散装 data/ 目录",
+    "*.scn 是编译后的场景文件"
+   ],
+   "hook_points": [
+    "同 kirikiri_z（patch.xp3 覆盖 + TVP 插件），但老版 exe 里能直接搜到 'TVP(KIRIKIRI)' 版本串，可用来分代",
+    "散装 data/ 目录的作品（未打包）可以直接改 .ks，属于最舒服的一类"
+   ],
+   "tools": [
+    "GARbro",
+    "Textractor"
+   ],
+   "notes": "与 kirikiri_z 共用适配器，差别在「*.xp3.sig 有无 / 加密 / 插件布局」。'TVP(KIRIKIRI)' 两代都有（UTF-16），不能单独用来分代。本机无老版样本。",
+   "evidence": [
+    "[实测] SenrenBanka.exe 的 UTF-16 串里能搜到 'TVP(KIRIKIRI)' → 该串两代都有，分代要看 *.xp3.sig（KKZ 有，老版没有）",
+    "GARbro ArcFormats/KiriKiri/ArcXP3.cs:91"
+   ]
+  },
+  {
+   "id": "nscripter",
+   "name": "NScripter",
+   "family": "NScripter",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "nscript.dat",
+     "arc.nsa",
+     "arc.sar",
+     "*.nsa",
+     "*.ns2",
+     "nscr_sec.dat"
+    ],
+    "dirs": [],
+    "magic": [],
+    "pe_strings": [
+     "NScripter",
+     "nscr"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "脚本 nscript.dat（每字节 XOR 0x84）或纯文本 *.txt/*.u/*.utf",
+    "资源 arc.nsa（无魔数，索引式）/ arc.sar（大端索引）/ *.ns2"
+   ],
+   "hook_points": [
+    "静态：解 XOR 0x84 拿明文脚本 → 翻译/替换文本，再压回去（翻译工具链成熟）",
+    "运行时：NScripter 本体闭源，读屏只能靠 Textractor 类外挂或 GDI 文本 hook",
+    "ONScripter（开源重实现）可直接改引擎源码 → 这是把 C 抬到 B 的唯一路径"
+   ],
+   "tools": [
+    "nscript.dat-tool（XOR 0x84）",
+    "GARbro（nsa/sar/ns2）",
+    "ONScripter 源码"
+   ],
+   "notes": "老作品多、文本明文可解，但引擎闭源且渲染路径杂。",
+   "evidence": [
+    "[URL 2026-11-14] https://raw.githubusercontent.com/danmig06/nscript.dat-tool/master/README.md（XOR 0x84，翻转从右数第 8/第 3 位）",
+    "GARbro ArcFormats/NScripter/ArcNSA.cs:92-110、ArcSAR.cs:45-70、ArcNS2.cs:56-70"
+   ]
+  },
+  {
+   "id": "onscripter",
+   "name": "ONScripter / PONScripter 系",
+   "family": "NScripter",
+   "difficulty": "B",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "onscripter*.exe",
+     "default.ttf",
+     "arc.nsa",
+     "nscript.dat",
+     "pscript.dat"
+    ],
+    "dirs": [],
+    "magic": [],
+    "pe_strings": [
+     "ONScripter",
+     "PONScripter",
+     "SDL"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "同 NScripter（nscript.dat XOR 0x84、arc.nsa）；pscript.dat 疑同法（未测）",
+    "开源重实现直接读脚本，字体走 default.ttf"
+   ],
+   "hook_points": [
+    "改引擎源码：在文本输出函数（如 `printMessageToBuffer` 一类）加回调 → 原生 TTS，无需 hook",
+    "比闭源 NScripter 简单一档，代价是要自己编一个 exe 并随补丁分发（GPL 传染，注意许可证）"
+   ],
+   "tools": [
+    "ONScripter 源码（GPL）",
+    "SDL2"
+   ],
+   "notes": "许可证注意：ONScripter 系多为 GPL-2+，分发改过的 exe 必须给源码。",
+   "evidence": [
+    "[推断] 依据：ONScripter 是 NScripter 的开源重实现，脚本格式沿用；验证方法：拉源码确认 print 路径与 default.ttf 用法",
+    "AGENTS.md:5 许可证红线（GPL 不得静默混入闭源分发物）"
+   ]
+  },
+  {
+   "id": "advhd",
+   "name": "AdvHD (WillPlus / Pulltop 系)",
+   "family": "WillPlus",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "AdvHD.exe",
+     "*.arc",
+     "*.ws2"
+    ],
+    "dirs": [],
+    "magic": [],
+    "pe_strings": [
+     "AdvHD",
+     "WillPlus"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "*.arc（Will 格式，无魔数：u32 扩展名组数@0，每组 12 B 描述一个扩展名的文件区）",
+    "脚本 *.ws2（SJIS 字符串表），常在 arc 里以 ws2 扩展名出现"
+   ],
+   "hook_points": [
+    "VNTextProxy（d2d1.dll 代理）hook TextOutA / ID2D1RenderTarget::DrawText → 拿到最终绘制串；可强制换字体、重排字符",
+    "Textractor 有现成 AdvHD/WillPlus 分支，可当兜底"
+   ],
+   "tools": [
+    "VNTextPatch（--format=ws2 静态替换）",
+    "VNTextProxy",
+    "Textractor",
+    "GARbro（Will .arc 解包）"
+   ],
+   "notes": "Will 的 .arc 与 AdvHD 的 .ws2 是配套的：ArcPulltop.cs 里 ws2/json 被判为脚本类条目。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/Will/ArcWILL.cs:53-80（ext_count@0，每组 12 B，无魔数）",
+    "GARbro ArcFormats/Will/ArcPulltop.cs:154（HasAnyOfExtensions(\"ws2\",\"json\")）",
+    "[URL 2026-11-14] VNTranslationTools README：AdvHD → .ws2"
+   ]
+  },
+  {
+   "id": "catsystem2",
+   "name": "CatSystem2",
+   "family": "CatSystem2",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.int",
+     "*.cst",
+     "*.dat"
+    ],
+    "dirs": [],
+    "magic": [
+     {
+      "glob": "*.int",
+      "offset": 0,
+      "hex": [
+       "4b494600"
+      ]
+     },
+     {
+      "glob": "*.dat",
+      "offset": 0,
+      "hex": [
+       "43735061636b32"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "CatSystem2",
+     "CsPack"
+    ],
+    "text": [
+     {
+      "glob": "*.int",
+      "contains": "__key__.dat"
+     }
+    ]
+   },
+   "text_storage": [
+    "*.int = 脚本包（KIF 头）；里面是 *.cst 编译脚本，字符串集中存放",
+    "*.dat = 资源包（CsPack2 头）"
+   ],
+   "hook_points": [
+    ".cst 可静态替换（VNTextPatch --format=cst），适合汉化式改写",
+    "运行时文本走 GDI/Direct2D，Textractor 有 CatSystem2 分支可外挂"
+   ],
+   "tools": [
+    "VNTextPatch（.cst）",
+    "GARbro（.int/.dat 解包）",
+    "Textractor"
+   ],
+   "notes": "*.int 里出现 '__key__.dat' 表示加密包（GARbro 会抛 UnknownEncryptionScheme），加密作需要先找 key。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/CatSystem/ArcINT.cs:117,125-134（Signature=0x0046494B 'KIF'；@8 '__key__.dat\\0' 判加密）",
+    "GARbro ArcFormats/CatSystem/ArcDAT.cs:45（CsPack2）",
+    "[URL 2026-11-14] VNTranslationTools README：CatSystem2 → .cst"
+   ]
+  },
+  {
+   "id": "bgi_ethornell",
+   "name": "BGI / Ethornell",
+   "family": "Ethornell",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.arc",
+     "*.bgi",
+     "BGI.exe",
+     "*.wav"
+    ],
+    "dirs": [],
+    "magic": [
+     {
+      "glob": "*.arc",
+      "offset": 0,
+      "hex": [
+       "5061636b46696c6520202020"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "Ethornell",
+     "BGI"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "*.arc（头 16 B = 'Pack' + 'File    '，u32 count@12，条目 0x20 B）",
+    "脚本是包内无扩展名条目（明文/压缩），VNTextPatch --format=ethornell 直接处理"
+   ],
+   "hook_points": [
+    "静态替换脚本（成熟）；运行时用 VNTextProxy 的 DrawText hook",
+    "BGI 的文本是自绘（Direct2D），所以外挂 hook 命中率取决于是否走 DrawText"
+   ],
+   "tools": [
+    "VNTextPatch（--format=ethornell）",
+    "GARbro"
+   ],
+   "notes": "魔数很好认，几乎零误判；难点在脚本压缩变体。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/Ethornell/ArcBGI.cs:40,52,63-72（Signature='Pack'，@4 'File    '，count@12）",
+    "[URL 2026-11-14] VNTranslationTools README：BGI/Ethornell"
+   ]
+  },
+  {
+   "id": "siglusengine",
+   "name": "SiglusEngine (Key/VisualArts 系)",
+   "family": "Siglus",
+   "difficulty": "C-",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "SiglusEngine.exe",
+     "Scene.pck",
+     "*.g00",
+     "*.pak",
+     "Gameexe.ini"
+    ],
+    "dirs": [],
+    "magic": [],
+    "pe_strings": [
+     "SiglusEngine"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "Scene.pck / *.pak 内有编译场景（字节码 + 字符串表）；图片 *.g00/.g01"
+   ],
+   "hook_points": [
+    "Siglus 是自绘 + 自有虚拟机，公开解包器少；只能靠外挂 hook 或 Ghidra 逆字节码",
+    "SiglusEngine.exe 版本串（PE 资源）可细分代次"
+   ],
+   "tools": [
+    "Textractor（有 Siglus 分支，命中率视版本）",
+    "Ghidra 12.1.4"
+   ],
+   "notes": "GARbro 全库 grep 无 Siglus/pck 支持（0 命中）→ 自动化上限就是「识别 + 人工待办」。Key 系作品多，值得单列。",
+   "evidence": [
+    "[实测] GARbro ArcFormats 全目录 grep '\\.pck' 在 Extensions/AsciiEqual 上下文 0 命中",
+    "[推断] 依据：Siglus 无公开格式文档；验证方法：拿一部 Key 作品跑 Textractor 看能否 hook 到文本"
+   ]
+  },
+  {
+   "id": "reallive",
+   "name": "RealLive (Key 早期)",
+   "family": "RealLive",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "RealLive.exe",
+     "Seen.txt",
+     "*.g00",
+     "*.koe"
+    ],
+    "dirs": [],
+    "magic": [
+     {
+      "glob": "Seen.txt",
+      "offset": 0,
+      "hex": [
+       "5041434c"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "RealLive"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "Seen.txt = 编译后的字节码 + 字符串（PACL 头，u32 count@0x10，条目 0x20 B）",
+    "*.g00 图片，*.koe 音频"
+   ],
+   "hook_points": [
+    "字节码可静态改写（VNTextPatch --format=reallive），汉化界成熟",
+    "运行时自绘 → 外挂 hook 或改字节码让文本走系统字体"
+   ],
+   "tools": [
+    "VNTextPatch（--format=reallive）",
+    "GARbro（Seen.txt 解包）"
+   ],
+   "notes": "'PACL' 魔数一验一个准，难的是改完字节码的长度/偏移修正。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/RealLive/ArcSEEN.cs:39,50-71（Signature=0x4C434150 'PACL'，count@0x10，条目 0x20 B）",
+    "[URL 2026-11-14] VNTranslationTools README：RealLive → .txt"
+   ]
+  },
+  {
+   "id": "artemis",
+   "name": "Artemis",
+   "family": "Artemis",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.pfs",
+     "*.ast",
+     "*.asb",
+     "*.txt"
+    ],
+    "dirs": [],
+    "magic": [
+     {
+      "glob": "*.pfs",
+      "offset": 0,
+      "hex": [
+       "706636",
+       "706638",
+       "706632"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "Artemis"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "*.pfs 资源包（头 'pf' + 版本字符，支持 6/8/2）；脚本 *.ast/*.asb（二进制）",
+    "也支持散装 *.txt 脚本（VNTextPatch 的 artemistxt 格式）"
+   ],
+   "hook_points": [
+    "散装 txt 的作品可静态改；.asb 需专用工具",
+    "运行时 DirectX 自绘 → Textractor 外挂"
+   ],
+   "tools": [
+    "VNTextPatch（.asb/.ast，或 --format=artemistxt）",
+    "GARbro（.pfs）"
+   ],
+   "notes": "版本字符在 offset 2，可用来判代次（'6'/'8'/'2'）。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/Artemis/ArcPFS.cs:45,54-70（'pf'+版本字符，支持 2/6/8）",
+    "[URL 2026-11-14] VNTranslationTools README：Artemis → .asb/.ast/.txt"
+   ]
+  },
+  {
+   "id": "majiro",
+   "name": "Majiro",
+   "family": "Majiro",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.arc",
+     "*.mjo",
+     "majiro.exe"
+    ],
+    "dirs": [],
+    "magic": [
+     {
+      "glob": "*.arc",
+      "offset": 0,
+      "hex": [
+       "4d616a69726f417263"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "Majiro"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "*.arc 头 'MajiroArcV1.000'（版本 1..3，@0xB 固定 '.000\\0'）",
+    "*.mjo = 编译脚本（字符串表 + 字节码）"
+   ],
+   "hook_points": [
+    "VNTextPatch --format=mjo 静态替换（成熟）",
+    "运行时用 VNTextProxy 类 DrawText hook"
+   ],
+   "tools": [
+    "VNTextPatch（.mjo）",
+    "GARbro"
+   ],
+   "notes": "arc 魔数很强；mjo 改写要注意字符串长度前缀。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/Majiro/ArcMajiro.cs:59-62（@4 'roArcV'，版本 1..3，@0xB '.000\\0'）",
+    "[URL 2026-11-14] VNTranslationTools README：Majiro → .mjo"
+   ]
+  },
+  {
+   "id": "yuris",
+   "name": "YU-RIS (4.x/5.x)",
+   "family": "YU-RIS",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.ypf",
+     "ysbin/*.ybn",
+     "*.ybn"
+    ],
+    "dirs": [
+     "ysbin"
+    ],
+    "magic": [
+     {
+      "glob": "*.ypf",
+      "offset": 0,
+      "hex": [
+       "59504600"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "YU-RIS",
+     "YSTB"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "*.ypf 归档（'YPF\\0' + version@4 + count@8 + dir_size@12，目录从 +0x20 起；支持首 MZ 的自解压）",
+    "脚本 ysbin/*.ybn（YSTB 魔数，常带 XOR 加密 → 需猜 key）"
+   ],
+   "hook_points": [
+    "YSTB_GuessXorKey 猜出 key 后可静态回填文本（YURIS_TOOLS 全流程）",
+    "免封包运行（把 ybn 散装放回）是可行的发布方式",
+    "运行时文本走自绘 → Textractor 外挂"
+   ],
+   "tools": [
+    "YURIS_TOOLS（YSTL_Parse/YSTB_GuessXorKey/read_YSTB_FILE.py）",
+    "GARbro（.ypf）"
+   ],
+   "notes": "XOR key 是每次编译随机 → 必须逐作猜。中文化另有 setdll+Detours 方案可参考。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/YuRis/ArcYPF.cs:124-133,166（YPF\\0，支持自解压）",
+    "[URL 2026-11-14] https://raw.githubusercontent.com/jyxjyx1234/YURIS_TOOLS/master/README.md"
+   ]
+  },
+  {
+   "id": "cmvs",
+   "name": "CMVS",
+   "family": "CMVS",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.cpz",
+     "*.pk",
+     "cmvs.exe"
+    ],
+    "dirs": [],
+    "magic": [],
+    "pe_strings": [
+     "CMVS"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "*.cpz 压缩包（解压后块头 PS2A/PB3B/PSS0 等）；脚本 *.pk 为加密二进制"
+   ],
+   "hook_points": [
+    "解包后脚本仍需解密；公开工具零散，主要靠 Textractor 外挂"
+   ],
+   "tools": [
+    "GARbro（.cpz）",
+    "Textractor"
+   ],
+   "notes": ".cpz 无固定魔数（压缩流），识别只能靠扩展名 + exe 串，误判风险中等。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/Cmvs/ArcCPZ.cs:85-86,269-271,555（解压后 PS2A/PB3B/PSS0）"
+   ]
+  },
+  {
+   "id": "rm_mv_mz",
+   "name": "RPG Maker MV / MZ",
+   "family": "RPG Maker",
+   "difficulty": "A",
+   "needs_sample": false,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "www/index.html",
+     "js/plugins.js",
+     "js/rmmz_core.js",
+     "js/rpg_core.js",
+     "package.json",
+     "data/System.json",
+     "*.rpgmvp",
+     "*.png_"
+    ],
+    "dirs": [
+     "www",
+     "js/plugins",
+     "data"
+    ],
+    "magic": [],
+    "pe_strings": [
+     "RPGMaker",
+     "nwjs"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "data/*.json 明文（Map###.json 事件指令、CommonEvents.json）；插件参数在 js/plugins.js",
+    "图片/音频加密时扩展名变 .rpgmvp/.rpgmvo/.png_（解密 key 在 System.json 的 encryptionKey）"
+   ],
+   "hook_points": [
+    "官方插件机制：往 js/plugins/ 放一个 a11y 插件，hook `Window_Message.prototype.startMessage` / `Game_Message` 取当前台词 → 推 TTS，零注入",
+    "NW.js 壳：DevTools 可用（若未关），也能从外部 CDP 接"
+   ],
+   "tools": [
+    "NW.js",
+    "rpgmvp 解密（key 在 System.json）"
+   ],
+   "notes": "A 级首选：纯 JS、官方允许插件、单作工作量最小。本机无样本（引擎架构明确，非推断格式）。",
+   "evidence": [
+    "[推断] 依据：MV/MZ 的 data/*.json 与插件机制是公开文档化结构；验证方法：任一 MV 作放插件测 Window_Message",
+    "[文件] docs/05-决策确认与实施计划-v2.md（引擎顺序与万能层要求）"
+   ]
+  },
+  {
+   "id": "rm_xp_vx_ace",
+   "name": "RPG Maker XP / VX / VX Ace（含 MKXP）",
+   "family": "RPG Maker",
+   "difficulty": "C",
+   "needs_sample": false,
+   "sample_verified": true,
+   "fingerprints": {
+    "files": [
+     "Game.rgssad",
+     "Game.rgss2a",
+     "Game.rgss3a",
+     "Game.ini",
+     "RGSS*.dll",
+     "mkxp.conf",
+     "mkxp.json",
+     "*.rxdata",
+     "*.rvdata",
+     "*.rvdata2"
+    ],
+    "dirs": [
+     "Data"
+    ],
+    "magic": [
+     {
+      "glob": "*.rgssad",
+      "offset": 0,
+      "hex": [
+       "5247535341440001"
+      ]
+     },
+     {
+      "glob": "*.rgss2a",
+      "offset": 0,
+      "hex": [
+       "524753533241"
+      ]
+     },
+     {
+      "glob": "*.rgss3a",
+      "offset": 0,
+      "hex": [
+       "524753533341"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "RGSS",
+     "mkxp"
+    ],
+    "text": [
+     {
+      "glob": "mkxp.conf",
+      "contains": "dataPathOrg"
+     }
+    ]
+   },
+   "text_storage": [
+    "Game.rgssad/2a/3a = 加密归档（头 'RGSSAD\\0\\x01' + 4 B seed；2a/3a 是后续变体）",
+    "解包后 Data/*.rxdata（Ruby Marshal 对象），台词在事件指令的代码 401/405 里",
+    "mkxp.conf/mkxp.json = MKXP 开源重实现的配置（RTP/字体替换）"
+   ],
+   "hook_points": [
+    "MKXP 开源（可改源码）：直接在 Ruby 层拦截 Window_Message/Window_Choice 文本 → 原生 TTS，不需 hook",
+    "原版 RGSS：注入 RGSS*.dll 或用 Textractor 外挂",
+    "静态：解 rgssad → 改 rxdata（工程量大，不推荐做 a11y 主路径）"
+   ],
+   "tools": [
+    "mkxp（开源）",
+    "rgssad 解包器",
+    "Textractor"
+   ],
+   "notes": "本机 To the Moon 就是 MKXP：mkxp.conf + To the Moon.rgssad（36.6 MB，头 RGSSAD\\0\\x01）。MKXP 路线 = 换引擎跑，是最干净的读屏改造。",
+   "evidence": [
+    "[实测] D:\\Steam\\steamapps\\common\\To the Moon\\To the Moon\\To the Moon.rgssad 头 hex=52 47 53 53 41 44 00 01 ec ca ad de（36,633,241 B）",
+    "[实测] 同目录 mkxp.conf 含 dataPathOrg=To the Moon - Freebird Games / execName / fontSub；mkxp-console.exe 8,455,168 B"
+   ]
+  },
+  {
+   "id": "gamecreator",
+   "name": "橙光 GameCreator（NW.js 导出）",
+   "family": "Web/NW.js",
+   "difficulty": "B+",
+   "needs_sample": false,
+   "sample_verified": true,
+   "fingerprints": {
+    "files": [
+     "script.js",
+     "asset/assetList.json",
+     "index.html",
+     "package.json",
+     "nw.dll",
+     "node.dll",
+     "icudtl.dat",
+     "you/*.png"
+    ],
+    "dirs": [
+     "asset",
+     "locales",
+     "savedata"
+    ],
+    "magic": [],
+    "pe_strings": [
+     "Gamecreator",
+     "GameCreator"
+    ],
+    "text": [
+     {
+      "glob": "index.html",
+      "contains": "GameCreator"
+     }
+    ]
+   },
+   "text_storage": [
+    "script.js（单文件、压缩过，9.7 MB）：整个 AVG 运行时 + 剧情脚本索引",
+    "asset/assetList.json 记录资源清单；剧情正文在 asset 下的资源/脚本里（本机样本是加密 .car）"
+   ],
+   "hook_points": [
+    "JS 层：hook `GameDialog` / `GameDialogOption` 的 `drawText`/`setText`/`addText`，或监听 EVENT_DIALOG_* 事件（类名已实测存在）",
+    "Chromium a11y：NW.js 是 Chromium 壳，开 a11y 后 DOM/文本树可被 UIA 读（Electron 官方文档同源机制）",
+    "最脏但可行：改 index.html 注入自定义 JS（本机已有 index.html.a11y-bak 说明这条路过）"
+   ],
+   "tools": [
+    "NW.js",
+    "DevTools/CDP",
+    "Electron/NW a11y（setAccessibilitySupportEnabled 同源）"
+   ],
+   "notes": "这是本次新增的重要一类：国内橙光作品量极大，且已有本机样本证明可注入。",
+   "evidence": [
+    "[实测] D:\\Steam\\steamapps\\common\\LoveNest~V0.098~\\index.html 首行注释含 '[GameCreator] http://www.gamecreator.com.cn'",
+    "[实测] script.js 9,701,048 B 单行；标识符计数 GameDialog 事件族/BDrawText/DrawText/FillText/CTextDecoder 均存在",
+    "[实测] LoveNest0098.exe VersionInfo: ProductName=Gamecreator, CompanyName=上海神炎网络科技有限公司"
+   ]
+  },
+  {
+   "id": "electron_generic",
+   "name": "Electron / NW.js 通用（含 WebGAL 以外的网页壳）",
+   "family": "Web/NW.js",
+   "difficulty": "B+",
+   "needs_sample": false,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "resources/app.asar",
+     "chrome_100_percent.pak",
+     "ffmpeg.dll",
+     "v8_context_snapshot.bin",
+     "icudtl.dat",
+     "LICENSES.chromium.html",
+     "nw.dll",
+     "*.pak"
+    ],
+    "dirs": [
+     "resources",
+     "locales"
+    ],
+    "magic": [],
+    "pe_strings": [
+     "Electron",
+     "Chromium",
+     "NW.js"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "resources/app.asar（Node/JS 源码，asar 可直接解）；页面 DOM 里的文本"
+   ],
+   "hook_points": [
+    "Electron: `app.setAccessibilitySupportEnabled(true)` 暴露 Chromium a11y 树（官方 API）",
+    "改 asar/main 进程注入 preload 脚本 → 拦截渲染层文本",
+    "兜底：CDP（--remote-debugging-port）读 DOM"
+   ],
+   "tools": [
+    "asar",
+    "CDP",
+    "Electron Accessibility API"
+   ],
+   "notes": "这类壳混着正经 Electron 游戏和「网页游戏套壳」，识别后先看 resources/app.asar 是否存在再定策略。",
+   "evidence": [
+    "[URL 2026-11-14] https://www.electronjs.org/docs/latest/tutorial/accessibility（a11y 自动开启 + setAccessibilitySupportEnabled）",
+    "[实测] LoveNest 目录含 nw.dll 161,330,688 B / node.dll / icudtl.dat / *.pak（NW.js 壳同构）"
+   ]
+  },
+  {
+   "id": "webgal",
+   "name": "WebGAL",
+   "family": "Web/NW.js",
+   "difficulty": "A",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "index.html",
+     "game/config.txt",
+     "game/scene/*.txt",
+     "assets/"
+    ],
+    "dirs": [
+     "game",
+     "game/scene",
+     "assets"
+    ],
+    "magic": [],
+    "pe_strings": [
+     "WebGAL"
+    ],
+    "text": [
+     {
+      "glob": "game/config.txt",
+      "contains": "Game_name"
+     }
+    ]
+   },
+   "text_storage": [
+    "game/scene/*.txt 纯文本剧本（WebGAL 自有 DSL，台词一目了然）",
+    "assets/ 下图片音频"
+   ],
+   "hook_points": [
+    "开源（MPL-2.0）：可直接改运行时（Pixi.js 渲染），在台词渲染处加 TTS/aria-live",
+    "剧本是纯文本 → 静态也能改；运行时用 DOM 事件即可"
+   ],
+   "tools": [
+    "WebGAL 源码"
+   ],
+   "notes": "开源 + 纯文本剧本，A 级；目前用户群小于橙光，但改造成本最低（注意 MPL-2.0 是文件级 copyleft）。",
+   "evidence": [
+    "[推断] 依据：WebGAL 开源、剧本为 game/scene/*.txt；验证方法：拉 demo 工程确认 config.txt 字段名"
+   ]
+  },
+  {
+   "id": "yizhiyuan",
+   "name": "易次元（网易互动阅读平台）",
+   "family": "Web/平台",
+   "difficulty": "D",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.exe（网易签名）",
+     "resources/",
+     "app.asar"
+    ],
+    "dirs": [],
+    "magic": [],
+    "pe_strings": [
+     "NetEase",
+     "易次元"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "平台内作品在客户端/网页里跑（疑似 H5 运行时），作品资源由平台下发、本地无稳定目录结构"
+   ],
+   "hook_points": [
+    "只能从平台客户端壳入手（Electron/CEF 类），或网页版走浏览器 a11y",
+    "作品本身不可离线改 → 不适合做通用适配器"
+   ],
+   "tools": [
+    "未确认"
+   ],
+   "notes": "本次只做「识别 + 待办」：无本机样本、平台锁定、作品不下发到本地，不建议进 v1 之后的适配器名单。",
+   "evidence": [
+    "[推断] 依据：易次元是网易的在线互动阅读平台，作品以平台内发布为主；验证方法：装客户端后看安装目录是否有 app.asar 与作品缓存目录"
+   ]
+  },
+  {
+   "id": "nekonovel",
+   "name": "NEKONOVEL (Nekonovel / 韩国 M-Vizlab)",
+   "family": "Nekonovel",
+   "difficulty": "C",
+   "needs_sample": false,
+   "sample_verified": true,
+   "fingerprints": {
+    "files": [
+     "*.nkpack",
+     "Game.nkpublished",
+     "Config.nkenv",
+     "Engine.dll",
+     "Flash.ocx"
+    ],
+    "dirs": [],
+    "magic": [
+     {
+      "glob": "*.nkpack",
+      "offset": 4,
+      "hex": [
+       "4e4b4e4f45564c205041434b414745"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "NEKONOVEL"
+    ],
+    "text": [
+     {
+      "glob": "Game.nkpublished",
+      "contains": "NEKONOVEL"
+     },
+     {
+      "glob": "Config.nkenv",
+      "contains": "NEKONOVEL_ENVIONRMENT"
+     }
+    ]
+   },
+   "text_storage": [
+    "*.nkpack：u32 字符数 + 'NKNOEVL PACKAGE' + 16 B key/GUID + 文件表",
+    "Scripts.nkpack 内文件名明文（Scripts\\chapterN.txt），正文 UTF-16 但疑似加密（解出为乱码）",
+    "Game.nkpublished = 发布清单（4 B 长度前缀 + ASCII 标识 + UTF-16 标题 + 字体表）"
+   ],
+   "hook_points": [
+    "索引明文、正文加密 → 先逆加密算法（未确认）才能静态提文本",
+    "运行时是 Flash(AIR)/自绘混合（带 Flash.ocx），Textractor 类外挂命中率未知"
+   ],
+   "tools": [
+    "无公开工具（GARbro 无 NKNOEVL 支持，grep 0 命中）"
+   ],
+   "notes": "本次新增引擎（04-engines 原写「疑 Nekopack 系，未确认」，现证伪：与 NekoPack 的 'NEKOPACK' 头不同族）。",
+   "evidence": [
+    "[实测] Lucy\\Scripts.nkpack 头 hex=0f 00 00 00 4e 4b 4e 4f 45 56 4c 20 50 41 43 4b 41 47 45 ...（8 个 nkpack 一致）",
+    "[实测] Game.nkpublished 含 'NEKONOVEL -_-v' + UTF-16 '露西 -她所期望的一切-' + 'M-Vizlab'",
+    "[文件] GARbro ArcFormats/Nekopack/ArcNEKO.cs:210,221（'NEKO'+'PACK'，与本引擎不同）"
+   ]
+  },
+  {
+   "id": "alicesoft",
+   "name": "AliceSoft System 3/4（AFA/ALD/AIN）",
+   "family": "AliceSoft",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "*.afa",
+     "*.ald",
+     "*.ain",
+     "AliceStart.ini"
+    ],
+    "dirs": [],
+    "magic": [
+     {
+      "glob": "*.afa",
+      "offset": 8,
+      "hex": [
+       "416c696341726368"
+      ]
+     }
+    ],
+    "pe_strings": [
+     "AliceSoft",
+     "System4"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "*.afa 归档（@8 'AlicArch'、@0x1C 'INFO'、条目头 'AFF\\0'）；*.ald 图像、*.ain 索引",
+    "脚本 *.jaf/*.jam（编译字节码）"
+   ],
+   "hook_points": [
+    "xsystem4 是 System4 的开源重实现 → 可改源码接 TTS（同 ONScripter/MKXP 思路）",
+    "闭源路径：Textractor 有 AliceSoft 分支"
+   ],
+   "tools": [
+    "GARbro（.afa）",
+    "xsystem4（开源重实现）"
+   ],
+   "notes": "不在必做清单里，但「开源重实现」这条路径值得记一笔（和 ONScripter/MKXP 同一类杠杆）。",
+   "evidence": [
+    "[文件] GARbro ArcFormats/AliceSoft/ArcAFA.cs:56-58,120（@8 AlicArch，@0x1C INFO，条目 'AFF\\0'）"
+   ]
+  },
+  {
+   "id": "wolf_rpg",
+   "name": "WOLF RPG Editor",
+   "family": "WOLF",
+   "difficulty": "C",
+   "needs_sample": true,
+   "sample_verified": false,
+   "fingerprints": {
+    "files": [
+     "Data/BasicData",
+     "Game.dat",
+     "*.wolf",
+     "Data.wolf"
+    ],
+    "dirs": [
+     "Data",
+     "Data/BasicData"
+    ],
+    "magic": [],
+    "pe_strings": [
+     "WOLF",
+     "WOLFRPG"
+    ],
+    "text": []
+   },
+   "text_storage": [
+    "Data/BasicData 下的 *.dat（引擎数据）；Game.dat 为主数据（含地图事件与文本）"
+   ],
+   "hook_points": [
+    "作者提供游戏内文本导出/替换支持（社区常用），但格式未在此核实",
+    "运行时 GDI 自绘 → Textractor 外挂"
+   ],
+   "tools": [
+    "WOLF 官方/社区工具（未核实）"
+   ],
+   "notes": "⚠ 指纹为 [推断]：本机无样本、未查源码，BasicData/Game.dat 的字段没验证过；命中后应人工复核再定难度。",
+   "evidence": [
+    "[推断] 依据：WOLF RPG Editor 作品普遍带 Data\\BasicData 目录；验证方法：取任一 WOLF 作品列目录 + 试开 Game.dat"
+   ]
+  }
+ ],
+ "rules": [
+  {
+   "id": "R01",
+   "engine": "unity_mono",
+   "score": 95,
+   "all": [
+    {
+     "type": "file_glob",
+     "glob": "UnityPlayer.dll"
+    },
+    {
+     "type": "file_glob",
+     "glob": "*_Data/Managed/Assembly-CSharp.dll"
+    }
+   ]
+  },
+  {
+   "id": "R02",
+   "engine": "unity_il2cpp",
+   "score": 95,
+   "all": [
+    {
+     "type": "file_glob",
+     "glob": "GameAssembly.dll"
+    },
+    {
+     "type": "file_glob",
+     "glob": "*_Data/il2cpp_data/Metadata/global-metadata.dat"
+    }
+   ]
+  },
+  {
+   "id": "R03",
+   "engine": "renpy",
+   "score": 95,
+   "all": [
+    {
+     "type": "dir_exists",
+     "dir": "renpy"
+    },
+    {
+     "type": "count",
+     "glob": "*.rpa",
+     "min": 1
+    }
+   ]
+  },
+  {
+   "id": "R04",
+   "engine": "kirikiri_z",
+   "score": 90,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "*.xp3",
+     "offset": 0,
+     "hex": [
+      "5850330d0a200a1a8b6701"
+     ]
+    },
+    {
+     "type": "file_glob",
+     "glob": "*.xp3.sig"
+    }
+   ]
+  },
+  {
+   "id": "R05",
+   "engine": "kirikiri_2",
+   "score": 80,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "*.xp3",
+     "offset": 0,
+     "hex": [
+      "5850330d0a200a1a8b6701"
+     ]
+    },
+    {
+     "type": "pe_string",
+     "glob": "*.exe",
+     "contains": "TVP(KIRIKIRI)",
+     "mode": "both"
+    }
+   ]
+  },
+  {
+   "id": "R06",
+   "engine": "nscripter",
+   "score": 85,
+   "all": [
+    {
+     "type": "file_glob",
+     "glob": "nscript.dat"
+    },
+    {
+     "type": "count",
+     "glob": "*.nsa",
+     "min": 1
+    }
+   ]
+  },
+  {
+   "id": "R07",
+   "engine": "onscripter",
+   "score": 85,
+   "all": [
+    {
+     "type": "pe_string",
+     "glob": "*.exe",
+     "contains": "ONScripter",
+     "mode": "both"
+    },
+    {
+     "type": "file_glob",
+     "glob": "default.ttf"
+    }
+   ]
+  },
+  {
+   "id": "R08",
+   "engine": "advhd",
+   "score": 75,
+   "all": [
+    {
+     "type": "file_glob",
+     "glob": "AdvHD.exe"
+    },
+    {
+     "type": "count",
+     "glob": "*.arc",
+     "min": 1
+    }
+   ]
+  },
+  {
+   "id": "R09",
+   "engine": "catsystem2",
+   "score": 85,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "*.int",
+     "offset": 0,
+     "hex": [
+      "4b494600"
+     ]
+    },
+    {
+     "type": "count",
+     "glob": "*.cst",
+     "min": 1
+    }
+   ]
+  },
+  {
+   "id": "R10",
+   "engine": "bgi_ethornell",
+   "score": 85,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "*.arc",
+     "offset": 0,
+     "hex": [
+      "5061636b46696c6520202020"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R11",
+   "engine": "siglusengine",
+   "score": 85,
+   "all": [
+    {
+     "type": "file_glob",
+     "glob": "SiglusEngine.exe"
+    },
+    {
+     "type": "count",
+     "glob": "*.pck",
+     "min": 1
+    }
+   ]
+  },
+  {
+   "id": "R12",
+   "engine": "reallive",
+   "score": 90,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "Seen.txt",
+     "offset": 0,
+     "hex": [
+      "5041434c"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R13",
+   "engine": "artemis",
+   "score": 80,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "*.pfs",
+     "offset": 0,
+     "hex": [
+      "706636",
+      "706638",
+      "706632"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R14",
+   "engine": "majiro",
+   "score": 90,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "*.arc",
+     "offset": 0,
+     "hex": [
+      "4d616a69726f417263"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R15",
+   "engine": "yuris",
+   "score": 90,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "*.ypf",
+     "offset": 0,
+     "hex": [
+      "59504600"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R16",
+   "engine": "cmvs",
+   "score": 60,
+   "all": [
+    {
+     "type": "count",
+     "glob": "*.cpz",
+     "min": 1
+    },
+    {
+     "type": "pe_string",
+     "glob": "*.exe",
+     "contains": "CMVS",
+     "mode": "both"
+    }
+   ]
+  },
+  {
+   "id": "R17",
+   "engine": "rm_mv_mz",
+   "score": 90,
+   "any": [
+    {
+     "type": "file_glob",
+     "glob": "js/rmmz_core.js"
+    },
+    {
+     "type": "file_glob",
+     "glob": "www/js/rpg_core.js"
+    }
+   ]
+  },
+  {
+   "id": "R18",
+   "engine": "rm_xp_vx_ace",
+   "score": 90,
+   "any": [
+    {
+     "type": "magic",
+     "glob": "*.rgssad",
+     "offset": 0,
+     "hex": [
+      "5247535341440001"
+     ]
+    },
+    {
+     "type": "magic",
+     "glob": "*.rgss2a",
+     "offset": 0,
+     "hex": [
+      "524753533241"
+     ]
+    },
+    {
+     "type": "magic",
+     "glob": "*.rgss3a",
+     "offset": 0,
+     "hex": [
+      "524753533341"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R19",
+   "engine": "gamecreator",
+   "score": 90,
+   "all": [
+    {
+     "type": "text",
+     "glob": "index.html",
+     "contains": "GameCreator"
+    },
+    {
+     "type": "file_glob",
+     "glob": "script.js"
+    }
+   ]
+  },
+  {
+   "id": "R20",
+   "engine": "electron_generic",
+   "score": 70,
+   "all": [
+    {
+     "type": "file_glob",
+     "glob": "resources/app.asar"
+    }
+   ]
+  },
+  {
+   "id": "R21",
+   "engine": "webgal",
+   "score": 85,
+   "all": [
+    {
+     "type": "text",
+     "glob": "game/config.txt",
+     "contains": "Game_name"
+    },
+    {
+     "type": "dir_exists",
+     "dir": "game/scene"
+    }
+   ]
+  },
+  {
+   "id": "R22",
+   "engine": "nekonovel",
+   "score": 95,
+   "any": [
+    {
+     "type": "magic",
+     "glob": "*.nkpack",
+     "offset": 4,
+     "hex": [
+      "4e4b4e4f45564c205041434b414745"
+     ]
+    },
+    {
+     "type": "text",
+     "glob": "Game.nkpublished",
+     "contains": "NEKONOVEL"
+    }
+   ]
+  },
+  {
+   "id": "R23",
+   "engine": "alicesoft",
+   "score": 85,
+   "all": [
+    {
+     "type": "magic",
+     "glob": "*.afa",
+     "offset": 8,
+     "hex": [
+      "416c696341726368"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "R24",
+   "engine": "wolf_rpg",
+   "score": 65,
+   "all": [
+    {
+     "type": "dir_exists",
+     "dir": "Data/BasicData"
+    },
+    {
+     "type": "file_glob",
+     "glob": "Game.dat"
+    }
+   ]
+  },
+  {
+   "id": "R25",
+   "engine": "yizhiyuan",
+   "score": 40,
+   "all": [
+    {
+     "type": "pe_string",
+     "glob": "*.exe",
+     "contains": "NetEase",
+     "mode": "both"
+    },
+    {
+     "type": "file_glob",
+     "glob": "resources/app.asar"
+    }
+   ]
+  },
+  {
+   "id": "R26",
+   "engine": "unity_mono",
+   "score": 70,
+   "all": [
+    {
+     "type": "file_any",
+     "globs": [
+      "BepInEx/doorstop_config.ini",
+      "doorstop_config.ini"
+     ]
+    },
+    {
+     "type": "file_glob",
+     "glob": "winhttp.dll"
+    }
+   ]
+  }
+ ]
+}

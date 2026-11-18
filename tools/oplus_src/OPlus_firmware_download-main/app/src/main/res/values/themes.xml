@@ -1,0 +1,10 @@
+<resources>
+    <!--
+      Compose paints the entire UI; the framework theme only applies to the launch
+      flash and the framework-provided window chrome. enableEdgeToEdge() in
+      MainActivity manages system bar colors and icon contrast at runtime, so we
+      keep the theme minimal — no statusBarColor / navigationBarColor /
+      windowLightStatusBar (all deprecated for apps targeting SDK 35+).
+    -->
+    <style name="Theme.OPlusFirmware" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar"/>
+</resources>

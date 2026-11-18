@@ -1,0 +1,34 @@
+' GalA11y Forge - SAPI speech bridge (generated file, ASCII only on purpose).
+' Usage: wscript.exe a11y_say.vbs <text-file UTF-16LE> [rate -10..10]
+' The text file is written by the overlay (01_speech.rpy) and deleted here.
+' Flags 3 = SVSFlagsAsync(1) + SVSFPurgeBeforeSpeak(2): a new line interrupts
+' the previous one, matching the engine's own lib/<pyver>/say.vbs behaviour.
+Option Explicit
+
+Dim fso, argc, path, rate, text, f, sapi
+
+Set fso = CreateObject("Scripting.FileSystemObject")
+argc = WScript.Arguments.Count
+If argc < 1 Then WScript.Quit 2
+
+path = WScript.Arguments(0)
+If Not fso.FileExists(path) Then WScript.Quit 3
+
+Set f = fso.OpenTextFile(path, 1, False, -1)   ' -1 = Unicode (UTF-16LE)
+text = f.ReadAll
+f.Close
+
+On Error Resume Next
+fso.DeleteFile path, True
+On Error GoTo 0
+
+If Len(text) = 0 Then WScript.Quit 0
+
+Set sapi = CreateObject("SAPI.SpVoice")
+If argc >= 2 Then
+    rate = CInt(WScript.Arguments(1))
+    If rate < -10 Then rate = -10
+    If rate > 10 Then rate = 10
+    sapi.Rate = rate
+End If
+sapi.Speak text, 3

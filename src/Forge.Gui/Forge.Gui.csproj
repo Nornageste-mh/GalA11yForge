@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GalA11yForge.Gui</RootNamespace>
+    <AssemblyName>Forge.Gui</AssemblyName>
+    <IsPackable>false</IsPackable>
+    <Product>GalA11y Forge GUI</Product>
+    <Description>GalA11y Forge 的 WinForms 主界面（读屏友好、键盘优先）。</Description>
+    <!-- 界面文本全是中文；不需要附属资源语言包 -->
+    <SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Forge.Gui.Core\Forge.Gui.Core.csproj" />
+  </ItemGroup>
+
+</Project>

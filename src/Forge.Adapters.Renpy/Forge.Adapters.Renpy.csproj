@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GalA11yForge.Adapters.Renpy</RootNamespace>
+    <AssemblyName>Forge.Adapters.Renpy</AssemblyName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Forge.Core\Forge.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 测试需要直接验证“模板缺失时报 E_ARTIFACT_MISSING”等内部行为。 -->
+    <InternalsVisibleTo Include="Forge.Adapters.Renpy.Tests" />
+  </ItemGroup>
+
+  <!--
+    覆盖层模板随程序集分发：运行时不再依赖仓库里的实验原型目录。
+    LogicalName 固定为 Templates/<组>/<文件名>，TemplateRenderer 按这个名字读取。
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\platform\*.rpy" LogicalName="Templates/platform/%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Templates\root\*" LogicalName="Templates/root/%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

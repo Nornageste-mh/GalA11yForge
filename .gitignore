@@ -1,0 +1,29 @@
+# GalA11y Forge —— 只跟踪本项目源码/测试/文档/工具脚本。
+# 工作区根目录还有用户其它项目与运行产物，一律不纳入版本库。
+
+/*
+!/.gitignore
+!/AGENTS.md
+!/README.md
+!/src
+!/tests
+!/docs
+!/tools
+
+# 构建产物
+**/bin/
+**/obj/
+**/TestResults/
+**/*.user
+**/*.suo
+
+# tools：只保留脚本与文本；第三方二进制、用户项目、临时文件不进库
+/tools/ghostlock/
+/tools/mtkclient-main/
+/tools/mtkclient.zip
+/tools/zadig-2.9.exe
+/tools/bepinex/*.zip
+/tools/bepinex6/*.zip
+/tools/re/
+/tools/mail/_outbox*
+/tools/_tmp*

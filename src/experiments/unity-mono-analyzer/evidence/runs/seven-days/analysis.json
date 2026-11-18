@@ -1,0 +1,1168 @@
+{
+  "schemaVersion": "1.0",
+  "run": {
+    "tool": "unity-mono-analyzer",
+    "toolVersion": "0.1.0.0",
+    "cecilVersion": "0.11.6",
+    "startedAtUtc": "2026-11-14T09:19:57.1694309Z",
+    "commandLine": "unity-mono-analyzer --game D:\\Steam\\steamapps\\common\\我与你共度的七日 --out D:\\DSHWorkSpace\\src\\experiments\\unity-mono-analyzer\\evidence\\runs\\seven-days"
+  },
+  "game": {
+    "name": "我与你共度的七日",
+    "inputPath": "D:\\Steam\\steamapps\\common\\我与你共度的七日",
+    "gameDir": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game",
+    "dataDir": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game\\The seven days i spent with you_Data",
+    "dataDirName": "The seven days i spent with you_Data",
+    "exePath": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game\\The seven days i spent with you.exe",
+    "exeReason": "与数据目录 The seven days i spent with you_Data 同名",
+    "deployed": true,
+    "deployedEvidence": [
+      "BepInEx",
+      "doorstop_config.ini",
+      ".doorstop_version",
+      "winhttp.dll",
+      "nvdaControllerClient.dll"
+    ]
+  },
+  "discovery": {
+    "inputKind": "directory",
+    "selectionMode": "ranked",
+    "candidates": [
+      {
+        "dataDir": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game\\The seven days i spent with you_Data",
+        "dataDirName": "The seven days i spent with you_Data",
+        "gameDir": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game",
+        "assemblyPath": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game\\The seven days i spent with you_Data\\Managed\\Assembly-CSharp.dll",
+        "assemblySize": 210432,
+        "exePath": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game\\The seven days i spent with you.exe",
+        "exeReason": "与数据目录 The seven days i spent with you_Data 同名",
+        "depth": 1,
+        "selected": true,
+        "rankScore": 2655,
+        "rankReason": "+1000 已知对话框架类型×20；+1200 对话命名类型×43；+200 CJK 方法×23；+255 文本写入方法×17",
+        "quickMetrics": {
+          "types": 325,
+          "methods": 1602,
+          "textSinkCalls": 26,
+          "textSinkCallerMethods": 17,
+          "cjkLiteralMethods": 23,
+          "knownFrameworkTypes": 20,
+          "dialogueNamedTypes": 43,
+          "launcherSuspicionTypes": 0,
+          "scanned": true
+        },
+        "scanError": ""
+      },
+      {
+        "dataDir": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\SevenDaysLauncher_Data",
+        "dataDirName": "SevenDaysLauncher_Data",
+        "gameDir": "D:\\Steam\\steamapps\\common\\我与你共度的七日",
+        "assemblyPath": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\SevenDaysLauncher_Data\\Managed\\Assembly-CSharp.dll",
+        "assemblySize": 366080,
+        "exePath": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\SevenDaysLauncher.exe",
+        "exeReason": "与数据目录 SevenDaysLauncher_Data 同名",
+        "depth": 0,
+        "selected": false,
+        "rankScore": 950,
+        "rankReason": "+1000 已知对话框架类型×234；+1200 对话命名类型×24；+200 CJK 方法×21；+300 文本写入方法×24；+150 目录名与输入目录匹配；-900 启动器/更新器可疑类型×42；-1000 数据目录名 SevenDaysLauncher_Data 像启动器/更新器",
+        "quickMetrics": {
+          "types": 326,
+          "methods": 2090,
+          "textSinkCalls": 37,
+          "textSinkCallerMethods": 24,
+          "cjkLiteralMethods": 21,
+          "knownFrameworkTypes": 234,
+          "dialogueNamedTypes": 24,
+          "launcherSuspicionTypes": 42,
+          "scanned": true
+        },
+        "scanError": ""
+      }
+    ],
+    "notes": []
+  },
+  "unity": {
+    "version": "2021.3.31f1",
+    "versionSource": "globalgamemanagers",
+    "unityPlayerDllPresent": true,
+    "il2CppMarkersPresent": false,
+    "il2CppEvidence": "",
+    "globalGameManagersPath": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game\\The seven days i spent with you_Data\\globalgamemanagers"
+  },
+  "assembly": {
+    "path": "D:\\Steam\\steamapps\\common\\我与你共度的七日\\game\\The seven days i spent with you_Data\\Managed\\Assembly-CSharp.dll",
+    "sizeBytes": 210432,
+    "sha256": "d08263a17ee0a0c021d698235dba62d94aaa0290b83fc8b4694c939dd7c7a443",
+    "moduleName": "Assembly-CSharp.dll",
+    "runtimeVersion": "Net_4_0",
+    "firstPassAssemblyPath": ""
+  },
+  "stats": {
+    "types": 325,
+    "methods": 1602,
+    "methodsWithBody": 1594,
+    "ldstrTotal": 373,
+    "cjkLiteralMethods": 23,
+    "cjkGame": true,
+    "textFieldTypes": 20,
+    "textSinkCallSites": 26,
+    "textSinkCallerMethods": 17,
+    "upstreamCandidateMethods": 1,
+    "candidatesScored": 18,
+    "candidatesIncluded": 15,
+    "tierA": 3,
+    "tierB": 2,
+    "tierC": 10,
+    "belowThreshold": 3,
+    "resolveFailures": []
+  },
+  "textSinks": [
+    {
+      "api": "TMPro.TMP_Text::set_text",
+      "calls": 20,
+      "callerMethods": 12,
+      "role": "primary"
+    },
+    {
+      "api": "UnityEngine.UI.Text::set_text",
+      "calls": 6,
+      "callerMethods": 6,
+      "role": "primary"
+    }
+  ],
+  "textSinkHotspots": [
+    {
+      "typeFullName": "DataCheck",
+      "calls": 7,
+      "methods": 1,
+      "sampleMethod": "Init"
+    },
+    {
+      "typeFullName": "DefaultNamespace.CgGalleryItem",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "Init"
+    },
+    {
+      "typeFullName": "GameProject.ConfigDropdown",
+      "calls": 2,
+      "methods": 2,
+      "sampleMethod": "SetValue"
+    },
+    {
+      "typeFullName": "LoveStoryProject.BacklogItem",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "Init"
+    },
+    {
+      "typeFullName": "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI",
+      "calls": 2,
+      "methods": 2,
+      "sampleMethod": "StartPlay"
+    },
+    {
+      "typeFullName": "OnLangaugeHanddle",
+      "calls": 2,
+      "methods": 1,
+      "sampleMethod": "OnChangeLangaugeHanddle"
+    },
+    {
+      "typeFullName": "SpeecController",
+      "calls": 2,
+      "methods": 2,
+      "sampleMethod": "GetStringLine"
+    },
+    {
+      "typeFullName": "DG.Tweening.DOTweenModuleUI/<>c__DisplayClass35_0",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "<DOCounter>b__1"
+    },
+    {
+      "typeFullName": "DG.Tweening.DOTweenModuleUI/<>c__DisplayClass37_0",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "<DOText>b__1"
+    },
+    {
+      "typeFullName": "FadeTextAction",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "Show"
+    },
+    {
+      "typeFullName": "GameProject.ConfigDropdown/<>c__DisplayClass12_0",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "<Create>b__0"
+    },
+    {
+      "typeFullName": "GameProject.YesNoDialogue",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "ShowYesNo"
+    },
+    {
+      "typeFullName": "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI/<Internal_OnSubtitlesRequestInfo>d__76",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "MoveNext"
+    },
+    {
+      "typeFullName": "SpeechControl",
+      "calls": 1,
+      "methods": 1,
+      "sampleMethod": "InputText"
+    }
+  ],
+  "frameworkTraces": [
+    {
+      "id": "nodecanvas.dialoguetrees",
+      "displayName": "NodeCanvas DialogueTrees",
+      "category": "known",
+      "typeCount": 20,
+      "methodCount": 153,
+      "sampleTypes": [
+        "NodeCanvas.DialogueTrees.DialogueActor",
+        "NodeCanvas.DialogueTrees.MultipleChoiceNode",
+        "NodeCanvas.DialogueTrees.MultipleChoiceNode/<>c__DisplayClass10_0",
+        "NodeCanvas.DialogueTrees.MultipleChoiceNode/Choice",
+        "NodeCanvas.DialogueTrees.SayNode"
+      ],
+      "affectsScoring": true
+    },
+    {
+      "id": "custom.dialogue",
+      "displayName": "自定义 *Dialog*/*Talk* 命名",
+      "category": "custom",
+      "typeCount": 8,
+      "methodCount": 37,
+      "sampleTypes": [
+        "ChangeDialogueActorDisplayName",
+        "ChangeDialogueActorDisplayName/<LoadLanguageCoroutine>d__4",
+        "DialogueTreeControllerExtensions",
+        "DialogueTreeControllerExtensions/<>c__DisplayClass1_0",
+        "DialogueTreeControllerExtensions/<JumpToNodeNextFrame>d__2"
+      ],
+      "affectsScoring": true
+    }
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "kind": "choice",
+      "score": 90,
+      "tier": "A",
+      "confidence": "high",
+      "methodFullName": "System.Void NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI::OnMultipleChoiceRequest(NodeCanvas.DialogueTrees.MultipleChoiceRequestInfo)",
+      "typeFullName": "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI",
+      "methodName": "OnMultipleChoiceRequest",
+      "signature": "OnMultipleChoiceRequest(MultipleChoiceRequestInfo)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 NodeCanvas DialogueTrees",
+        "S2 +20 方法名 OnMultipleChoiceRequest 命中对话语义关键词",
+        "S3 +20 直接调用 UnityEngine.UI.Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 DialogueUGUI 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "UnityEngine.UI.Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "NodeCanvas DialogueTrees",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "sample-code",
+        "framework-internal"
+      ]
+    },
+    {
+      "rank": 2,
+      "kind": "dialogue",
+      "score": 85,
+      "tier": "A",
+      "confidence": "high",
+      "methodFullName": "System.String[] SpeecController::GetStringLine(System.String)",
+      "typeFullName": "SpeecController",
+      "methodName": "GetStringLine",
+      "signature": "GetStringLine(String)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 20,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 方法的调用者位于已知对话框架类型（调用图上游命中）",
+        "S2 +20 方法名 GetStringLine 命中对话语义关键词",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI::OnSubtitlesRequest"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "调用者位于对话框架类型",
+      "frameworkCategory": "custom",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 3,
+      "kind": "dialogue",
+      "score": 75,
+      "tier": "A",
+      "confidence": "medium",
+      "methodFullName": "System.Void GameProject.YesNoDialogue::ShowYesNo(System.String,System.Action,System.Action)",
+      "typeFullName": "GameProject.YesNoDialogue",
+      "methodName": "ShowYesNo",
+      "signature": "ShowYesNo(String, Action, Action)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型名命中自定义对话命名（Dialog/Talk/Conversation）",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 YesNoDialogue 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 5 个不同调用者调用"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 5,
+      "callerSamples": [
+        "DataController::OnTapDelete",
+        "DataController::OnTapItem",
+        "GameProject.Config::OnTapDefaults",
+        "GameProject.GameEventListener::OnMMEvent",
+        "LoveStoryProject.Exit::OnTapExit"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "自定义 *Dialog*/*Talk*",
+      "frameworkCategory": "custom",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 4,
+      "kind": "unknown",
+      "score": 60,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Void NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI::OnSubtitlesRequest(NodeCanvas.DialogueTrees.SubtitlesRequestInfo)",
+      "typeFullName": "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI",
+      "methodName": "OnSubtitlesRequest",
+      "signature": "OnSubtitlesRequest(SubtitlesRequestInfo)",
+      "discoveredBy": "upstream-of-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 20,
+        "S3": 0,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 NodeCanvas DialogueTrees",
+        "S2 +20 方法名 OnSubtitlesRequest 命中对话语义关键词",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 DialogueUGUI 含 Window/UI/Dialog/Box/Panel 等 UI 语义"
+      ],
+      "textSinkCalls": 0,
+      "textSinkApis": [],
+      "valueSource": "none",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "NodeCanvas DialogueTrees",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "system-ui",
+        "sample-code",
+        "framework-internal",
+        "upstream-only"
+      ]
+    },
+    {
+      "rank": 5,
+      "kind": "dialogue",
+      "score": 55,
+      "tier": "B",
+      "confidence": "low",
+      "methodFullName": "System.Boolean NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI/<Internal_OnSubtitlesRequestInfo>d__76::MoveNext()",
+      "typeFullName": "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI/<Internal_OnSubtitlesRequestInfo>d__76",
+      "methodName": "MoveNext",
+      "signature": "MoveNext()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 0,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 NodeCanvas DialogueTrees",
+        "S3 +20 直接调用 UnityEngine.UI.Text::set_text 共 1 处",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "UnityEngine.UI.Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": false,
+      "textFieldCount": 0,
+      "framework": "NodeCanvas DialogueTrees",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "system-ui",
+        "sample-code",
+        "framework-internal"
+      ]
+    },
+    {
+      "rank": 6,
+      "kind": "unknown",
+      "score": 45,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void OnLangaugeHanddle::OnChangeLangaugeHanddle()",
+      "typeFullName": "OnLangaugeHanddle",
+      "methodName": "OnChangeLangaugeHanddle",
+      "signature": "OnChangeLangaugeHanddle()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 UnityEngine.UI.Text::set_text, TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）",
+        "S8 +5 被 4 个不同调用者调用"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "UnityEngine.UI.Text::set_text",
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "field",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 4,
+      "callerSamples": [
+        "GameProject.Config::RefreshLocalizedUI",
+        "GameProject.Config::OnLanguageChanged",
+        "LanguageLoader/<LoadLocalizationTable>d__20::MoveNext",
+        "OnLangaugeHanddle::Start"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "i18n-refresh",
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 7,
+      "kind": "dialogue",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void LoveStoryProject.BacklogItem::Init(LoveStoryProject.BacklogData,System.Int32,System.Action`1<LoveStoryProject.BacklogItem>)",
+      "typeFullName": "LoveStoryProject.BacklogItem",
+      "methodName": "Init",
+      "signature": "Init(BacklogData, Int32, Action`1)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 2 处",
+        "S4 +10 所属类型持有 2 个 Text/TMP 字段",
+        "S7 +10 文本写入有 2/2 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 2,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "LoveStoryProject.Backlog::Open"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 2,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui",
+        "multi-write"
+      ]
+    },
+    {
+      "rank": 8,
+      "kind": "unknown",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void DG.Tweening.DOTweenModuleUI/<>c__DisplayClass35_0::<DOCounter>b__1(System.Int32)",
+      "typeFullName": "DG.Tweening.DOTweenModuleUI/<>c__DisplayClass35_0",
+      "methodName": "<DOCounter>b__1",
+      "signature": "<DOCounter>b__1(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 UnityEngine.UI.Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "UnityEngine.UI.Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 9,
+      "kind": "unknown",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void DG.Tweening.DOTweenModuleUI/<>c__DisplayClass37_0::<DOText>b__1(System.String)",
+      "typeFullName": "DG.Tweening.DOTweenModuleUI/<>c__DisplayClass37_0",
+      "methodName": "<DOText>b__1",
+      "signature": "<DOText>b__1(String)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 UnityEngine.UI.Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "UnityEngine.UI.Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 10,
+      "kind": "menu",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void GameProject.ConfigDropdown/<>c__DisplayClass12_0::<Create>b__0()",
+      "typeFullName": "GameProject.ConfigDropdown/<>c__DisplayClass12_0",
+      "methodName": "<Create>b__0",
+      "signature": "<Create>b__0()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "call",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 0,
+      "callerSamples": [],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 11,
+      "kind": "unknown",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SpeechControl::InputText(System.String)",
+      "typeFullName": "SpeechControl",
+      "methodName": "InputText",
+      "signature": "InputText(String)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 1,
+      "callerSamples": [
+        "SpeecController::InputText"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": []
+    },
+    {
+      "rank": 12,
+      "kind": "menu",
+      "score": 40,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "TMPro.TextMeshProUGUI GameProject.ConfigDropdown::MakeText(UnityEngine.Transform,System.String,TMPro.TMP_FontAsset)",
+      "typeFullName": "GameProject.ConfigDropdown",
+      "methodName": "MakeText",
+      "signature": "MakeText(Transform, String, TMP_FontAsset)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 10,
+        "S8": 0,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S7 +10 文本写入有 1/1 处来自参数/字段/调用（非硬编码）"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "parameter",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 1,
+      "callerSamples": [
+        "GameProject.ConfigDropdown::Create"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 13,
+      "kind": "menu",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void GameProject.ConfigDropdown::SetValue(System.Int32)",
+      "typeFullName": "GameProject.ConfigDropdown",
+      "methodName": "SetValue",
+      "signature": "SetValue(Int32)",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 0,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 0,
+        "S8": 5,
+        "N1": 0,
+        "N2": 0,
+        "N3": 0,
+        "N4": 0
+      },
+      "evidence": [
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S8 +5 被 2 个不同调用者调用"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "other",
+      "cjkLiteralCount": 0,
+      "literalCount": 0,
+      "callerCount": 2,
+      "callerSamples": [
+        "GameProject.Config::LoadValues",
+        "GameProject.ConfigDropdown/<>c__DisplayClass12_1::<Create>b__1"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "",
+      "frameworkCategory": "none",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "system-ui"
+      ]
+    },
+    {
+      "rank": 14,
+      "kind": "dialogue",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI::StartPlay()",
+      "typeFullName": "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI",
+      "methodName": "StartPlay",
+      "signature": "StartPlay()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 5,
+        "S6": 0,
+        "S7": 0,
+        "S8": 0,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": -10
+      },
+      "evidence": [
+        "S1 +25 类型属于已知对话框架 NodeCanvas DialogueTrees",
+        "S3 +20 直接调用 UnityEngine.UI.Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S5 +5 类名 DialogueUGUI 含 Window/UI/Dialog/Box/Panel 等 UI 语义",
+        "N2 -15 1/2 的字面量是路径/URL/格式串/数字/标识符（非台词样）",
+        "N4 -10 全部文本写入实参都是长度<2 的固定短串"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "UnityEngine.UI.Text::set_text"
+      ],
+      "valueSource": "constant",
+      "cjkLiteralCount": 0,
+      "literalCount": 2,
+      "callerCount": 1,
+      "callerSamples": [
+        "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI/<Internal_OnSubtitlesRequestInfo>d__76::MoveNext"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "NodeCanvas DialogueTrees",
+      "frameworkCategory": "known",
+      "onKnownFrameworkType": true,
+      "flags": [
+        "i18n-refresh",
+        "sample-code",
+        "framework-internal",
+        "hardcoded-text"
+      ]
+    },
+    {
+      "rank": 15,
+      "kind": "dialogue",
+      "score": 35,
+      "tier": "C",
+      "confidence": "low",
+      "methodFullName": "System.Void SpeecController::ClearInput()",
+      "typeFullName": "SpeecController",
+      "methodName": "ClearInput",
+      "signature": "ClearInput()",
+      "discoveredBy": "direct-text-setter",
+      "ruleScores": {
+        "S1": 25,
+        "S2": 0,
+        "S3": 20,
+        "S4": 10,
+        "S5": 0,
+        "S6": 0,
+        "S7": 0,
+        "S8": 5,
+        "N1": 0,
+        "N2": -15,
+        "N3": 0,
+        "N4": -10
+      },
+      "evidence": [
+        "S1 +25 方法的调用者位于已知对话框架类型（调用图上游命中）",
+        "S3 +20 直接调用 TMPro.TMP_Text::set_text 共 1 处",
+        "S4 +10 所属类型持有 1 个 Text/TMP 字段",
+        "S8 +5 被 2 个不同调用者调用",
+        "N2 -15 1/1 的字面量是路径/URL/格式串/数字/标识符（非台词样）",
+        "N4 -10 全部文本写入实参都是长度<2 的固定短串"
+      ],
+      "textSinkCalls": 1,
+      "textSinkApis": [
+        "TMPro.TMP_Text::set_text"
+      ],
+      "valueSource": "constant",
+      "cjkLiteralCount": 0,
+      "literalCount": 1,
+      "callerCount": 2,
+      "callerSamples": [
+        "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI::StartPlay",
+        "NodeCanvas.DialogueTrees.UI.Examples.DialogueUGUI/<Internal_OnSubtitlesRequestInfo>d__76::MoveNext"
+      ],
+      "typeHoldsTextFields": true,
+      "textFieldCount": 1,
+      "framework": "调用者位于对话框架类型",
+      "frameworkCategory": "custom",
+      "onKnownFrameworkType": false,
+      "flags": [
+        "hardcoded-text"
+      ]
+    }
+  ],
+  "coverage": {
+    "can": [
+      "定位 `*_Data\\Managed\\Assembly-CSharp.dll`：支持多层子目录、一个安装目录内多个 Unity 程序集（启动器/多章节）并给出排名理由",
+      "识别 Unity 版本（`globalgamemanagers` 优先，`UnityPlayer.dll` 版本资源兜底）并拒绝 IL2CPP 目标",
+      "统计 `TMPro.TMP_Text::set_text` / `SetText` 与 `UnityEngine.UI.Text::set_text` 的调用指令、调用者方法与类型",
+      "用 IL 反向栈分析判定写入实参来源（常量 / 参数 / 字段 / 局部变量 / 方法调用），作为 S7 依据",
+      "已知对话框架痕迹统计：Naninovel、NodeCanvas DialogueTrees、ScenarioForge、Fungus、Yarn、Ink、PixelCrushers；以及自定义 `*Dialog*`/`*Talk*` 命名",
+      "CJK 字面量分布（含平假名/片假名/汉字），只输出计数与所在方法，不导出任何字面量内容",
+      "按 R4 规则打分并分层（A≥70 且 S1>0 / B≥50 / C≥30），输出可交人工确认的候选表与逐条证据",
+      "识别已部署补丁痕迹（BepInEx / doorstop / nvdaControllerClient）作为环境事实，不据此推断可 Hook 性"
+    ],
+    "cannot": [
+      "看不到 `set_text` 之外的文本通道：图片字、TextMesh(3D)、自绘文本、以及游戏自定义的 \"SetString\" 式非标准 API（只有方法名里带 Text/SetText 的才会被统计）",
+      "不解析 TextAsset、本地化表、字体/图集资源里的台词；只统计代码内字面量（因此文本量被低估是正常的）",
+      "静态无法判断可见性：CanvasGroup.alpha、activeInHierarchy、面板是否在当前场景，菜单/设置/存档面板的文本会被当候选",
+      "静态无法判断说话人（who）与正文的先后、打字机逐字多次 `set_text` 的去重、富文本标签清洗 —— 这些必须运行期确认",
+      "只做一层语义上游展开：Manager→Presenter→View 这类跨 2 层以上的包装器可能漏检（可通过 `--top` 放宽后人工翻查）",
+      "不分析插件 DLL（BepInEx 插件、第三方 UI 库）与 IL2CPP 目标；只测 `Assembly-CSharp.dll`",
+      "没有运行期证据：全部分数都是静态启发式，A 级候选也必须经运行期回放确认后才可生成补丁"
+    ],
+    "runtimeConfirmations": [
+      "1. 目标游戏用 TMP 还是 uGUI.Text？两者是否同时存在（存在则需双重 Hook 并按 API 去重）",
+      "2. 打字机效果是否对同一句反复调用 set_text（需按内容+时间窗口去重）",
+      "3. 说话人（who）与正文（text）的写入先后顺序，能否在同一次 Hook 中拼出完整朗读串",
+      "4. 选项列表：按钮文本来源、顺序、禁用项（不可选）如何表达",
+      "5. 菜单/设置/存档面板：确认哪些写入点应被静音或排除",
+      "6. 可见性：CanvasGroup.alpha / activeInHierarchy / 是否能读到当前激活面板",
+      "7. 富文本清洗：`<color>`、`<size>`、`<ruby>`、`<sprite>` 等标签的剥离规则",
+      "8. 事件频率与去重窗口：每秒最多朗读次数、重复句抑制"
+    ],
+    "thresholds": {
+      "tierA": 70,
+      "tierB": 50,
+      "tierC": 30,
+      "tierARule": "total>=70 且 S1>0"
+    },
+    "dimensions": [
+      {
+        "id": "S1",
+        "name": "已知对话框架命中（含调用图上游）",
+        "points": 25,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S2",
+        "name": "方法名语义（Say/Line/Dialogue/Talk/Message/Choice/Select/ShowText）",
+        "points": 20,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S3",
+        "name": "直接调用文本 set_text",
+        "points": 20,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S4",
+        "name": "所属类型持有 Text/TMP 字段",
+        "points": 10,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S5",
+        "name": "类名含 Window/UI/Dialog/Box/Panel",
+        "points": 5,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S6",
+        "name": "方法内 CJK 字面量",
+        "points": 10,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S7",
+        "name": "数据来源非硬编码（参数/字段/调用）",
+        "points": 10,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "S8",
+        "name": "调用者>1 或上游有 Choice/Select",
+        "points": 5,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "N1",
+        "name": "调试/日志/版本命名",
+        "points": -20,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "N2",
+        "name": "非台词文本特征（路径/URL/格式串/数字/标识符）",
+        "points": -15,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "N3",
+        "name": "仅被初始化期方法调用",
+        "points": -10,
+        "applicable": true,
+        "reason": ""
+      },
+      {
+        "id": "N4",
+        "name": "固定短串（长度<2）",
+        "points": -10,
+        "applicable": true,
+        "reason": ""
+      }
+    ]
+  },
+  "notes": [
+    "该游戏目录已存在补丁/注入痕迹（BepInEx, doorstop_config.ini, .doorstop_version, winhttp.dll, nvdaControllerClient.dll），只做静态只读分析，未改动任何文件",
+    "未解析程序集：0；主文本写入 API：TMPro.TMP_Text::set_text×20, UnityEngine.UI.Text::set_text×6"
+  ],
+  "warnings": [],
+  "errors": [],
+  "timing": {
+    "totalMs": 1765,
+    "discoveryMs": 45,
+    "candidateScanMs": 1368,
+    "fullScanMs": 195,
+    "scoringMs": 64,
+    "reportMs": 91,
+    "candidates": [
+      {
+        "dataDirName": "The seven days i spent with you_Data",
+        "ms": 938,
+        "selected": false
+      },
+      {
+        "dataDirName": "SevenDaysLauncher_Data",
+        "ms": 426,
+        "selected": false
+      }
+    ]
+  },
+  "exitCode": 0
+}

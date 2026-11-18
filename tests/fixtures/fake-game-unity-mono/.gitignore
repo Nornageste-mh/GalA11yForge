@@ -1,0 +1,7 @@
+# 由 make-fixture.ps1 生成的合成二进制，默认不提交；需要时一键重建。
+# 手写文件（README.md / .gitignore）保留在版本库中。
+5omeday.exe
+5omeday_Data/
+UnityPlayer.dll
+MonoBleedingEdge/
+fixture-manifest.json

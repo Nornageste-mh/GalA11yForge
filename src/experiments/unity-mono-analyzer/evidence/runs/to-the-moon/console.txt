@@ -1,0 +1,22 @@
+=== Unity Mono 文本钩子静态分析 ===
+游戏      To the Moon
+数据目录  To the Moon_Data
+启动入口  To the Moon.exe  （与数据目录 To the Moon_Data 同名）
+Unity     2022.3.28f1  （globalgamemanagers）
+程序集    Assembly-CSharp.dll  1382 KB  ·  1318 类型 / 7,477 方法 / 2,494 ldstr
+文本写入  245 处 / 93 个方法  （TMPro.TMP_Text::set_text×238、TMPro.TMP_Text::SetText×4、UnityEngine.UI.Text::set_text×3）
+框架痕迹  ScenarioForge（446 类型）、自定义 *Dialog*/*Talk* 命名（22 类型）
+候选      A 4 / B 24 / C 43   共打分 100 条，入选 71 条
+上游候选  7 个（语义命名的包装方法）
+
+Top 候选：
+  #1  A     85  dialogue  high   System.Void ScenarioForge.SetTextFromGameVariable::SetText(System.String)  [framework-internal,multi-write]
+  #2  A     75  dialogue  medium System.Void ScenarioForge.UILeftRightSelector::SetCurValueInRange(System.Single,System.Boolean)  [framework-internal,multi-write]
+  #3  A     75  dialogue  medium System.Void ScenarioForge.UILeftRightSelector::OverrideSelectorDisplayText(System.String)  [framework-internal]
+  #4  B     70  choice    medium System.Void CentralPauseMenuManager::BackOutOfCentralSelection()  [system-ui]
+  #5  A     70  dialogue  medium System.Void ScenarioForge.TextTyper::SetContents(System.String,System.Boolean)  [framework-internal]
+
+报告  D:\DSHWorkSpace\src\experiments\unity-mono-analyzer\evidence\runs\to-the-moon\REPORT.md
+JSON  D:\DSHWorkSpace\src\experiments\unity-mono-analyzer\evidence\runs\to-the-moon\analysis.json
+耗时  5932 ms（发现 42 / 候选扫描 4690 / 全量扫描 836 / 打分 167 / 落盘 102）
+退出码  0

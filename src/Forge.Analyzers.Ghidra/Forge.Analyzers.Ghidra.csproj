@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GalA11yForge.Analyzers.Ghidra</RootNamespace>
+    <AssemblyName>Forge.Analyzers.Ghidra</AssemblyName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Forge.Core\Forge.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Ghidra headless 脚本：原样嵌入，运行时释放到工作区 work/ghidra-*/scripts。 -->
+    <EmbeddedResource Include="Assets\CandidateHookDump.java"
+                      LogicalName="GalA11yForge.Analyzers.Ghidra.Assets.CandidateHookDump.java" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Forge.Analyzers.Ghidra.Tests" />
+  </ItemGroup>
+
+</Project>

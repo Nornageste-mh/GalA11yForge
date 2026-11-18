@@ -1,0 +1,5 @@
+LIBRARY kkr_proxy2
+EXPORTS
+    V2Link
+    V2Unlink
+    GetModuleThreadModel

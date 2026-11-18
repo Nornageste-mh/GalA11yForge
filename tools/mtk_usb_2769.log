@@ -1,0 +1,17 @@
+fuse library not installed
+Traceback (most recent call last):
+  File "D:\DSHWorkSpace\tools\mtkclient-main\mtk.py", line 350, in <module>
+    sys.exit(main() or 0)
+             ~~~~^^
+  File "D:\DSHWorkSpace\tools\mtkclient-main\mtk.py", line 346, in main
+    return mtk.run(parser)
+           ~~~~~~~^^^^^^^^
+  File "D:\DSHWorkSpace\tools\mtkclient-main\mtkclient\Library\mtk_main.py", line 394, in run
+    mtk = Mtk(config=config, loglevel=loglevel, serialportname=serialport)
+  File "D:\DSHWorkSpace\tools\mtkclient-main\mtkclient\Library\mtk_class.py", line 39, in __init__
+    self.setup(self.vid, self.pid, self.interface, serialportname)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DSHWorkSpace\tools\mtkclient-main\mtkclient\Library\mtk_class.py", line 156, in setup
+    if dev[0] == vid and dev[1] == pid:
+       ~~~^^^
+TypeError: 'int' object is not subscriptable

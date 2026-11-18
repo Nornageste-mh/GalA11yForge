@@ -1,0 +1,5 @@
+LIBRARY gal_a11y
+EXPORTS
+    V2Link
+    V2Unlink
+    GetModuleThreadModel

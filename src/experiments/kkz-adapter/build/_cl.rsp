@@ -1,0 +1,13 @@
+/nologo
+/c
+/EHa
+/MT
+/O1
+/DNDEBUG
+/DUNICODE
+/D_UNICODE
+/utf-8
+/W3
+/I"D:\DSHWorkSpace\src\experiments\kkz-adapter\build"
+/Fo"D:\DSHWorkSpace\src\experiments\kkz-adapter\build\kkz_adapter.obj"
+"D:\DSHWorkSpace\src\experiments\kkz-adapter\src\kkz_adapter.cpp"

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GalA11yForge.Adapters.UnityMono</RootNamespace>
+    <AssemblyName>Forge.Adapters.UnityMono</AssemblyName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Forge.Core\Forge.Core.csproj" />
+    <ProjectReference Include="..\Forge.Detection\Forge.Detection.csproj" />
+    <ProjectReference Include="..\Forge.Generators\Forge.Generators.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Cecil 0.11.6 已在实验原型的 NuGet 缓存里；不新增仓库级包源。 -->
+    <PackageReference Include="Mono.Cecil" Version="0.11.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 单元测试直接验证打分/目标解析等内部规则。 -->
+    <InternalsVisibleTo Include="Forge.Adapters.UnityMono.Tests" />
+  </ItemGroup>
+
+</Project>
