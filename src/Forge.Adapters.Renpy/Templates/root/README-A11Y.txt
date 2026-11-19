@@ -1,4 +1,4 @@
-GalA11y Forge 无障碍覆盖层 · @@GAME_NAME@@
+Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） 无障碍覆盖层 · @@GAME_NAME@@
 ==================================================
 
 补丁版本 : @@PATCH_VERSION@@

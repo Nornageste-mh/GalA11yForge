@@ -7,11 +7,11 @@
 public static class ForgeInfo
 {
     /// <summary>英文产品名。</summary>
-    public const string ProductName = "GalA11y Forge";
+    public const string ProductName = "GalA11y Demo";
 
     /// <summary>中文产品名。</summary>
-    public const string ProductNameChinese = "无障碍补丁工坊";
+    public const string ProductNameChinese = "Gal 无障碍辅助 Demo 快速生成工具";
 
     /// <summary>当前版本（四段式）。</summary>
-    public const string Version = "0.2.85.0";
+    public const string Version = "0.2.86.0";
 }

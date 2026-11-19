@@ -519,7 +519,7 @@ internal static class PipelineCommands
             ["metadata"] = generation.Metadata,
         };
 
-        await stdout.WriteLineAsync($"[完成] 已生成补丁工程：{generation.ProjectDirectory}（{files} 个文件）。").ConfigureAwait(false);
+        await stdout.WriteLineAsync($"[完成] 已生成补丁工程 Demo：{generation.ProjectDirectory}（{files} 个文件）。").ConfigureAwait(false);
         foreach (var artifact in generation.Artifacts.Take(10))
         {
             await stdout.WriteLineAsync($"    {artifact.RelativePath}  {artifact.Description ?? string.Empty}").ConfigureAwait(false);

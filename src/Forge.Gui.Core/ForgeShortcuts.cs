@@ -27,7 +27,7 @@ public static class ForgeShortcuts
     {
         new CommandShortcut(ForgeCommandKind.Detect, 'D', "识别引擎（Alt+D）"),
         new CommandShortcut(ForgeCommandKind.Analyze, 'A', "分析文本（Alt+A）"),
-        new CommandShortcut(ForgeCommandKind.Generate, 'G', "生成工程（Alt+G）"),
+        new CommandShortcut(ForgeCommandKind.Generate, 'G', "生成工程 Demo（Alt+G）"),
         new CommandShortcut(ForgeCommandKind.Build, 'B', "构建补丁（Alt+B）"),
         new CommandShortcut(ForgeCommandKind.Report, 'P', "分析报告（Alt+P，只写工作区）"),
         new CommandShortcut(ForgeCommandKind.Install, 'I', "安装补丁（Alt+I，会写入游戏目录）"),

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════════════════════
-# GalA11y Forge · 05_keys —— 按键登记
+# Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） · 05_keys —— 按键登记
 #
 # 两条硬事实（实测，踩过坑）：
 #   1) `config.underlay` 在 renpy/common/00keymap.rpy 里被 **整体赋值**

@@ -32,7 +32,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * CandidateHookDump.java - GalA11y Forge Ghidra backend (schema gala11y.ghidra.candidates/1).
+ * CandidateHookDump.java - Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） Ghidra backend (schema gala11y.ghidra.candidates/1).
  *
  * Locates Win32 GDI / USER32 / DirectWrite / Direct2D text output APIs in a native PE,
  * walks import slot -> thunk -> caller to find candidate functions, extracts evidence

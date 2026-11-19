@@ -8,7 +8,7 @@ namespace GalA11yForge.Generators.Templates;
 internal static class HookTemplate
 {
     internal const string Text = """
-// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 {{GENERATOR_VERSION}}。
+// 本文件由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo）生成，生成器版本 {{GENERATOR_VERSION}}。
 // 补丁点：{{POINT_ID}}
 // 目标：{{TARGET_DISPLAY}}（来自 plan.json，未凭空编造）
 {{CANDIDATE_COMMENT}}using System.Reflection;

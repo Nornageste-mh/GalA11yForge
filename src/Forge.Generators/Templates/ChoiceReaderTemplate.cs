@@ -9,7 +9,7 @@ namespace GalA11yForge.Generators.Templates;
 internal static class ChoiceReaderTemplate
 {
     internal const string Text = """
-// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 {{GENERATOR_VERSION}}。
+// 本文件由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo）生成，生成器版本 {{GENERATOR_VERSION}}。
 // 作用：朗读选项列表，并提供数字键选择通道。
 // 依据：research/23-choice（运行期实测）——选项期间游戏禁用鼠标，键鼠必须由补丁代劳。
 // 本文件不引用 Assembly-CSharp，全部字段通过反射读取（找不到只警告，不抛异常）。

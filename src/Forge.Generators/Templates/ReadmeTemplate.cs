@@ -6,12 +6,12 @@ internal static class ReadmeTemplate
     internal const string Text = """
 # {{DISPLAY}}
 
-由 GalA11y Forge（无障碍补丁工坊）生成 · 生成器版本 {{GENERATOR_VERSION}}
+由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo）生成 · 生成器版本 {{GENERATOR_VERSION}}
 目标游戏：{{GAME_NAME}} · 引擎：Unity Mono（BepInEx 5 / HarmonyX）
 
 ## 这是什么
 
-这是一个**可编译的补丁工程**：把游戏的 BepInEx 插件壳、语音桥（屏幕阅读器/系统语音）和
+这是一个**可编译的补丁工程 Demo**（Vibe Coding 产物，代码不保证稳定和可用）：把游戏的 BepInEx 插件壳、语音桥（屏幕阅读器/系统语音）和
 分析阶段给出的 Harmony 钩子拼在一起。生成器会按分析证据里每个钩子的完整签名，把带
 字符串参数的钩子接到朗读出口（主钩子朗读，其余只进重读缓冲）；没有字符串参数、但证据
 给出实例文本字段（TMP_Text/UI.Text）的钩子，会反射读字段兜底朗读；两者都没有的目标只做
@@ -91,10 +91,10 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1 -GameDir "D:\Games\你的�
 
 ## 来源与许可
 
-- 语音桥来自无障碍补丁工坊 Framework（MIT，Copyright (c) 2026 Nornageste-mh）；
+- 语音桥来自GalA11y Demo Framework（MIT，Copyright (c) 2026 Nornageste-mh）；
   本次内嵌内容的指纹（按文件排序后取 SHA-256）为 `{{FRAMEWORK_FINGERPRINT}}`。
 - BepInEx 5.x：MIT；HarmonyX：MIT。详见 `NOTICE.md`。
-- 本工程由 GalA11y Forge 生成，不包含游戏厂商资源；游戏本身仍需你合法拥有。
+- 本工程由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） 生成，不包含游戏厂商资源；游戏本身仍需你合法拥有。
 
 ## 生成参数（便于复现）
 

@@ -920,7 +920,7 @@ public static class A11yFieldReader
         var sb = new StringBuilder();
         sb.AppendLine("# " + slug + " IL2CPP 无障碍插件");
         sb.AppendLine();
-        sb.AppendLine("> 由 GalA11y Forge 自动生成。**本工程不含任何游戏资源或台词文本**，只含代码与配置。");
+        sb.AppendLine("> 由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） 自动生成。**本工程不含任何游戏资源或台词文本**，只含代码与配置。");
         sb.AppendLine();
         sb.AppendLine("## 这是什么");
         sb.AppendLine();

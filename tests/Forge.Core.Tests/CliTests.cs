@@ -282,7 +282,7 @@ public sealed class CliTests
         Assert.Equal(ExitCodes.Success, helpCode);
         Assert.Contains("退出码", helpOut.ToString());
         Assert.Equal(ExitCodes.Success, versionCode);
-        Assert.Contains("GalA11y Forge", versionOut.ToString());
+        Assert.Contains("GalA11y Demo", versionOut.ToString());
     }
 
     [Fact]

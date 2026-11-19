@@ -1,32 +1,32 @@
 {
   "schemaVersion": 1,
   "generator": "unity_mono",
-  "generatorVersion": "0.2.85.0",
+  "generatorVersion": "0.2.86.0",
   "frameworkFingerprint": "6df64c9ac3a3247493ed29bebdc73b4b3417579cd201d09c7c559677a9aa00b2",
   "gameSlug": "forge-golden",
   "namespace": "GalA11y.ForgeGolden",
   "pluginGuid": "09789c27-ba82-2a51-abdf-195685135660",
-  "pluginVersion": "0.2.85.0",
+  "pluginVersion": "0.2.86.0",
   "engine": "unity_mono",
   "files": [
     {
       "path": "ForgeGolden.A11y.csproj",
-      "sha256": "624cc79b5d3f09f869ca60f64eec9931d3f0b973ec3095175839180a801f1524",
+      "sha256": "c7a789611f626cb56a31781afbfba01e8a547f596a2282571e5fbd598867efd0",
       "kind": "project"
     },
     {
       "path": "Hooks/Hook_advance_on_click.cs",
-      "sha256": "3a62713f11eff730da3c77329028bd923d455951093f423840d9f82f48d33603",
+      "sha256": "4983a4d10e6d4932d69661bec929c0581ac698d2f1b2130d985824120b2059e8",
       "kind": "source"
     },
     {
       "path": "Hooks/Hook_dialogue_set_text.cs",
-      "sha256": "c9a535da16bf1e9762f2e3f6338fca6766afb1734d90fad1f3243a9619f8f1f8",
+      "sha256": "675ad57ff1b74322dabf61724f8385583cf1cc0d89b7201cc7f30379726f5537",
       "kind": "source"
     },
     {
       "path": "NOTICE.md",
-      "sha256": "f80614bb97fc995c99bb6a5f03bc651674c09f89a44eca63df45621dc63389e3",
+      "sha256": "e44a0d6e075a39f15667bee13ba4f256070568d9a34f96eb60fd7d015080b582",
       "kind": "documentation"
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "path": "Platform/MethodResolver.cs",
-      "sha256": "e218018044b3847225bbdcc2ec7ad1682efb58eadb96c8bdce19e41af2e32917",
+      "sha256": "1abed7e1ec318386a266708b7929071b996bfe6d6b2c6737503855b6ee4d3929",
       "kind": "source"
     },
     {
@@ -46,27 +46,27 @@
     },
     {
       "path": "Platform/SpeechGate.cs",
-      "sha256": "6fb0295ac96bbe57a19fbee51a23deaa3efd9d0def6508bc7e12f4b18ca8d947",
+      "sha256": "327edd3144f1d0033ebfb67c8860970c391a880b0cc4e9d0720b40e060c9c315",
       "kind": "source"
     },
     {
       "path": "Plugin.cs",
-      "sha256": "e2d2c231b18e4f95051b7499d67ee15704726a8495a7194ebb9499c6997c07e1",
+      "sha256": "d685a164f4a5ef98cda62cb668a7916964a27bd093e6b1a3885749d868271f8c",
       "kind": "source"
     },
     {
       "path": "README.md",
-      "sha256": "28465efa9c9118851792c955055b14bb08f39de9d5a4a0767ab9db4e77dd03a6",
+      "sha256": "e0a27bc33ff1371bc9b2e72c9fbc79a9166c7d86fe5104365303e9636d0f3f15",
       "kind": "documentation"
     },
     {
       "path": "build.ps1",
-      "sha256": "f99a9b5bb555e0fb0e670d1d6b3fdb397d6a67dcfc7270a1acc211ee46b7bdc7",
+      "sha256": "3e19af0511b598db96f827caaf1a737eae5e1897d4e154fac03d806b0bc7961d",
       "kind": "script"
     },
     {
       "path": "profile.json",
-      "sha256": "a6bf9c2d8e9f5fd8300135b46c94348f10f37dc5efd4159917174b37f4d8fa04",
+      "sha256": "d6f0f2eee1bc46f7c20d75c60ef545ba344194c748056a80e943c9a5f8cad2c4",
       "kind": "config"
     },
     {

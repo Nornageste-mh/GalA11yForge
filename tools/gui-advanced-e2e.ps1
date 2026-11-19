@@ -82,7 +82,7 @@ for ($i = 0; $i -lt 180; $i++) {
     Start-Sleep -Milliseconds 500
     $proc = Get-Process -Name Forge.Gui -ErrorAction SilentlyContinue | Select-Object -First 1
     if ($proc) {
-        $hwnd = [WinMsg]::FirstWindowTitle([uint32]$proc.Id, 'GalA11y Forge')
+        $hwnd = [WinMsg]::FirstWindowTitle([uint32]$proc.Id, 'Gal 无障碍辅助 Demo')
         if ($hwnd -ne [IntPtr]::Zero) { break }
     }
 }

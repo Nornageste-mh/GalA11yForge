@@ -1,4 +1,4 @@
-// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 0.2.85.0。
+// 本文件由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo）生成，生成器版本 0.2.86.0。
 // 作用：按分析证据里的形参类型名挑唯一重载，避免 Harmony 对同名重载抛 AmbiguousMatchException
 // 导致整个钩子挂不上。只用反射，不引用 Assembly-CSharp，不包含任何台词或游戏资源。
 using System;

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════════════════════
-# GalA11y Forge · 01_speech —— 语音后端链（NVDA → SAPI → 日志）
+# Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） · 01_speech —— 语音后端链（NVDA → SAPI → 日志）
 #
 # 为什么不用引擎自带 self-voicing 出声：
 #   1) 引擎的 tts_voice_channels 配音守卫（tts.py `displayable()`）会在有配音时

@@ -155,7 +155,7 @@ public sealed class JsonMarkdownReportWriter : IReportWriter
 
         builder.AppendLine();
         builder.AppendLine("---");
-        builder.AppendLine("本报告由 GalA11y Forge 自动生成。未实测项不作为通过依据；覆盖声明不等于全部可用。");
+        builder.AppendLine("本报告由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） 自动生成。未实测项不作为通过依据；覆盖声明不等于全部可用。");
         return builder.ToString();
     }
 

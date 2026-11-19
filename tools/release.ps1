@@ -1,4 +1,4 @@
-# GalA11y Forge 发布打包脚本
+# Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） 发布打包脚本
 #
 # 用法：
 #   D:\dotnet\dotnet.exe 不需要；本脚本自己调用 dotnet。

@@ -32,7 +32,7 @@ public static class InstallManifestValidation
         {
             return Fail(ForgeErrorCodes.ArtifactInvalid,
                 $"账本 schemaVersion={manifest.SchemaVersion}，当前只支持 {SupportedSchemaVersion}。",
-                "升级 GalA11y Forge，或使用对应版本的账本。");
+                "升级 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo），或使用对应版本的账本。");
         }
 
         if (!PathSafety.IsValidSlug(manifest.DeploymentId))

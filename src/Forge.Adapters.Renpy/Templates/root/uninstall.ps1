@@ -1,4 +1,4 @@
-# GalA11y Forge 卸载脚本（生成文件）
+# Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） 卸载脚本（生成文件）
 # 1) 只删除 a11y_manifest.json 里登记、且 SHA256 与清单一致的文件；
 #    任何被改动过的文件都不会被删（先 -Force 才覆盖该保护）。
 # 2) 再清理 game/a11y_platform 下由 Ren'Py 生成的 *.rpyc（.rpy 的编译缓存），

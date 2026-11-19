@@ -127,7 +127,7 @@ $proc = $null; $hwnd = [IntPtr]::Zero
 for ($i = 0; $i -lt 120; $i++) {
     Start-Sleep -Milliseconds 500
     $proc = Get-Process -Name Forge.Gui -ErrorAction SilentlyContinue | Select-Object -First 1
-    if ($proc) { $hwnd = [Wn]::FirstWindowTitle([uint32]$proc.Id, 'GalA11y Forge'); if ($hwnd -ne [IntPtr]::Zero) { break } }
+    if ($proc) { $hwnd = [Wn]::FirstWindowTitle([uint32]$proc.Id, 'Gal 无障碍辅助 Demo'); if ($hwnd -ne [IntPtr]::Zero) { break } }
 }
 if ($hwnd -eq [IntPtr]::Zero) { Get-Process -Name Forge.Gui -ErrorAction SilentlyContinue | Stop-Process -Force; throw 'GUI 主窗口没有出现。' }
 Log ("GUI 就绪 pid={0} hwnd={1}" -f $proc.Id, $hwnd)

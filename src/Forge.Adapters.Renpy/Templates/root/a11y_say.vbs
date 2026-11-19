@@ -1,4 +1,4 @@
-' GalA11y Forge - SAPI speech bridge (generated file, ASCII only on purpose).
+' GalA11y Demo - SAPI speech bridge (generated file, ASCII only on purpose).
 ' Usage: wscript.exe a11y_say.vbs <text-file UTF-16LE> [rate -10..10]
 ' The text file is written by the overlay (01_speech.rpy) and deleted here.
 ' 0.2.1 fix (W2-P): use *synchronous* Speak with no flags. The old version used

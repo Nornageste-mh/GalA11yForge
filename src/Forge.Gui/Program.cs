@@ -53,7 +53,7 @@ internal static class Program
 
         MessageBox.Show(
             $"界面遇到未处理的错误：{Environment.NewLine}{Environment.NewLine}{exception?.Message}{Environment.NewLine}{Environment.NewLine}详细信息已写入：{CrashLogPath}{Environment.NewLine}请把该文件交给开发者。",
-            "GalA11y Forge 发生错误",
+            "Gal 无障碍辅助 Demo 快速生成工具发生错误",
             MessageBoxButtons.OK,
             MessageBoxIcon.Error);
     }

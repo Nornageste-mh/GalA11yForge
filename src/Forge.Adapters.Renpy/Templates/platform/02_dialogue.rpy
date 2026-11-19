@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════════════════════
-# GalA11y Forge · 02_dialogue —— 对话朗读（say 钩子）
+# Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） · 02_dialogue —— 对话朗读（say 钩子）
 #
 # 挂载点：`config.say_menu_text_filter`
 #   - 6.99.12：renpy/ast.py:603-604（say 前）、:1443-1444（menu 项）

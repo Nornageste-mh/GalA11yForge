@@ -7,7 +7,7 @@ namespace GalA11yForge.Generators.Templates;
 internal static class PluginTemplate
 {
     internal const string Text = """
-// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 {{GENERATOR_VERSION}}。
+// 本文件由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo）生成，生成器版本 {{GENERATOR_VERSION}}。
 // 输入：plan.json 的补丁点与 profile。请改 profile 或重新生成，不要直接改这里的 const 区。
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace {{NS}}
 {
     /// <summary>
     /// 游戏无障碍补丁的插件入口（显示名见 BepInPlugin 特性）。
-    /// 语音桥来自无障碍补丁工坊的 Framework（Platform/ 目录），命名空间已替换为 {{NS}}。
+    /// 语音桥来自GalA11y Demo的 Framework（Platform/ 目录），命名空间已替换为 {{NS}}。
     /// </summary>
     [BepInPlugin(Guid, DisplayName, Version)]
     public sealed class Plugin : BaseUnityPlugin

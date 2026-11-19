@@ -722,8 +722,8 @@ public static class CliApplication
         writer.WriteLine("  detect   识别游戏引擎（内置指纹库；只读）");
         writer.WriteLine("  analyze  分析文本管线，产出候选与覆盖声明（只读游戏目录）");
         writer.WriteLine("  plan     把分析结果变成补丁方案（含风险与人工待办）");
-        writer.WriteLine("  generate 生成补丁工程（默认写工作区 03-generate/）");
-        writer.WriteLine("  build    构建补丁（生成工程→dotnet build；只写工作区）");
+        writer.WriteLine("  generate 生成补丁工程 Demo（默认写工作区 03-generate/）");
+        writer.WriteLine("  build    构建补丁（生成工程 Demo→dotnet build；只写工作区）");
         writer.WriteLine("  install  安装补丁（写游戏目录前逐文件备份，可回滚）");
         writer.WriteLine("  verify   安装后初检与回滚；--rollback 先按清单还原；--speech-log 顺手检查“有没有真的读出来”");
         writer.WriteLine("  report   汇总报告（JSON + Markdown + 人工待办）");

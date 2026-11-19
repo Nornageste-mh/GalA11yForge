@@ -61,13 +61,13 @@ public static class ForgeCommands
     public static readonly ForgeCommandDescriptor Generate = new(
         ForgeCommandKind.Generate,
         "generate",
-        "生成工程",
+        "生成工程 Demo",
         RequiresGame: true,
         WritesToGame: false,
         RequiresConfirmation: false,
         SupportsForce: false,
-        Description: "把分析结果生成补丁工程，写入工作区。",
-        AccessibleDescription: "生成补丁工程：只写工作区。Alt 加 G。");
+        Description: "把分析结果生成补丁工程 Demo，写入工作区。",
+        AccessibleDescription: "生成补丁工程 Demo：只写工作区。Alt 加 G。");
 
     public static readonly ForgeCommandDescriptor Build = new(
         ForgeCommandKind.Build,
@@ -77,7 +77,7 @@ public static class ForgeCommands
         WritesToGame: false,
         RequiresConfirmation: false,
         SupportsForce: false,
-        Description: "生成工程并 dotnet build，产物留在工作区。",
+        Description: "生成工程 Demo 并 dotnet build，产物留在工作区。",
         AccessibleDescription: "构建补丁：只写工作区，需要本机 .NET SDK。Alt 加 B。");
 
     public static readonly ForgeCommandDescriptor Install = new(

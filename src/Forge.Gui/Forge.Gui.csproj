@@ -10,8 +10,8 @@
     <RootNamespace>GalA11yForge.Gui</RootNamespace>
     <AssemblyName>Forge.Gui</AssemblyName>
     <IsPackable>false</IsPackable>
-    <Product>GalA11y Forge GUI</Product>
-    <Description>GalA11y Forge 的 WinForms 主界面（读屏友好、键盘优先）。</Description>
+    <Product>Gal 无障碍辅助 Demo 快速生成工具 GUI</Product>
+    <Description>Gal 无障碍辅助 Demo 快速生成工具的 WinForms 主界面（读屏友好、键盘优先；Vibe Coding 产物，代码不保证稳定和可用）。</Description>
     <!-- 界面文本全是中文；不需要附属资源语言包 -->
     <SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
   </PropertyGroup>

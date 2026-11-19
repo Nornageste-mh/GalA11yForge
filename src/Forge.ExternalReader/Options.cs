@@ -172,7 +172,7 @@ public sealed class Options
     }
 
     public static string Usage => """
-        Forge.ExternalReader — GalA11y Forge 万能层 v1 原型（外部只读读屏）
+        Forge.ExternalReader — Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo） 万能层 v1 原型（外部只读读屏）
 
         附着与探测
           --pid <id>              按进程 id 找主窗口

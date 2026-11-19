@@ -1,6 +1,6 @@
-# Forge.Gui — 读屏友好的无障碍补丁工坊界面
+# Forge.Gui — 读屏友好的 Gal 无障碍辅助 Demo 快速生成工具界面
 
-这是 GalA11y Forge 的图形界面（WinForms，.NET 8）。它本身不干活，只做三件事：
+这是 Gal 无障碍辅助 Demo 快速生成工具的图形界面（WinForms，.NET 8；Vibe Coding 产物，代码不保证稳定和可用）。它本身不干活，只做三件事：
 **收集路径 → 调 `forge.exe` → 把结果讲清楚**。
 
 适合不想背命令行、或者用屏幕阅读器/键盘操作电脑的用户。
@@ -60,7 +60,7 @@ D:\dotnet\dotnet.exe build src\Forge.Gui\Forge.Gui.csproj -c Release
 |---|---|---|
 | `Alt+D` | 识别引擎 | 不写 |
 | `Alt+A` | 分析文本 | 不写 |
-| `Alt+G` | 生成补丁工程 | 不写 |
+| `Alt+G` | 生成补丁工程 Demo | 不写 |
 | `Alt+B` | 构建补丁 | 不写 |
 | `Alt+O` | 一键：识别 → 分析 → 生成 → 构建 | 不写 |
 | `Alt+I` | 安装补丁 | **写**（有确认框） |

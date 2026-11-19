@@ -7,7 +7,7 @@ namespace GalA11yForge.Generators.Templates;
 internal static class SpeechGateTemplate
 {
     internal const string Text = """
-// 本文件由 GalA11y Forge（无障碍补丁工坊）生成，生成器版本 {{GENERATOR_VERSION}}。
+// 本文件由 Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo）生成，生成器版本 {{GENERATOR_VERSION}}。
 // 作用：把钩子抓到的文本整理后交给平台朗读层；去重与缓冲策略集中在这里，
 // 避免同一个钩子或相邻钩子把一句话重复念好几遍。平台纪律：逐作层只经 Repeat 说话。
 using System;

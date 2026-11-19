@@ -10,7 +10,7 @@ namespace GalA11yForge.Gui;
 /// </summary>
 public sealed partial class MainForm : Form
 {
-    private const string WindowTitle = "GalA11y Forge — 无障碍补丁工坊";
+    private const string WindowTitle = "Gal 无障碍辅助 Demo 快速生成工具";
 
     private readonly GuiStartupOptions _startup;
     private readonly ForgeProcessRunner _runner = new();
@@ -62,9 +62,9 @@ public sealed partial class MainForm : Form
     private void BuildUi()
     {
         Text = WindowTitle;
-        AccessibleName = "无障碍补丁工坊主窗口";
+        AccessibleName = "Gal 无障碍辅助 Demo 快速生成工具主窗口";
         AccessibleDescription =
-            "GalA11y Forge 主界面。先填游戏目录（Alt+1），再按按钮或 Alt+字母执行；结果在下方只读文本区。";
+            "Gal 无障碍辅助 Demo 快速生成工具主界面。先填游戏目录（Alt+1），再按按钮或 Alt+字母执行；结果在下方只读文本区。这是 Vibe Coding 产物，代码不保证稳定和可用。";
         StartPosition = FormStartPosition.CenterScreen;
         AutoScaleMode = AutoScaleMode.Font;
         MinimumSize = new Size(1000, 760);

@@ -6,7 +6,7 @@ internal static class NoticeTemplate
     internal const string Text = """
 # NOTICE — {{DISPLAY}}
 
-本工程由 **GalA11y Forge（无障碍补丁工坊）** 生成，生成器版本 {{GENERATOR_VERSION}}。
+本工程由 **Gal 无障碍辅助 Demo 快速生成工具（GalA11y Demo）** 生成，生成器版本 {{GENERATOR_VERSION}}。
 
 ## 内容边界
 
@@ -17,7 +17,7 @@ internal static class NoticeTemplate
 
 | 组件 | 来源 | 许可 | 位置 |
 |---|---|---|---|
-| 语音桥平台层（Speech/Nvda/Sapi/Zdsr/GlobalKeys/Hotkey/KeyEdge/Repeat；按作定制的 UiNav 不随生成物分发）与 A11yHost 契约层 | 无障碍补丁工坊 Framework | MIT（Copyright (c) 2026 Nornageste-mh） | `Platform/*.cs` |
+| 语音桥平台层（Speech/Nvda/Sapi/Zdsr/GlobalKeys/Hotkey/KeyEdge/Repeat；按作定制的 UiNav 不随生成物分发）与 A11yHost 契约层 | GalA11y Demo Framework | MIT（Copyright (c) 2026 Nornageste-mh） | `Platform/*.cs` |
 
 内嵌内容的来源指纹（按来源 id 排序后取 SHA-256）：`{{FRAMEWORK_FINGERPRINT}}`。
 
